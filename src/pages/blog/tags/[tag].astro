@@ -1,0 +1,52 @@
+---
+// library imports
+import { getCollection } from "astro:content";
+
+// component imports
+import Base from "@layouts/Base.astro";
+import PostCard from "@components/PostCard.astro";
+
+// utils imports
+import { slugify, filterPosts } from "@js/utils";
+
+// generate a new path for every tag
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const filteredPosts = filterPosts(allPosts);
+
+  // a unique set of all tags extracted from posts
+  const allTags = [
+    ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
+  ];
+
+  // generate a path for each tag, the props is all posts including the tag
+  return allTags.map((tag) => {
+    const tagPosts = filteredPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+
+    return {
+      params: { tag: slugify(tag) },
+      props: {
+        tag: tag,
+        tagPosts: tagPosts,
+      },
+    };
+  });
+}
+
+const { tag, tagPosts } = Astro.props;
+---
+
+<Base title={tag}>
+  <section class="container" aria-label=`Posts about ${tag}`>
+    <h1 class="h1">Posts about <span>{tag}</span></h1>
+    <div class="post-container">
+      {
+        tagPosts.map((post) => (
+          <PostCard frontmatter={post.data} slug={post.slug} tagType="h2" />
+        ))
+      }
+    </div>
+  </section>
+</Base>

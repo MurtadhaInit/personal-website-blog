@@ -1,0 +1,37 @@
+---
+// utils imports
+import { filterPosts, slugify } from "@js/utils";
+
+// library imports
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const filteredPosts = filterPosts(allPosts);
+const allTags = [
+  ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
+];
+
+const tagsToPosts = allTags.map((tag) => {
+  // all posts associated with a tag
+  const tagPosts = filteredPosts.filter((post) => post.data.tags.includes(tag));
+
+  return {
+    tag: tag,
+    posts: tagPosts.length,
+  };
+});
+
+const { showCount } = Astro.props;
+---
+
+<ul class="categories">
+  {
+    tagsToPosts.map((mapping) => (
+      <li>
+        <a href={`/blog/tags/${slugify(mapping.tag)}`} class="badge">
+          {mapping.tag} {showCount && `(${mapping.posts})`}
+        </a>
+      </li>
+    ))
+  }
+</ul>
