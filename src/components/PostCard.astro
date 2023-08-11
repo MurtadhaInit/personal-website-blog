@@ -1,0 +1,47 @@
+---
+// library imports
+import { Image } from "astro:assets";
+
+// component imports
+import Link from "@components/Link.astro";
+
+// utils imports
+import { slugify } from "@js/utils.js";
+
+const { frontmatter, slug, tagType = "h2" } = Astro.props;
+
+const Tag = tagType;
+
+const {
+  title,
+  date,
+  author,
+  cover,
+  coverAlt = "Blog Post Cover",
+  description,
+  tags,
+} = frontmatter;
+---
+
+<article class="card">
+  <small>
+    <a href={`/blog/tags/${slugify(tags[0])}/`} class="badge">{tags[0]}</a>
+  </small>
+  <a href={`/blog/${slug}`} aria-hidden="true" tabindex="-1">
+    <Image src={cover} alt={coverAlt} width={400} height={250} format="webp" />
+  </a>
+  <div class="content">
+    <div>
+      <Tag class="h3">
+        <a href={`/blog/${slug}`}>{title}</a>
+      </Tag>
+      <small>
+        by <a href={`/author/${slugify(author)}/`}>{author}</a> • {
+          date.toLocaleDateString()
+        }
+      </small>
+    </div>
+    <p>{description}</p>
+    <Link href={`/blog/${slug}`} text="Read Post" style="secondary" />
+  </div>
+</article>

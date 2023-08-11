@@ -1,0 +1,8 @@
+{
+  "title": "Murtadha's Blog",
+  "description": "Where I post about tech, programming, and beyond",
+  "image": {
+    "src": "@assets/images/image-default.jpg",
+    "alt": "My personal blog"
+  }
+}

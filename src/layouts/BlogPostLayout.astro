@@ -1,0 +1,31 @@
+---
+// component imports
+import Base from "@layouts/Base.astro";
+import PostHeader from "@components/PostHeader.astro";
+import TagsCloud from "@components/TagsCloud.astro";
+import RelatedPostsCloud from "@components/RelatedPostsCloud.astro";
+
+const { post } = Astro.props;
+const { title, description, date, category, author, cover, coverAlt } =
+  post.data;
+---
+
+<Base {title} {description} image={cover} frontmatter={post.data} {robots}>
+  <PostHeader {category} {title} {date} {author} {cover} {coverAlt} />
+  <div class="class-content">
+    <div class="content">
+      <slot>Blog post</slot>
+    </div>
+    <div class="sidebar">
+      <aside aria-label="Blog tags">
+        <h2 class="h3">Blog Tags</h2>
+        <TagsCloud showCount={true} />
+      </aside>
+      <!-- TODO: make this whole block conditional: if there are no related posts, don't display it -->
+      <aside aria-label="Related posts">
+        <h2 class="h3">Related Posts</h2>
+        <RelatedPostsCloud originalPost={post} postsToDisplay={3} />
+      </aside>
+    </div>
+  </div>
+</Base>

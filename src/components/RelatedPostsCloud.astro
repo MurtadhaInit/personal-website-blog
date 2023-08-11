@@ -1,0 +1,35 @@
+---
+// utils imports
+import { filterPosts, getRelatedPosts } from "@js/utils";
+
+// library imports
+import { getCollection } from "astro:content";
+
+const { originalPost, postsToDisplay } = Astro.props;
+
+const allPosts = await getCollection("blog");
+const filteredPosts = filterPosts(allPosts);
+// generate related posts and sort the results descendingly by their score
+let relatedPosts = getRelatedPosts(originalPost, filteredPosts).sort(
+  (a, b) => b.score - a.score
+);
+
+// display the top specified number of related posts
+if (postsToDisplay) {
+  relatedPosts = relatedPosts.slice(0, postsToDisplay);
+}
+---
+
+{
+  relatedPosts.map((mapping) => (
+    <div class="post">
+      <h3 class="h4">
+        <a href={`/blog/${mapping.post.slug}`}>{mapping.post.data.title}</a>
+      </h3>
+      <small>
+        {mapping.post.data.author} •{" "}
+        {mapping.post.data.date.toLocaleDateString()}
+      </small>
+    </div>
+  ))
+}
