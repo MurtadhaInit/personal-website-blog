@@ -2,8 +2,10 @@
 title: Building an Astro Post Tag Component
 date: 2023-08-02
 author: Murtadha Abdulhussein
-cover: "@assets/images/blogPostImages/post-6.jpg"
-coverAlt: "A picture of a coder"
+image: {
+  src: "@assets/images/blogPostImages/post-6.jpg",
+  alt: "A picture of a coder"
+}
 description: In this project, we’ll build out a custom Astro component for post tags.
 draft: false
 category: Astro
