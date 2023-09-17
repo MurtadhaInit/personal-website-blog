@@ -1,6 +1,6 @@
 import { CollectionEntry } from "astro:content";
 
-export function slugify(text) {
+export const slugify = function (text) {
   return text
     .toString()
     .toLowerCase()
@@ -9,9 +9,15 @@ export function slugify(text) {
     .replace(/--+/g, "-")
     .replace(/^-+/, "")
     .replace(/-+$/, "");
-}
+};
 
-export function filterPosts(
+/**
+ * Return a filtered list of posts according to specified criteria.
+ * @param {CollectionEntry<"blog">[]} posts The input list of posts
+ * @param {{noDrafts?: boolean, noFuturePosts?: boolean, sortByDate?: boolean, limit?: number}} criteria Options to filter blog posts by
+ * @returns {CollectionEntry<"blog">[]} Filtered list of posts
+ */
+export const filterPosts = function (
   posts,
   {
     noDrafts = true,
@@ -47,7 +53,7 @@ export function filterPosts(
   } else {
     return filteredPosts;
   }
-}
+};
 
 /**
  * Return a list of related posts according to their relevancy (number of common tags with the original post)
