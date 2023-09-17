@@ -11,8 +11,10 @@ const blog = defineCollection({
       title: z.string().max(60),
       date: z.date(),
       author: z.enum(["Murtadha Abdulhussein"]),
-      cover: image(),
-      coverAlt: z.string(),
+      image: z.object({
+        src: image(),
+        alt: z.string().default("Blog Post Image"),
+      }),
       description: z
         .string()
         .max(

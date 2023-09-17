@@ -3,8 +3,10 @@ title: A Post about Important Items Of Life
 # date: 2022-11-20
 date: 2022-11-20
 author: Murtadha Abdulhussein
-cover: "@assets/images/blogPostImages/post-1.jpg"
-coverAlt: "A picture of a coder"
+image: {
+  src: "@assets/images/blogPostImages/post-1.jpg",
+  alt: "A picture of a coder"
+}
 description: Have you ever wondered what the most important items of life are? Well, wonder no more!
 draft: false
 category: Programming
