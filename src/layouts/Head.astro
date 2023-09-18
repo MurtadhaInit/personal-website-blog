@@ -1,7 +1,7 @@
 ---
 // component imports
 import Seo from "@components/Seo.astro";
-import favicon from "@assets/images/favicon.svg";
+import favicon from "@assets/favicon.svg";
 
 const { title, description, image, frontmatter, robots } = Astro.props;
 ---
@@ -16,13 +16,5 @@ const { title, description, image, frontmatter, robots } = Astro.props;
   <meta name="description" content={description} />
 
   <!-- TODO: fix this whole seo thing especially the parameters passed between components -->
-  <Seo {title} {description} url={Astro.url} {image} {frontmatter} {robots} />
-
-  <!-- font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- <Seo {title} {description} url={Astro.url} {image} {frontmatter} {robots} /> -->
 </head>
