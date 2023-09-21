@@ -8,21 +8,35 @@ import { filterPosts } from "@js/utils";
 
 // component imports
 import Base from "@layouts/Base.astro";
-import PostCard from "@components/PostCard.astro";
-import Link from "@components/Link.astro";
+import PostCardWide from "@components/PostCardWide.astro";
 import headhshot from "@assets/images/headshot.jpg";
 
 const allPosts = await getCollection("blog");
-const postsToDisplay = filterPosts(allPosts, {
+const postsToDisplay: CollectionEntry<"blog">[] = filterPosts(allPosts, {
   limit: 3,
 });
 ---
 
-<Base title="Home">
-  <section class="container about" aria-label="About Me">
-    <Image src={headhshot} alt="My headshot" width={200} height={330} />
-    <div class="content">
-      <h1 class="h1">My Blog</h1>
+<Base title="Murtadha - Home">
+  <section aria-label="About Me">
+    <div>
+      <Image
+        src={headhshot}
+        alt="My personal headshot"
+        width={200}
+        height={330}
+      />
+      <div aria-label="Social media accounts and email">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h1>Hey, I'm <span>Murtadha</span></h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur,
         vel veniam quia tempora ratione id adipisci pariatur nesciunt ea
@@ -30,15 +44,23 @@ const postsToDisplay = filterPosts(allPosts, {
         Corporis sed blanditiis commodi! Ea, minima accusamus natus iste
         temporibus quisquam.
       </p>
-      <Link href="/about" style="secondary" text="👋🏼 About Me" />
     </div>
   </section>
-  <section class="container" aria-label="New Blog Posts">
-    <h2 class="h1">New Blog Posts</h2>
-    <div class="post-container">
+  <section aria-label="Common Destinations">
+    <h2>Looking for something?</h2>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
+  <section aria-label="Latest Blog Posts">
+    <h2>Latest Articles</h2>
+    <div>
       {
         postsToDisplay.map((post) => (
-          <PostCard frontmatter={post.data} slug={post.slug} tagType="h3" />
+          <PostCardWide frontmatter={post.data} slug={post.slug} maxTags={3} />
         ))
       }
     </div>

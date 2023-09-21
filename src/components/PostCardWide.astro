@@ -1,0 +1,33 @@
+---
+// library imports
+import { Image } from "astro:assets";
+
+// utils imports
+import { slugify } from "@js/utils.js";
+
+const { frontmatter, slug, maxTags } = Astro.props;
+const { title, date, image, description, tags } = frontmatter;
+// TODO: incorporate description if appropriate
+---
+
+<article class="card">
+  <a href={`/blog/${slug}`} aria-hidden="true" tabindex="-1">
+    <Image src={image.src} alt={image.alt} height={100} width={100} />
+  </a>
+  <div>
+    <h3>{title}</h3>
+    <div>
+      <div><small>{date}</small></div>
+      <div>
+        {
+          tags
+            .sort(() => Math.random() - 0.5) // sort tags randomly
+            .slice(0, maxTags)
+            .map((tag: string) => (
+              <a href={`/blog/tags/${slugify(tag)}`}>{tag}</a>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+</article>
