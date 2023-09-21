@@ -7,16 +7,16 @@ import { filterPosts } from "@js/utils";
 
 // component imports
 import Base from "@layouts/Base.astro";
-import PostCard from "@components/PostCard.astro";
 import Pagination from "@components/Pagination.astro";
 import TagsCloud from "@components/TagsCloud.astro";
+import PostCardWide from "@components/PostCardWide.astro";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
-  const postsToDisplay = filterPosts(allPosts);
+  const postsToDisplay: CollectionEntry<"blog">[] = filterPosts(allPosts);
 
   return paginate(postsToDisplay, {
-    pageSize: 4,
+    pageSize: 5,
   });
 }
 
@@ -24,19 +24,19 @@ const { page } = Astro.props;
 ---
 
 <Base title="Blog Posts">
-  <section class="container" aria-label="New Blog Posts">
-    <h1 class="h1">New Blog Posts</h1>
-    <div class="post-container">
+  <section>
+    <h1>New Blog Posts</h1>
+    <div>
       {
         page.data.map((post) => (
-          <PostCard frontmatter={post.data} slug={post.slug} tagType="h2" />
+          <PostCardWide frontmatter={post.data} slug={post.slug} maxTags=4 />
         ))
       }
     </div>
     <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
   </section>
-  <aside aria-label="Blog tags">
-    <h2 class="h3">Blog Tags</h2>
+  <aside>
+    <h2>Tags</h2>
     <TagsCloud showCount={true} />
   </aside>
 </Base>

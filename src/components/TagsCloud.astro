@@ -24,11 +24,11 @@ const tagsToPosts = allTags.map((tag) => {
 const { showCount } = Astro.props;
 ---
 
-<ul class="categories">
+<ul>
   {
     tagsToPosts.map((mapping) => (
       <li>
-        <a href={`/blog/tags/${slugify(mapping.tag)}`} class="badge">
+        <a href={`/blog/tags/${slugify(mapping.tag)}`}>
           {mapping.tag} {showCount && `(${mapping.posts})`}
         </a>
       </li>
