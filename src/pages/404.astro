@@ -1,14 +1,15 @@
 ---
-// component imports
-import Base from "@layouts/Base.astro";
+import Layout from "@layouts/Base.astro";
+import Link from "@components/ui/Link.astro"
 ---
 
-<Base title="Page Not Found">
+<Layout title="Page Not Found" description="Missing page or broken URL">
   <div>
     <div>
       <h1>Well, this is awkward.</h1>
       <p>We seem to have misplaced something...</p>
     </div>
-    <!-- TODO: add a button with text "Go Home" to navigate to index -->
+    <!--TODO: investigate the source of that weird error below-->
+    <Link text="Go Home" href="/" style="primary" />
   </div>
-</Base>
+</Layout>

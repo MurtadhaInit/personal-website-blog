@@ -1,8 +1,4 @@
 ---
-// TODO: create something similar but call it a Button.
-// take inspiration from the way this one is done.
-
-// library imports
 import { Icon } from "astro-icon";
 
 interface Props {
@@ -13,32 +9,22 @@ interface Props {
     name: string;
     side: "left" | "right";
   };
-  isFilled?: boolean;
-  borderVisible?: boolean;
-  classes?: string;
+  classes?: [];
 }
 
-const {
-  text,
-  href,
-  style,
-  icon,
-  isFilled = true,
-  borderVisible = false,
-  classes,
-  ...rest
-} = Astro.props as Props;
+const { text, href, style, icon, classes } = Astro.props;
 ---
 
 <a
-  href={href}
+  {href}
   class:list={[
-    "link",
-    classes,
-    style,
-    { filled: isFilled, bordered: borderVisible },
+    style === "primary"
+      ? ["bg-blue-300", "text-black-300"]
+      : ["bg-black-300", "text-blue-300"],
+    // { "primary-btn": style === "primary", "secondary-btn": style === "secondary" },
+
+    ...classes,
   ]}
-  {...rest}
 >
   {
     icon && icon.side === "left" && (

@@ -1,35 +1,48 @@
 ---
-// utils imports
-import { filterPosts, slugify } from "@js/utils";
+import { filterPosts, slugify } from "@utils/utils";
 
-// library imports
 import { getCollection } from "astro:content";
+
+interface Props {
+  showCount?: boolean;
+  tagsToShow?: number;
+  postTags?: [];
+}
+
+// tagsToShow defaults to showing all
+const { showCount = true, tagsToShow = 0, postTags = null } = Astro.props;
 
 const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);
-const allTags = [
-  ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
-];
 
-const tagsToPosts = allTags.map((tag) => {
-  // all posts associated with a tag
-  const tagPosts = filteredPosts.filter((post) => post.data.tags.includes(tag));
+let allTags: string[];
+if (postTags) {
+  allTags = postTags;
+} else {
+  allTags = [...new Set(filteredPosts.map((post) => post.data.tags).flat())];
+}
 
-  return {
-    tag: tag,
-    posts: tagPosts.length,
-  };
-});
-
-const { showCount } = Astro.props;
+const tagsToPosts = allTags
+  .map((tag) => {
+    // all posts associated with a tag
+    const tagPosts = filteredPosts.filter((post) =>
+      post.data.tags.includes(tag),
+    );
+    return {
+      tag: tag,
+      posts: tagPosts.length,
+    };
+  })
+  .sort(() => Math.random() - 0.5)
+  .slice(tagsToShow);
 ---
 
 <ul>
   {
-    tagsToPosts.map((mapping) => (
+    tagsToPosts.map((tagToPosts) => (
       <li>
-        <a href={`/blog/tags/${slugify(mapping.tag)}`}>
-          {mapping.tag} {showCount && `(${mapping.posts})`}
+        <a href={`/blog/tags/${slugify(tagToPosts.tag)}`}>
+          {tagToPosts.tag} {showCount && `(${tagToPosts.posts})`}
         </a>
       </li>
     ))

@@ -3,12 +3,24 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"],
-      "@data/*": ["src/data/*"],
-      "@js/*": ["src/js/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
     }
   }
 }

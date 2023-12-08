@@ -7,7 +7,7 @@ import Base from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
 
 // utils imports
-import { slugify, filterPosts } from "@js/utils";
+import { slugify, filterPosts } from "../../../utils/utils";
 
 // generate a new path for every tag
 export async function getStaticPaths() {
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   // generate a path for each tag, the props is all posts including the tag
   return allTags.map((tag) => {
     const tagPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag)
+      post.data.tags.includes(tag),
     );
 
     return {

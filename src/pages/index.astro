@@ -1,31 +1,22 @@
 ---
-// library imports
 import { Image } from "astro:assets";
 import { getCollection, CollectionEntry } from "astro:content";
 
-// utils imports
-import { filterPosts } from "@js/utils";
+import { filterPosts } from "@utils/utils";
 
-// component imports
-import Base from "@layouts/Base.astro";
-import PostCardWide from "@components/PostCardWide.astro";
-import headhshot from "@assets/images/headshot.jpg";
+import Layout from "@layouts/Base.astro";
+import PostCard from "@components/PostCard.astro";
+import headshot from "@assets/images/headshot.jpg";
 
 const allPosts = await getCollection("blog");
-const postsToDisplay: CollectionEntry<"blog">[] = filterPosts(allPosts, {
-  limit: 3,
-});
+// TODO: investigate why the limit is showing an error
+const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 ---
 
-<Base title="Murtadha - Home">
+<Layout title="Murtadha - Home">
   <section aria-label="About Me">
     <div>
-      <Image
-        src={headhshot}
-        alt="My personal headshot"
-        width={200}
-        height={330}
-      />
+      <Image src={headshot} alt="My personal photo" width={200} height={330} />
       <div aria-label="Social media accounts and email">
         <ul>
           <li></li>
@@ -60,9 +51,9 @@ const postsToDisplay: CollectionEntry<"blog">[] = filterPosts(allPosts, {
     <div>
       {
         postsToDisplay.map((post) => (
-          <PostCardWide frontmatter={post.data} slug={post.slug} maxTags={3} />
+          <PostCard frontmatter={post.data} slug={post.slug} maxTags={3} />
         ))
       }
     </div>
   </section>
-</Base>
+</Layout>

@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import { slugify } from "@utils/utils.js";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  maxTags: number;
+  style: string;
+}
+
+const { post, maxTags, style } = Astro.props;
+const { title, date, image, description, tags } = post.data;
+// TODO: incorporate description if appropriate in the wide variant
+// TODO: incorporate style into the style to make a wide variant
+---
+
+<article>
+  <a href={`/blog/${post.slug}`} aria-hidden="true" tabindex="-1">
+    <Image src={image.src} alt={image.alt} height={100} width={100} />
+  </a>
+  <div>
+    <h3>{title}</h3>
+    <div>
+      <div><small>{date}</small></div>
+      <div>
+        {
+          tags
+            .sort(() => Math.random() - 0.5)
+            .slice(0, maxTags)
+            .map((tag) => <a href={`/blog/tags/${slugify(tag)}`}>{tag}</a>)
+        }
+      </div>
+    </div>
+  </div>
+</article>
