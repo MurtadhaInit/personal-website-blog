@@ -1,35 +1,116 @@
 ---
-// component imports
-import Head from "@layouts/Head.astro";
-import Footer from "@components/Footer.astro";
-import Nav from "@components/Nav.astro";
+import { Icon } from "astro-icon";
 
-// TODO: implement interfaces throughout
-// interface Props {
-//   title?: string;
-//   description?: string;
-// }
+interface Props {
+  title?: string;
+  description?: string;
+}
 
-// TODO: think about the image, frontmatter and robots that are passed
-// and find a right type and way to pass image
+const { title = "Murtadha", description = "My personal website and blog" } =
+  Astro.props;
 
-const {
-  title = "Murtadha",
-  description = "My 'home base' and personal blog website",
-  image,
-  frontmatter,
-  robots,
-} = Astro.props;
+const navData = [
+  {
+    label: "Articles",
+    path: "/blog",
+    footerNav: true,
+  },
+  {
+    label: "Projects",
+    path: "/projects",
+    footerNav: true,
+  },
+  {
+    label: "Photography",
+    path: "/gallery",
+    footerNav: false,
+  },
+  {
+    label: "My Setup",
+    path: "/setup",
+    footerNav: true,
+  },
+];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <Head {title} {description} {image} {frontmatter} {robots} />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
   <body>
-    <Nav />
+    <header>
+      <a href="/" aria-label="Go home">
+        <Icon name="logomark" width="100" />
+      </a>
+
+      <nav>
+        <ul>
+          {
+            navData.map((item) => (
+              <li>
+                <a href={item.path}>{item.label}></a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <button aria-label="Toggle dark mode">
+        <Icon name="" width="50" />
+      </button>
+    </header>
+
     <main>
-      <slot>Oops, this page seems to be empty for now...</slot>
+      <slot>Oops, this page seems to be empty...</slot>
     </main>
-    <Footer />
+
+    <footer>
+      <nav>
+        <ul>
+          {
+            navData
+              .filter((item) => item.footerNav)
+              .map((item) => (
+                <li>
+                  <a href={item.path}>{item.label}></a>
+                </li>
+              ))
+          }
+        </ul>
+      </nav>
+
+      <div>
+        <small>
+          Copyright &copy; <span id="copyright"></span> | all rights reserved
+        </small>
+        <small>
+          <a href="/rss.xml">
+            RSS
+            <Icon name="tabler:rss" width="20" height="20" />
+          </a>
+        </small>
+      </div>
+    </footer>
+
+    <script>
+      const navLinks = document.querySelectorAll("header nav ul li a");
+
+      navLinks.forEach((link) => {
+        if (link.getAttribute("href") === window.location.pathname) {
+          link.setAttribute("aria-current", "page"); // TODO: make sure it works
+        }
+      });
+
+      document.querySelector("#copyright").textContent = new Date()
+        .getFullYear()
+        .toString();
+    </script>
   </body>
 </html>

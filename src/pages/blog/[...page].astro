@@ -1,15 +1,12 @@
 ---
-// library imports
 import { getCollection, CollectionEntry } from "astro:content";
 
-// utils imports
-import { filterPosts } from "@js/utils";
+import { filterPosts } from "../../utils/utils";
 
-// component imports
 import Base from "@layouts/Base.astro";
 import Pagination from "@components/Pagination.astro";
 import TagsCloud from "@components/TagsCloud.astro";
-import PostCardWide from "@components/PostCardWide.astro";
+import PostCardWide from "../../components/PostCard.astro";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
@@ -29,7 +26,7 @@ const { page } = Astro.props;
     <div>
       {
         page.data.map((post) => (
-          <PostCardWide frontmatter={post.data} slug={post.slug} maxTags=4 />
+          <PostCardWide frontmatter={post.data} slug={post.slug} maxTags={4} />
         ))
       }
     </div>

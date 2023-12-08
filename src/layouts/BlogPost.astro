@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+import Layout from "@layouts/Base.astro";
+
+import TagsCloud from "@components/TagsCloud.astro";
+import RelatedPosts from "@components/RelatedPosts.astro";
+
+import { slugify } from "@utils/utils";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, date, category, author, image, tags } = post.data;
+---
+
+<Layout {title} {description}>
+  <header>
+    <div>
+      <small>
+        <a href={`/blog/categories/${slugify(category)}`}>{category}</a>
+      </small>
+      <h1>{title}</h1>
+      <p>
+        by {author} • {date.toLocaleDateString()}
+      </p>
+    </div>
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width={1200}
+      height={600}
+      format="avif"
+    />
+  </header>
+
+  <div>
+    <slot>This post seems to be missing...</slot>
+  </div>
+  <div>
+    <aside>
+      <h2>Tags</h2>
+      <TagsCloud postTags={tags} />
+    </aside>
+    <aside>
+      <h2>Related Posts</h2>
+      <RelatedPosts originalPost={post} postsToDisplay={3} />
+    </aside>
+  </div>
+</Layout>

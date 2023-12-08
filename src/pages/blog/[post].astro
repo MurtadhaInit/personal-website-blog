@@ -3,10 +3,10 @@
 import { CollectionEntry, getCollection } from "astro:content";
 
 // component imports
-import BlogPostLayout from "@layouts/BlogPostLayout.astro";
+import Layout from "../../layouts/BlogPost.astro";
 
 // utils imports
-import { filterPosts } from "@js/utils";
+import { filterPosts } from "../../utils/utils";
 
 // generate a new path for every blog post
 export async function getStaticPaths() {
@@ -27,6 +27,6 @@ const { post } = Astro.props as Props;
 const { Content } = await post.render();
 ---
 
-<BlogPostLayout post={post}>
+<Layout {post}>
   <Content />
-</BlogPostLayout>
+</Layout>
