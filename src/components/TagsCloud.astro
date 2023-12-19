@@ -1,12 +1,13 @@
 ---
 import { filterPosts, slugify } from "@utils/utils";
+import { getAllTags, tagsToNumberOfPosts } from "@utils/TagsUtils";
 
-import { getCollection } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
 interface Props {
   showCount?: boolean;
   tagsToShow?: number;
-  postTags?: [];
+  postTags?: CollectionEntry<"blog">["data"]["tags"];
 }
 
 // tagsToShow defaults to showing all
@@ -15,26 +16,14 @@ const { showCount = true, tagsToShow = 0, postTags = null } = Astro.props;
 const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);
 
-let allTags: string[];
+let allTags: CollectionEntry<"blog">["data"]["tags"];
 if (postTags) {
   allTags = postTags;
 } else {
-  allTags = [...new Set(filteredPosts.map((post) => post.data.tags).flat())];
+  allTags = getAllTags(filteredPosts);
 }
 
-const tagsToPosts = allTags
-  .map((tag) => {
-    // all posts associated with a tag
-    const tagPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag),
-    );
-    return {
-      tag: tag,
-      posts: tagPosts.length,
-    };
-  })
-  .sort(() => Math.random() - 0.5)
-  .slice(tagsToShow);
+const tagsToPosts = tagsToNumberOfPosts(allTags, filteredPosts, tagsToShow);
 ---
 
 <ul>

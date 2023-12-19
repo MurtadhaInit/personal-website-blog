@@ -1,6 +1,10 @@
 ---
-// component imports
-import Link from "./ui/Link.astro";
+import Link from "@components/ui/Link.astro";
+
+interface Props {
+  prevURL: string;
+  nextURL: string;
+}
 
 const { prevURL, nextURL } = Astro.props;
 ---
@@ -11,9 +15,7 @@ const { prevURL, nextURL } = Astro.props;
       <Link
         text="Previous"
         href={prevURL}
-        style="primary"
-        borderVisible={true}
-        isFilled={false}
+        style={"primary"}
         icon={{
           name: "tabler:arrow-big-left-line",
           side: "left",
@@ -26,9 +28,7 @@ const { prevURL, nextURL } = Astro.props;
       <Link
         text="Next"
         href={nextURL}
-        style="primary"
-        borderVisible={true}
-        isFilled={false}
+        style={"primary"}
         icon={{
           name: "tabler:arrow-big-right-line",
           side: "right",

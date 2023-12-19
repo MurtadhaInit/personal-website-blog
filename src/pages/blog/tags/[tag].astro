@@ -1,26 +1,23 @@
 ---
-// library imports
-import { getCollection } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
-// component imports
-import Base from "@layouts/Base.astro";
+import Layout from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
 
-// utils imports
-import { slugify, filterPosts } from "../../../utils/utils";
+import { slugify, filterPosts } from "@utils/utils";
+import { getAllTags } from "@utils/TagsUtils";
 
-// generate a new path for every tag
+// generate a static path for each tag
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const filteredPosts = filterPosts(allPosts);
 
   // a unique set of all tags extracted from posts
-  const allTags = [
-    ...new Set(filteredPosts.map((post) => post.data.tags).flat()),
-  ];
+  const allTags = getAllTags(filteredPosts);
 
-  // generate a path for each tag, the props is all posts including the tag
+  // generate a path for each tag, the props is all posts including that tag
   return allTags.map((tag) => {
+    // all posts associated with this tag
     const tagPosts = filteredPosts.filter((post) =>
       post.data.tags.includes(tag),
     );
@@ -29,24 +26,25 @@ export async function getStaticPaths() {
       params: { tag: slugify(tag) },
       props: {
         tag: tag,
-        tagPosts: tagPosts,
+        posts: tagPosts,
       },
     };
   });
 }
 
-const { tag, tagPosts } = Astro.props;
+interface Props {
+  tag: CollectionEntry<"blog">["data"]["tags"][number];
+  posts: CollectionEntry<"blog">[];
+}
+
+const { tag, posts } = Astro.props;
 ---
 
-<Base title={tag}>
-  <section class="container" aria-label=`Posts about ${tag}`>
-    <h1 class="h1">Posts about <span>{tag}</span></h1>
-    <div class="post-container">
-      {
-        tagPosts.map((post) => (
-          <PostCard frontmatter={post.data} slug={post.slug} tagType="h2" />
-        ))
-      }
+<Layout title={tag}>
+  <section aria-label=`Posts about ${tag}`>
+    <h1>Posts about <span>{tag}</span></h1>
+    <div>
+      {posts.map((post) => <PostCard post={post} maxTags={5} style={"wide"} />)}
     </div>
   </section>
-</Base>
+</Layout>

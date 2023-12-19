@@ -1,17 +1,14 @@
 ---
-// library imports
 import { CollectionEntry, getCollection } from "astro:content";
 
-// component imports
-import Layout from "../../layouts/BlogPost.astro";
+import Layout from "@layouts/BlogPost.astro";
 
-// utils imports
-import { filterPosts } from "../../utils/utils";
+import { filterPosts } from "@utils/utils";
 
-// generate a new path for every blog post
+// generate a static path for each blog post
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  const postsToDisplay: CollectionEntry<"blog">[] = filterPosts(allPosts);
+  const postsToDisplay = filterPosts(allPosts);
   return postsToDisplay.map((post) => ({
     params: { post: post.slug },
     props: { post },
@@ -22,8 +19,7 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-// render every blog entry
-const { post } = Astro.props as Props;
+const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
