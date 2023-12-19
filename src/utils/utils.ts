@@ -2,6 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 /**
  * Turn a string into a slug.
+ *
  * @param text Text to be turned into a slug.
  * @return A slug
  */
@@ -17,6 +18,7 @@ export const slugify = (text: string): string => {
 };
 
 /** Return a filtered list of posts according to specified criteria.
+ *
  * @param posts The input list of posts
  * @param criteria Options to filter blog posts by
  * @returns Filtered list of posts
@@ -73,6 +75,7 @@ export const filterPosts = (
 /**
  * Return a list of related posts according to their relevancy
  * (i.e. number of common tags with the original post)
+ *
  * @param originalPost The post to generate a related posts list for
  * @param allPosts The collection of all posts
  * @returns A list of mappings representing each post and its associated relevancy

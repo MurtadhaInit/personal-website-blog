@@ -1,0 +1,46 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+import { Page } from "astro";
+
+import { filterPosts } from "@utils/utils";
+
+import Layout from "@layouts/Base.astro";
+import Pagination from "@components/Pagination.astro";
+import TagsCloud from "@components/TagsCloud.astro";
+import PostCard from "@components/PostCard.astro";
+
+const POSTS_PER_PAGE: number = 5;
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await getCollection("blog");
+  const postsToDisplay = filterPosts(allPosts);
+  return paginate(postsToDisplay, {
+    pageSize: POSTS_PER_PAGE,
+  });
+}
+
+// TODO: did we provide the right parameter to the Page generic type?
+interface Props {
+  page: Page<CollectionEntry<"blog">>;
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Blog Posts">
+  <section>
+    <h1>Latest Blog Posts</h1>
+    <div>
+      {
+        page.data.map((post) => (
+          <PostCard post={post} maxTags={5} style={"wide"} />
+        ))
+      }
+    </div>
+    <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
+  </section>
+  <aside>
+    <h2>Tags</h2>
+    <TagsCloud showCount={true} tagsToShow={10} />
+  </aside>
+</Layout>

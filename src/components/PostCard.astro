@@ -7,7 +7,7 @@ import { slugify } from "@utils/utils.js";
 interface Props {
   post: CollectionEntry<"blog">;
   maxTags: number;
-  style: string;
+  style: "narrow" | "wide";
 }
 
 const { post, maxTags, style } = Astro.props;
