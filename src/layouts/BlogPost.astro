@@ -13,7 +13,7 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as Props;
 const { title, description, date, category, author, image, tags } = post.data;
 ---
 

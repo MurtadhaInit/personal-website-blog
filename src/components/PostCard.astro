@@ -10,7 +10,7 @@ interface Props {
   style: "narrow" | "wide";
 }
 
-const { post, maxTags, style } = Astro.props;
+const { post, maxTags, style } = Astro.props as Props;
 const { title, date, image, description, tags } = post.data;
 // TODO: incorporate description if appropriate in the wide variant
 // TODO: incorporate style into the style to make a wide variant

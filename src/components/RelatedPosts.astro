@@ -9,7 +9,7 @@ interface Props {
   postsToDisplay: number;
 }
 
-const { originalPost, postsToDisplay } = Astro.props;
+const { originalPost, postsToDisplay } = Astro.props as Props;
 
 const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);

@@ -114,3 +114,11 @@ export const getRelatedPosts = (
     [],
   );
 };
+
+/**
+ * @param posts A list of blog posts to extract the categories from
+ * @return A list of all unique categories extracted from posts
+ */
+export const getAllCategories = (posts: CollectionEntry<"blog">[]) => {
+  return [...new Set(posts.map((post) => post.data.category))];
+};

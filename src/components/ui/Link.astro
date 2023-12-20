@@ -9,10 +9,10 @@ interface Props {
     name: string;
     side: "left" | "right";
   };
-  classes?: [];
+  classes?: string[];
 }
 
-const { text, href, style, icon, classes } = Astro.props;
+const { text, href, style, icon, classes = [] } = Astro.props as Props;
 ---
 
 <a
@@ -22,7 +22,6 @@ const { text, href, style, icon, classes } = Astro.props;
       ? ["bg-blue-300", "text-black-300"]
       : ["bg-black-300", "text-blue-300"],
     // { "primary-btn": style === "primary", "secondary-btn": style === "secondary" },
-
     ...classes,
   ]}
 >
