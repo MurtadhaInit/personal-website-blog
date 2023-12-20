@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Finished refactoring, simplifying and removing cruft from the app.">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/personal-website-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/personal-website-blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Astro Component" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/.local/share/gobrew/.gobrew/versions/1.20.1/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2VicJHldOtAxCU6FV0PdM9PLdfe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/murtadha/Projects/personal-website-blog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/murtadha/Projects/personal-website-blog/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/murtadha/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/ui" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-467a64f6063b-ee0e143f3e2b-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.11799.286" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="" />
+      <created>1695322268646</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695322268646</updated>
+      <workItem from="1695322271393" duration="78000" />
+      <workItem from="1695322481703" duration="730000" />
+      <workItem from="1695651160120" duration="79000" />
+      <workItem from="1695651247033" duration="2145000" />
+      <workItem from="1695763898492" duration="598000" />
+      <workItem from="1695766790584" duration="9979000" />
+      <workItem from="1697583115993" duration="1225000" />
+      <workItem from="1697903184939" duration="616000" />
+      <workItem from="1698493121688" duration="2135000" />
+      <workItem from="1700159945200" duration="1814000" />
+      <workItem from="1700436370951" duration="42000" />
+      <workItem from="1700436419302" duration="28000" />
+      <workItem from="1700436457956" duration="844000" />
+      <workItem from="1701047885648" duration="611000" />
+      <workItem from="1701104356587" duration="597000" />
+      <workItem from="1701115574222" duration="378000" />
+      <workItem from="1701115961424" duration="37000" />
+      <workItem from="1701116004955" duration="148000" />
+      <workItem from="1701519689925" duration="598000" />
+      <workItem from="1701531380799" duration="4035000" />
+      <workItem from="1701603795764" duration="169000" />
+      <workItem from="1701603971431" duration="77000" />
+      <workItem from="1701604054011" duration="1135000" />
+      <workItem from="1701605198491" duration="74000" />
+      <workItem from="1701605278925" duration="407000" />
+      <workItem from="1701605693503" duration="82000" />
+      <workItem from="1701605781804" duration="1500000" />
+      <workItem from="1701608415737" duration="945000" />
+      <workItem from="1701609404874" duration="649000" />
+      <workItem from="1701619988983" duration="12973000" />
+      <workItem from="1701811063572" duration="21219000" />
+      <workItem from="1701890371631" duration="5840000" />
+      <workItem from="1701897252497" duration="2897000" />
+      <workItem from="1701908585891" duration="8083000" />
+      <workItem from="1701998992265" duration="2909000" />
+      <workItem from="1702685730722" duration="1614000" />
+      <workItem from="1702689548781" duration="6782000" />
+      <workItem from="1702947061189" duration="11567000" />
+      <workItem from="1702993582694" duration="1773000" />
+      <workItem from="1703032297331" duration="255000" />
+      <workItem from="1703032601216" duration="803000" />
+      <workItem from="1703033411334" duration="318000" />
+      <workItem from="1703033736879" duration="1452000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions.">
+      <option name="closed" value="true" />
+      <created>1695859118812</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695859118812</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Major refactoring and removal of a few unnecessary components.">
+      <option name="closed" value="true" />
+      <created>1702001143873</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702001143873</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finished refactoring, simplifying and removing cruft from the app.">
+      <option name="closed" value="true" />
+      <created>1702998818091</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702998818091</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions." />
+    <MESSAGE value="Major refactoring and removal of a few unnecessary components." />
+    <MESSAGE value="Finished refactoring, simplifying and removing cruft from the app." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished refactoring, simplifying and removing cruft from the app." />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
