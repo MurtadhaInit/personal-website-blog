@@ -2,11 +2,11 @@
 import Link from "@components/ui/Link.astro";
 
 interface Props {
-  prevURL: string;
-  nextURL: string;
+  prevURL: string | undefined;
+  nextURL: string | undefined;
 }
 
-const { prevURL, nextURL } = Astro.props;
+const { prevURL, nextURL } = Astro.props as Props;
 ---
 
 <nav>

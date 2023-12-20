@@ -8,7 +8,7 @@ import { slugify, filterPosts } from "@utils/utils";
 import { getAllTags } from "@utils/TagsUtils";
 
 // generate a static path for each tag
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const allPosts = await getCollection("blog");
   const filteredPosts = filterPosts(allPosts);
 
@@ -30,14 +30,14 @@ export async function getStaticPaths() {
       },
     };
   });
-}
+};
 
 interface Props {
   tag: CollectionEntry<"blog">["data"]["tags"][number];
   posts: CollectionEntry<"blog">[];
 }
 
-const { tag, posts } = Astro.props;
+const { tag, posts } = Astro.props as Props;
 ---
 
 <Layout title={tag}>

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title = "Murtadha", description = "My personal website and blog" } =
-  Astro.props;
+  Astro.props as Props;
 
 const navData = [
   {
@@ -63,7 +63,7 @@ const navData = [
       </nav>
 
       <button aria-label="Toggle dark mode">
-        <Icon name="" width="50" />
+        <Icon name="mdi:theme-light-dark" width="50" />
       </button>
     </header>
 
@@ -108,9 +108,10 @@ const navData = [
         }
       });
 
-      document.querySelector("#copyright").textContent = new Date()
-        .getFullYear()
-        .toString();
+      const copyrightElement = document.getElementById("copyright");
+      if (copyrightElement !== null) {
+        copyrightElement.textContent = new Date().getFullYear().toString();
+      }
     </script>
   </body>
 </html>

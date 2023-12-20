@@ -1,0 +1,49 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+import PostCard from "@components/PostCard.astro";
+
+import { slugify, filterPosts, getAllCategories } from "@utils/utils";
+
+// generate a static path for each category
+export const getStaticPaths = async () => {
+  const allPosts = await getCollection("blog");
+  const filteredPosts = filterPosts(allPosts);
+
+  // a unique set of all categories extracted from posts
+  const allCategories = getAllCategories(filteredPosts);
+
+  // generate a path for each category, the props is all posts in that category
+  return allCategories.map((category) => {
+    // all posts in this category
+    const categoryPosts = filteredPosts.filter(
+      (post) => post.data.category === category,
+    );
+
+    return {
+      params: { category: slugify(category) },
+      props: {
+        category: category,
+        posts: categoryPosts,
+      },
+    };
+  });
+};
+
+interface Props {
+  category: CollectionEntry<"blog">["data"]["category"];
+  posts: CollectionEntry<"blog">[];
+}
+
+const { category, posts } = Astro.props as Props;
+---
+
+<Layout title={category}>
+  <section aria-label=`Posts about ${category}`>
+    <h1>Posts about <span>{category}</span></h1>
+    <div>
+      {posts.map((post) => <PostCard post={post} maxTags={5} style={"wide"} />)}
+    </div>
+  </section>
+</Layout>

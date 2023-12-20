@@ -51,7 +51,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
     <div>
       {
         postsToDisplay.map((post) => (
-          <PostCard frontmatter={post.data} slug={post.slug} maxTags={3} />
+          <PostCard post={post} maxTags={3} style={"narrow"} />
         ))
       }
     </div>
