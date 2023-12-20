@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import { filterPosts } from "@utils/utils";
 
@@ -9,7 +9,6 @@ import PostCard from "@components/PostCard.astro";
 import headshot from "@assets/images/headshot.jpg";
 
 const allPosts = await getCollection("blog");
-// TODO: investigate why the limit is showing an error
 const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 ---
 
