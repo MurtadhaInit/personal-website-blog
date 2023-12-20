@@ -2,7 +2,8 @@
 import { filterPosts, slugify } from "@utils/utils";
 import { getAllTags, tagsToNumberOfPosts } from "@utils/TagsUtils";
 
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   showCount?: boolean;
