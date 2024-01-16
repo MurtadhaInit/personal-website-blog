@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon";
+import { navData } from "@data/navData";
+---
+
+<header class="navbar bg-neutral text-neutral-content">
+  <div class="navbar-start">
+    <div class="dropdown lg:hidden">
+      <div tabindex={0} role="button" class="btn btn-ghost">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"></path></svg
+        >
+      </div>
+      <ul
+        tabindex={0}
+        class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-neutral p-2 shadow"
+      >
+        {
+          navData.map((item) => (
+            <li>
+              <a href={item.path}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <a class="hidden lg:inline" href="/" aria-label="Go home">
+      <Icon name="logomark" width="75" />
+    </a>
+  </div>
+
+  <div class="navbar-center lg:hidden">
+    <a href="/" aria-label="Go home">
+      <Icon name="logomark" width="75" />
+    </a>
+  </div>
+
+  <nav class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {
+        navData.map((item) => (
+          <li>
+            <a href={item.path}>{item.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="navbar-end">
+    <button aria-label="Toggle dark mode">
+      <Icon name="mdi:theme-light-dark" width="35" />
+    </button>
+  </div>
+</header>
+
+<script>
+  const navLinks = document.querySelectorAll("header nav ul li a");
+
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === window.location.pathname) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+</script>
