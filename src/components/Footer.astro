@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon";
+import { navData } from "@data/navData";
+---
+
+<footer>
+  <nav>
+    <ul>
+      {
+        navData
+          .filter((item) => item.footerNav)
+          .map((item) => (
+            <li>
+              <a href={item.path}>{item.label}></a>
+            </li>
+          ))
+      }
+    </ul>
+  </nav>
+
+  <div>
+    <small>
+      Copyright &copy; <span id="copyright"></span> | all rights reserved
+    </small>
+    <small>
+      <a href="/rss.xml">
+        RSS
+        <Icon name="tabler:rss" width="20" height="20" />
+      </a>
+    </small>
+  </div>
+</footer>
+
+<script>
+  const copyrightElement = document.getElementById("copyright");
+  if (copyrightElement !== null) {
+    copyrightElement.textContent = new Date().getFullYear().toString();
+  }
+</script>

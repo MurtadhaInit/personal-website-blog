@@ -1,5 +1,6 @@
 ---
-import { Icon } from "astro-icon";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -8,29 +9,6 @@ interface Props {
 
 const { title = "Murtadha", description = "My personal website and blog" } =
   Astro.props as Props;
-
-const navData = [
-  {
-    label: "Articles",
-    path: "/blog",
-    footerNav: true,
-  },
-  {
-    label: "Projects",
-    path: "/projects",
-    footerNav: true,
-  },
-  {
-    label: "Photography",
-    path: "/gallery",
-    footerNav: false,
-  },
-  {
-    label: "My Setup",
-    path: "/setup",
-    footerNav: true,
-  },
-];
 ---
 
 <!doctype html>
@@ -45,73 +23,12 @@ const navData = [
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <a href="/" aria-label="Go home">
-        <Icon name="logomark" width="100" />
-      </a>
-
-      <nav>
-        <ul>
-          {
-            navData.map((item) => (
-              <li>
-                <a href={item.path}>{item.label}></a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-
-      <button aria-label="Toggle dark mode">
-        <Icon name="mdi:theme-light-dark" width="50" />
-      </button>
-    </header>
+    <Header />
 
     <main>
       <slot>Oops, this page seems to be empty...</slot>
     </main>
 
-    <footer>
-      <nav>
-        <ul>
-          {
-            navData
-              .filter((item) => item.footerNav)
-              .map((item) => (
-                <li>
-                  <a href={item.path}>{item.label}></a>
-                </li>
-              ))
-          }
-        </ul>
-      </nav>
-
-      <div>
-        <small>
-          Copyright &copy; <span id="copyright"></span> | all rights reserved
-        </small>
-        <small>
-          <a href="/rss.xml">
-            RSS
-            <Icon name="tabler:rss" width="20" height="20" />
-          </a>
-        </small>
-      </div>
-    </footer>
-
-    <script>
-      const navLinks = document.querySelectorAll("header nav ul li a");
-
-      navLinks.forEach((link) => {
-        if (link.getAttribute("href") === window.location.pathname) {
-          link.setAttribute("aria-current", "page"); // TODO: make sure it works
-        }
-      });
-
-      const copyrightElement = document.getElementById("copyright");
-      if (copyrightElement !== null) {
-        copyrightElement.textContent = new Date().getFullYear().toString();
-      }
-    </script>
+    <Footer />
   </body>
 </html>
