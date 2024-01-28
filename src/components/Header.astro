@@ -3,10 +3,12 @@ import { Icon } from "astro-icon";
 import { navData } from "@data/navData";
 ---
 
-<header class="navbar bg-neutral text-neutral-content">
-  <div class="navbar-start">
-    <div class="dropdown lg:hidden">
-      <div tabindex={0} role="button" class="btn btn-ghost">
+<header
+  class="mx-auto mt-4 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
+>
+  <div class="">
+    <div class="lg:hidden">
+      <div tabindex={0} role="button" class="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -20,10 +22,7 @@ import { navData } from "@data/navData";
             d="M4 6h16M4 12h8m-8 6h16"></path></svg
         >
       </div>
-      <ul
-        tabindex={0}
-        class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-neutral p-2 shadow"
-      >
+      <ul tabindex={0} class="">
         {
           navData.map((item) => (
             <li>
@@ -34,34 +33,34 @@ import { navData } from "@data/navData";
       </ul>
     </div>
 
-    <a class="hidden lg:inline" href="/" aria-label="Go home">
-      <Icon name="logomark" width="75" />
+    <a
+      class="hidden rounded-3xl bg-gray-700 stroke-white p-4 lg:flex"
+      href="/"
+      aria-label="Go home"
+    >
+      <Icon name="logomark" width="35" />
     </a>
   </div>
 
-  <div class="navbar-center lg:hidden">
+  <div class="lg:hidden">
     <a href="/" aria-label="Go home">
       <Icon name="logomark" width="75" />
     </a>
   </div>
 
-  <nav class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      {
-        navData.map((item) => (
-          <li>
-            <a href={item.path}>{item.label}</a>
-          </li>
-        ))
-      }
-    </ul>
+  <nav
+    class="hidden items-center justify-between gap-8 rounded-full bg-theme-light-fill px-7 py-4 text-theme-light-text dark:bg-theme-dark-fill dark:text-theme-dark-text lg:flex"
+  >
+    {navData.map((item) => <a href={item.path}>{item.label}</a>)}
   </nav>
 
-  <div class="navbar-end">
-    <button aria-label="Toggle dark mode">
-      <Icon name="mdi:theme-light-dark" width="35" />
-    </button>
-  </div>
+  <button
+    id="theme-btn"
+    class="rounded-3xl bg-gray-700 stroke-white p-4"
+    aria-label="system theme"
+  >
+    <Icon name="mdi:theme-light-dark" width="28" />
+  </button>
 </header>
 
 <script>
