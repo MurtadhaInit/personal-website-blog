@@ -9,6 +9,8 @@
       "@assets/*": ["src/assets/*"],
       "@data/*": ["src/data/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
