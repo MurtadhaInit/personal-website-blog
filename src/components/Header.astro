@@ -4,7 +4,7 @@ import { navData } from "@data/navData";
 ---
 
 <header
-  class="mx-auto mt-4 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
+  class="mx-auto mt-8 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
 >
   <div class="">
     <div class="lg:hidden">
@@ -34,11 +34,11 @@ import { navData } from "@data/navData";
     </div>
 
     <a
-      class="hidden rounded-3xl bg-gray-700 stroke-white p-4 lg:flex"
+      class="hidden rounded-3xl bg-theme-light-fill-muted stroke-theme-light-text p-4 dark:bg-theme-dark-fill-muted dark:stroke-theme-dark-text lg:flex"
       href="/"
       aria-label="Go home"
     >
-      <Icon name="logomark" width="35" />
+      <Icon name="logomark" width="50" />
     </a>
   </div>
 
@@ -49,19 +49,49 @@ import { navData } from "@data/navData";
   </div>
 
   <nav
-    class="hidden items-center justify-between gap-8 rounded-full bg-theme-light-fill px-7 py-4 text-theme-light-text dark:bg-theme-dark-fill dark:text-theme-dark-text lg:flex"
+    class="ring-theme-light-text-muted/15 dark:ring-theme-dark-text-muted/20 dark:shadow-theme-dark-text/5 hidden items-center justify-between gap-2 rounded-full bg-theme-light-fill-muted px-3 text-theme-light-text shadow-lg ring-1 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text lg:flex"
   >
-    {navData.map((item) => <a href={item.path}>{item.label}</a>)}
+    {
+      navData.map((item) => (
+        <a
+          class={`${
+            item.path === Astro.url.pathname ? "nav-active" : "nav-inactive"
+          } relative p-4 transition`}
+          href={item.path}
+        >
+          {item.label}
+          {item.path === Astro.url.pathname ? (
+            <span class="nav-active-underline" />
+          ) : null}
+        </a>
+      ))
+    }
   </nav>
 
   <button
+    type="button"
+    title="Toggle light or dark theme"
     id="theme-btn"
-    class="rounded-3xl bg-gray-700 stroke-white p-4"
-    aria-label="system theme"
+    class="ring-theme-light-text-muted/15 dark:ring-theme-dark-text-muted/20 dark:shadow-theme-dark-text/5 rounded-3xl bg-theme-light-fill-muted p-4 shadow-lg ring-1 backdrop-blur dark:bg-theme-dark-fill-muted"
+    aria-label="System theme"
   >
     <Icon name="mdi:theme-light-dark" width="28" />
   </button>
 </header>
+
+<style>
+  .nav-active {
+    @apply text-theme-light-accent dark:text-theme-dark-accent;
+  }
+
+  .nav-inactive {
+    @apply hover:text-theme-light-accent dark:hover:text-theme-dark-accent;
+  }
+
+  .nav-active-underline {
+    @apply from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0 absolute inset-x-1 -bottom-px h-px bg-gradient-to-r;
+  }
+</style>
 
 <script>
   const navLinks = document.querySelectorAll("header nav ul li a");
