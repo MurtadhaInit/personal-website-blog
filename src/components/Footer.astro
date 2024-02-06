@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { navData } from "@data/navData";
 ---
 
@@ -25,7 +25,7 @@ import { navData } from "@data/navData";
     <small>
       <a href="/rss.xml">
         RSS
-        <Icon name="tabler:rss" width="20" height="20" />
+        <Icon name="tabler:rss" width={20} height={20} />
       </a>
     </small>
   </div>
