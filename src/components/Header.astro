@@ -1,59 +1,88 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { navData } from "@data/navData";
 ---
 
 <header
-  class="mx-auto mt-8 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
+  class="mx-auto mt-8 flex max-w-5xl flex-row items-center justify-between"
 >
-  <div class="">
-    <div class="lg:hidden">
-      <div tabindex={0} role="button" class="">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h8m-8 6h16"></path></svg
-        >
-      </div>
-      <ul tabindex={0} class="">
+  <div class="ml-8">
+    <div class="relative lg:hidden">
+      <button
+        tabindex={0}
+        aria-label="Open Menu"
+        aria-expanded="false"
+        aria-controls="menu-items"
+        id="hamburger-menu-btn"
+      >
+        <Icon
+          name="line-md:close-to-menu-alt-transition"
+          size={35}
+          id="hamburger-menu-icon-closed"
+          class="text-theme-light-text dark:text-theme-dark-text"
+        />
+        <Icon
+          name="line-md:menu-to-close-alt-transition"
+          size={35}
+          id="hamburger-menu-icon-open"
+          class="hide text-theme-light-text dark:text-theme-dark-text"
+        />
+      </button>
+      <nav
+        tabindex={0}
+        class="hide absolute top-12 z-50 flex flex-col items-center justify-between gap-2 rounded-lg bg-theme-light-fill-muted p-2 text-theme-light-text shadow-lg shadow-theme-light-text/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5"
+        id="menu-items"
+      >
         {
           navData.map((item) => (
-            <li>
-              <a href={item.path}>{item.label}</a>
-            </li>
+            <a
+              aria-current={item.path === Astro.url.pathname ? "page" : null}
+              class={`${
+                item.path === Astro.url.pathname ? "nav-active" : "nav-inactive"
+              } p-4 transition`}
+              href={item.path}
+            >
+              {item.label}
+            </a>
           ))
         }
-      </ul>
+      </nav>
     </div>
 
     <a
-      class="hidden rounded-3xl bg-theme-light-fill-muted stroke-theme-light-text p-4 dark:bg-theme-dark-fill-muted dark:stroke-theme-dark-text lg:flex"
+      class="ml-8 hidden rounded-3xl px-3 py-1 ring-1 ring-theme-light-text/30 hover:ring-theme-light-text/50 dark:ring-theme-dark-text/30 hover:dark:ring-theme-dark-text/50 lg:block"
       href="/"
       aria-label="Go home"
     >
-      <Icon name="logomark" width="50" />
+      <Icon
+        class="text-theme-light-text/30 dark:text-theme-dark-text/30"
+        name="logomark"
+        width={85}
+        height={50}
+      />
     </a>
   </div>
 
-  <div class="lg:hidden">
-    <a href="/" aria-label="Go home">
-      <Icon name="logomark" width="75" />
-    </a>
-  </div>
+  <a
+    class="rounded-3xl px-3 py-1 ring-1 ring-theme-light-text/30 hover:ring-theme-light-text/50 dark:ring-theme-dark-text/30 hover:dark:ring-theme-dark-text/50 lg:hidden"
+    href="/"
+    aria-label="Go home"
+  >
+    <Icon
+      class="text-theme-light-text/30 dark:text-theme-dark-text/30"
+      name="logomark"
+      width={85}
+      height={50}
+    />
+  </a>
 
   <nav
-    class="ring-theme-light-text-muted/15 dark:ring-theme-dark-text-muted/20 dark:shadow-theme-dark-text/5 hidden items-center justify-between gap-2 rounded-full bg-theme-light-fill-muted px-3 text-theme-light-text shadow-lg ring-1 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text lg:flex"
+    class="hidden items-center justify-between gap-2 rounded-full bg-theme-light-fill-muted px-3 text-theme-light-text shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 lg:flex"
   >
     {
       navData.map((item) => (
         <a
+          aria-current={item.path === Astro.url.pathname ? "page" : null}
           class={`${
             item.path === Astro.url.pathname ? "nav-active" : "nav-inactive"
           } relative p-4 transition`}
@@ -72,10 +101,21 @@ import { navData } from "@data/navData";
     type="button"
     title="Toggle light or dark theme"
     id="theme-btn"
-    class="ring-theme-light-text-muted/15 dark:ring-theme-dark-text-muted/20 dark:shadow-theme-dark-text/5 rounded-3xl bg-theme-light-fill-muted p-4 shadow-lg ring-1 backdrop-blur dark:bg-theme-dark-fill-muted"
+    class="mr-8 rounded-3xl bg-theme-light-fill-muted p-4 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35"
     aria-label="System theme"
   >
-    <Icon name="mdi:theme-light-dark" width="28" />
+    <Icon
+      class="hidden text-theme-dark-text-muted dark:block"
+      name="line-md:sunny-outline-to-moon-loop-transition"
+      size={25}
+      aria-hidden="true"
+    />
+    <Icon
+      class="text-theme-light-text-muted dark:hidden"
+      name="line-md:moon-filled-to-sunny-filled-loop-transition"
+      size={25}
+      aria-hidden="true"
+    />
   </button>
 </header>
 
@@ -89,16 +129,31 @@ import { navData } from "@data/navData";
   }
 
   .nav-active-underline {
-    @apply from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0 absolute inset-x-1 -bottom-px h-px bg-gradient-to-r;
+    @apply absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0;
+  }
+
+  .hide {
+    @apply hidden;
   }
 </style>
 
 <script>
-  const navLinks = document.querySelectorAll("header nav ul li a");
+  // toggle nav menu
+  const menuBtn = document.getElementById("hamburger-menu-btn");
+  const menuItems = document.getElementById("menu-items");
+  const menuIconOpen = document.getElementById("hamburger-menu-icon-open");
+  const menuIconClosed = document.getElementById("hamburger-menu-icon-closed");
 
-  navLinks.forEach((link) => {
-    if (link.getAttribute("href") === window.location.pathname) {
-      link.setAttribute("aria-current", "page");
-    }
+  menuBtn?.addEventListener("click", () => {
+    const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+
+    menuIconClosed?.classList.toggle("hide");
+    menuIconOpen?.classList.toggle("hide");
+    menuBtn.setAttribute(
+      "aria-label",
+      menuExpanded ? "Open Menu" : "Close Menu",
+    );
+    menuItems?.classList.toggle("hide");
+    menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
   });
 </script>
