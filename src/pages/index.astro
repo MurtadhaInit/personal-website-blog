@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 import { filterPosts } from "@utils/utils";
+import { contactLinks, contactEmail } from "@data/contactLinks";
 
 import Layout from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
@@ -13,46 +15,92 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 ---
 
 <Layout title="Murtadha - Home">
-  <section aria-label="About Me">
-    <div>
-      <Image src={headshot} alt="My personal photo" width={200} height={330} />
-      <div aria-label="Social media accounts and email">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+  <main class="mx-auto mt-16 max-w-5xl">
+    <section
+      class="mx-8 grid grid-cols-1 grid-rows-3 gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-2"
+      aria-label="About Me"
+    >
+      <Image
+        src={headshot}
+        alt="My personal photo"
+        width={480}
+        class="rotate-3 rounded-xl md:order-1 md:col-span-6 lg:order-2 lg:col-span-6"
+      />
+
+      <div class="md:order-3 md:col-span-full lg:order-1 lg:col-span-7">
+        <h1
+          class="mb-4 text-4xl font-bold text-theme-light-text dark:text-theme-dark-text"
+        >
+          Hey, I'm <span>Murtadha</span>
+        </h1>
+        <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur,
+          vel veniam quia tempora ratione id adipisci pariatur nesciunt ea
+          reiciendis mollitia in eaque numquam illum molestiae dicta, a quasi!
+          Corporis sed blanditiis commodi! Ea, minima accusamus natus iste
+          temporibus quisquam.
+        </p>
       </div>
-    </div>
-    <div>
-      <h1>Hey, I'm <span>Murtadha</span></h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur,
-        vel veniam quia tempora ratione id adipisci pariatur nesciunt ea
-        reiciendis mollitia in eaque numquam illum molestiae dicta, a quasi!
-        Corporis sed blanditiis commodi! Ea, minima accusamus natus iste
-        temporibus quisquam.
-      </p>
-    </div>
-  </section>
-  <section aria-label="Common Destinations">
-    <h2>Looking for something?</h2>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </section>
-  <section aria-label="Latest Blog Posts">
-    <h2>Latest Articles</h2>
-    <div>
-      {
-        postsToDisplay.map((post) => (
-          <PostCard post={post} maxTags={3} style={"narrow"} />
-        ))
-      }
-    </div>
-  </section>
+
+      <ul
+        class="flex flex-col items-start justify-start gap-4 md:order-2 md:col-span-6 lg:order-3 lg:col-start-8"
+        aria-label="Social media accounts and email"
+      >
+        {
+          contactLinks.map((contactLink) => (
+            <li>
+              <a
+                target="_blank"
+                class="group flex items-center justify-start gap-4 text-sm font-medium text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+                href={contactLink.path}
+              >
+                <Icon
+                  class="text-theme-light-text-muted transition group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent"
+                  name={contactLink.icon}
+                  size={24}
+                />
+                <p>Follow on {contactLink.label}</p>
+              </a>
+            </li>
+          ))
+        }
+        {
+          (
+            <li class="mt-4 self-stretch border-t border-theme-light-text-muted/50 pt-8 dark:border-theme-dark-text-muted/50">
+              <a
+                href={"mailto:" + contactEmail.path}
+                class="group flex items-center justify-start gap-4 text-sm font-medium text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+              >
+                <Icon
+                  class="text-theme-light-text-muted transition group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent"
+                  name={contactEmail.icon}
+                  size={24}
+                />
+                <p>{contactEmail.label}</p>
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </section>
+    <section aria-label="Common Destinations">
+      <h2>Looking for something?</h2>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+    <section aria-label="Latest Blog Posts">
+      <h2>Latest Articles</h2>
+      <div>
+        {
+          postsToDisplay.map((post) => (
+            <PostCard post={post} maxTags={3} style={"narrow"} />
+          ))
+        }
+      </div>
+    </section>
+  </main>
 </Layout>
