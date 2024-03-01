@@ -19,6 +19,7 @@ export default defineConfig({
           "close-to-menu-alt-transition",
           "menu-to-close-alt-transition",
         ],
+        mdi: ["twitter", "github", "linkedin", "email"],
       },
     }),
     sitemap(),

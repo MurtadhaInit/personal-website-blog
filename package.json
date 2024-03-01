@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.3",
     "@iconify-json/line-md": "^1.1.35",
+    "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/tabler": "^1.1.104",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
