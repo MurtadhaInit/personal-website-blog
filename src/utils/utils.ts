@@ -29,12 +29,12 @@ export const filterPosts = (
     noDrafts = true,
     noFuturePosts = true,
     sortByDate = true,
-    limit = undefined,
+    limit = null,
   }: {
     noDrafts?: boolean;
     noFuturePosts?: boolean;
     sortByDate?: boolean;
-    limit?: number;
+    limit?: number | null;
   } = {},
 ): CollectionEntry<"blog">[] => {
   const filteredPosts = posts
@@ -65,7 +65,7 @@ export const filterPosts = (
   }
 
   // limit by number if applicable (including 0)
-  if (limit || typeof limit !== "undefined") {
+  if (limit !== null) {
     return filteredPosts.slice(0, limit);
   } else {
     return filteredPosts;
