@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Finished refactoring, simplifying and removing cruft from the app.">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/personal-website-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/personal-website-blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RelatedPosts.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RelatedPosts.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TagsCloud.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TagsCloud.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/[...page].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[...page].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/[post].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[post].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/categories/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/categories/[category].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/tags/[tag].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/tags/[tag].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +50,9 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -52,31 +61,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/murtadha/Projects/personal-website-blog&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/murtadha/Projects/personal-website-blog/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/murtadha/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "gitbutler/integration",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/murtadha/.local/state/fnm_multishells/96613_1715901646215/bin/node",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/Users/murtadha/.local/state/fnm_multishells/96613_1715901646215/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/murtadha/Projects/personal-website-blog/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.sync",
+    "ts.external.directory.path": "/Users/murtadha/Projects/personal-website-blog/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/ui" />
@@ -86,7 +99,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-467a64f6063b-ee0e143f3e2b-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.11799.286" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -141,6 +155,44 @@
       <workItem from="1703032601216" duration="803000" />
       <workItem from="1703033411334" duration="318000" />
       <workItem from="1703033736879" duration="1452000" />
+      <workItem from="1703077745125" duration="33000" />
+      <workItem from="1703077783611" duration="61000" />
+      <workItem from="1703807906118" duration="217000" />
+      <workItem from="1707131909914" duration="20000" />
+      <workItem from="1707131935275" duration="137000" />
+      <workItem from="1707132110947" duration="31000" />
+      <workItem from="1707132156885" duration="122000" />
+      <workItem from="1707132284610" duration="1047000" />
+      <workItem from="1707133345376" duration="26000" />
+      <workItem from="1707133377179" duration="183000" />
+      <workItem from="1707614666692" duration="19000" />
+      <workItem from="1707614692694" duration="643000" />
+      <workItem from="1707616097549" duration="37000" />
+      <workItem from="1709414566185" duration="17000" />
+      <workItem from="1709414589543" duration="210000" />
+      <workItem from="1714346907163" duration="39000" />
+      <workItem from="1714346949784" duration="3813000" />
+      <workItem from="1715248369446" duration="794000" />
+      <workItem from="1715548529424" duration="183000" />
+      <workItem from="1715548722366" duration="242000" />
+      <workItem from="1715548972040" duration="627000" />
+      <workItem from="1715700647632" duration="742000" />
+      <workItem from="1715706276220" duration="2510000" />
+      <workItem from="1715898372551" duration="1332000" />
+      <workItem from="1715899714724" duration="1536000" />
+      <workItem from="1715901288897" duration="328000" />
+      <workItem from="1715901622707" duration="282000" />
+      <workItem from="1715901911371" duration="6362000" />
+      <workItem from="1716041281433" duration="31000" />
+      <workItem from="1716041321807" duration="59000" />
+      <workItem from="1716041386816" duration="79000" />
+      <workItem from="1716041473613" duration="2250000" />
+      <workItem from="1716212747533" duration="2025000" />
+      <workItem from="1716496958997" duration="3392000" />
+      <workItem from="1716761948185" duration="587000" />
+      <workItem from="1716764163161" duration="1759000" />
+      <workItem from="1716856672380" duration="4045000" />
+      <workItem from="1717624919116" duration="2638000" />
     </task>
     <task id="LOCAL-00001" summary="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions.">
       <option name="closed" value="true" />
@@ -166,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702998818091</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body">
+      <option name="closed" value="true" />
+      <created>1716515619561</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716515619561</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,9 +236,14 @@
     <MESSAGE value="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions." />
     <MESSAGE value="Major refactoring and removal of a few unnecessary components." />
     <MESSAGE value="Finished refactoring, simplifying and removing cruft from the app." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished refactoring, simplifying and removing cruft from the app." />
+    <MESSAGE value="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
