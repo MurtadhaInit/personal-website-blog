@@ -50,30 +50,22 @@ import { navData } from "@data/navData";
     </div>
 
     <a
-      class="hidden rounded-3xl px-3 py-1 ring-1 ring-theme-light-text/30 hover:ring-theme-light-text/50 dark:ring-theme-dark-text/30 hover:dark:ring-theme-dark-text/50 lg:block"
+      class="hidden rounded-3xl bg-theme-light-fill-muted px-3 py-1 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 lg:block"
       href="/"
       aria-label="Go home"
     >
-      <Icon
-        class="text-theme-light-text/30 dark:text-theme-dark-text/30"
-        name="logomark"
-        width={85}
-        height={50}
-      />
+      <Icon class="dark:hidden" name="logo-light" width={85} height={50} />
+      <Icon class="hidden dark:block" name="logo-dark" width={85} height={50} />
     </a>
   </div>
 
   <a
-    class="rounded-3xl px-3 py-1 ring-1 ring-theme-light-text/30 hover:ring-theme-light-text/50 dark:ring-theme-dark-text/30 hover:dark:ring-theme-dark-text/50 lg:hidden"
+    class="rounded-3xl bg-theme-light-fill-muted px-3 py-1 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 lg:hidden"
     href="/"
     aria-label="Go home"
   >
-    <Icon
-      class="text-theme-light-text/30 dark:text-theme-dark-text/30"
-      name="logomark"
-      width={85}
-      height={50}
-    />
+    <Icon class="dark:hidden" name="logo-light" width={85} height={50} />
+    <Icon class="hidden dark:block" name="logo-dark" width={85} height={50} />
   </a>
 
   <nav
@@ -151,7 +143,7 @@ import { navData } from "@data/navData";
     menuIconOpen?.classList.toggle("hide");
     menuBtn.setAttribute(
       "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu",
+      menuExpanded ? "Open Menu" : "Close Menu"
     );
     menuItems?.classList.toggle("hide");
     menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
