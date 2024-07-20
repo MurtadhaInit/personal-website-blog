@@ -15,7 +15,7 @@ interface Props {
 const {
   showCount = true,
   tagsToShow = 0,
-  postTags = null,
+  postTags = null
 } = Astro.props as Props;
 
 const allPosts = await getCollection("blog");

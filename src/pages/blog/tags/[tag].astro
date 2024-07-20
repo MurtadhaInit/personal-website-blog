@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
   return allTags.map((tag) => {
     // all posts associated with this tag
     const tagPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag),
+      post.data.tags.includes(tag)
     );
 
     return {
