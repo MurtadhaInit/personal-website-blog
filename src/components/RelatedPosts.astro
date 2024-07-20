@@ -15,7 +15,7 @@ const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);
 // generate related posts and sort the results descendingly by their score
 let relatedPosts = getRelatedPosts(originalPost, filteredPosts).sort(
-  (a, b) => b.score - a.score,
+  (a, b) => b.score - a.score
 );
 // display the top specified number of related posts
 if (postsToDisplay) {
@@ -26,14 +26,14 @@ if (postsToDisplay) {
 {
   relatedPosts.length !== 0 &&
     relatedPosts.map((mapping) => (
-      <div>
-        <h3>
-          <a href={`/blog/${mapping.post.slug}`}>{mapping.post.data.title}</a>
-        </h3>
-        <small>
-          {mapping.post.data.author} •{" "}
-          {mapping.post.data.date.toLocaleDateString()}
-        </small>
-      </div>
-    ))
-}
+    <div>
+      <h3>
+        <a href={`/blog/${mapping.post.slug}`}>{mapping.post.data.title}</a>
+      </h3>
+      <small>
+        {mapping.post.data.author} •{" "}
+        {mapping.post.data.date.toLocaleDateString()}
+      </small>
+    </div>
+      ))
+  }
