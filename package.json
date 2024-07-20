@@ -12,26 +12,26 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,astro}\""
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.9",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.3",
-    "@iconify-json/line-md": "^1.1.35",
-    "@iconify-json/mdi": "^1.1.64",
-    "@iconify-json/tabler": "^1.1.104",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "astro": "^4.0.6",
-    "astro-icon": "^1.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.4.0"
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/line-md": "^1.1.38",
+    "@iconify-json/mdi": "^1.1.67",
+    "@iconify-json/tabler": "^1.1.118",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.12.2",
+    "astro-icon": "^1.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.6"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.3.3",
-    "prettier": "3.1.1",
-    "prettier-plugin-astro": "^0.12.2",
-    "prettier-plugin-tailwindcss": "^0.5.9",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "^0.8.2",
+    "prettier": "3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "typescript": "^5.5.3"
   }
 }
