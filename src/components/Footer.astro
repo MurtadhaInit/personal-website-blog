@@ -3,30 +3,35 @@ import { Icon } from "astro-icon/components";
 import { navData } from "@data/navData";
 ---
 
-<footer>
-  <nav>
-    <ul>
-      {
-        navData
-          .filter((item) => item.footerNav)
-          .map((item) => (
-            <li>
-              <a href={item.path}>{item.label}></a>
-            </li>
-          ))
-      }
-    </ul>
+<footer
+  class="mx-auto mb-8 flex max-w-5xl items-center justify-between text-theme-light-text dark:text-theme-dark-text"
+>
+  <nav class="flex items-center justify-between gap-8">
+    {
+      navData
+        .filter((item) => item.footerNav)
+        .map((item) => (
+          <a
+            href={item.path}
+            aria-current={item.path === Astro.url.pathname ? "page" : null}
+            class="text-sm font-medium transition hover:text-theme-light-accent dark:hover:text-theme-dark-accent"
+          >
+            {item.label}
+          </a>
+        ))
+    }
+    <a
+      href="/rss.xml"
+      class="flex items-center justify-between gap-1 text-sm font-medium transition hover:text-theme-light-accent dark:hover:text-theme-dark-accent"
+    >
+      <div>RSS</div>
+      <Icon name="tabler:rss" width={20} />
+    </a>
   </nav>
 
   <div>
-    <small>
-      Copyright &copy; <span id="copyright"></span> | all rights reserved
-    </small>
-    <small>
-      <a href="/rss.xml">
-        RSS
-        <Icon name="tabler:rss" width={20} height={20} />
-      </a>
+    <small class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+      Copyright &copy; <span id="copyright"></span> | All rights reserved
     </small>
   </div>
 </footer>
