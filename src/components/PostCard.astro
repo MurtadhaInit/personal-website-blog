@@ -7,29 +7,49 @@ import { slugify } from "@utils/utils.js";
 interface Props {
   post: CollectionEntry<"blog">;
   maxTags: number;
-  style: "narrow" | "wide";
+  type: "narrow" | "wide";
 }
 
-const { post, maxTags, style } = Astro.props as Props;
+const { post, maxTags, type } = Astro.props as Props;
 const { title, date, image, description, tags } = post.data;
 // TODO: incorporate description if appropriate in the wide variant
-// TODO: incorporate style into the style to make a wide variant
+// TODO: incorporate type into the style to make a wide variant
 ---
 
-<article>
+<article
+  class="flex items-start justify-start gap-12 rounded-md bg-theme-light-fill-muted p-4 dark:bg-theme-dark-fill-muted"
+>
   <a href={`/blog/${post.slug}`} aria-hidden="true" tabindex="-1">
-    <Image src={image.src} alt={image.alt} height={100} width={100} />
+    <Image class="rounded-md" src={image.src} alt={image.alt} width={250} />
   </a>
-  <div>
-    <h3>{title}</h3>
+  <div class="flex flex-1 flex-col items-start justify-between self-stretch">
     <div>
-      <div><small>{date}</small></div>
-      <div>
+      <h3
+        class="mb-2 text-xl font-medium text-theme-light-text dark:text-theme-dark-text"
+      >
+        {title}
+      </h3>
+      <p class="text-sm text-theme-light-text dark:text-theme-dark-text">
+        {description}
+      </p>
+    </div>
+    <div class="flex items-center justify-between self-stretch">
+      <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+        {date.toLocaleDateString()}
+      </p>
+      <div class="flex items-center justify-between gap-4">
         {
           tags
             .sort(() => Math.random() - 0.5)
             .slice(0, maxTags)
-            .map((tag) => <a href={`/blog/tags/${slugify(tag)}`}>{tag}</a>)
+            .map((tag) => (
+              <a
+                href={`/blog/tags/${slugify(tag)}`}
+                class="text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+              >
+                {tag}
+              </a>
+            ))
         }
       </div>
     </div>

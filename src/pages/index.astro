@@ -17,7 +17,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 grid grid-cols-1 grid-rows-3 gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-2"
+      class="mx-8 mb-12 grid grid-cols-1 grid-rows-3 gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-2"
       aria-label="About Me"
     >
       <Image
@@ -97,24 +97,67 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         }
       </ul>
     </section>
-    <section aria-label="Common Destinations">
-      <h2>Looking for something?</h2>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+    <section
+      aria-label="Common Destinations"
+      class="mb-12 rounded-3xl bg-theme-light-fill-muted p-8 dark:bg-theme-dark-fill-muted"
+    >
+      <h2
+        class="mb-8 text-center text-4xl text-theme-light-text dark:text-theme-dark-text"
+      >
+        Looking for something?
+      </h2>
+      <ul
+        class="mx-40 list-disc space-y-2 text-lg text-theme-light-text dark:text-theme-dark-text"
+      >
+        <li>
+          My MacOS setup involves <a
+            href="https://github.com/MurtadhaInit/macos-ansible-setup"
+            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+            target="_blank">Ansible</a
+          > and GNU Stow to manage my <a
+            href="https://github.com/MurtadhaInit/dotfiles"
+            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+            target="_blank">Dotfiles</a
+          >
+        </li>
+        <li>
+          I occasionally take <a
+            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+            href="/gallery">photos</a
+          > and try to improve my photography skills
+        </li>
+        <li>
+          My complete <a
+            href="/setup"
+            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+            >setup</a
+          > for programming and general productivity
+        </li>
+        <li>
+          Read about my experience using the <a
+            href=""
+            target="_blank"
+            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+            >ZSA Voyager</a
+          > split ergonomic keyboard
+        </li>
       </ul>
     </section>
     <section aria-label="Latest Blog Posts">
-      <h2>Latest Articles</h2>
-      <div>
+      <h2
+        class="mb-8 text-center text-4xl text-theme-light-text dark:text-theme-dark-text"
+      >
+        Latest Articles
+      </h2>
+      <ul class="space-y-8">
         {
           postsToDisplay.map((post) => (
-            <PostCard post={post} maxTags={3} style={"narrow"} />
+            <li>
+              <PostCard post={post} maxTags={3} type={"narrow"} />
+            </li>
           ))
         }
-      </div>
+      </ul>
     </section>
   </main>
 </Layout>
