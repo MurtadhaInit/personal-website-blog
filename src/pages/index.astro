@@ -102,12 +102,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
       class="mx-8 mb-12 rounded-3xl bg-theme-light-fill-muted p-8 dark:bg-theme-dark-fill-muted"
     >
       <h2
-        class="mb-8 text-center text-4xl text-theme-light-text dark:text-theme-dark-text"
+        class="mb-8 text-center text-3xl text-theme-light-text dark:text-theme-dark-text md:text-4xl"
       >
         Looking for something?
       </h2>
+      <div class="flex justify-center px-8">
       <ul
-        class="mx-40 list-disc space-y-2 text-lg text-theme-light-text dark:text-theme-dark-text"
+          class="flex list-disc flex-col items-start justify-between gap-2 text-theme-light-text dark:text-theme-dark-text md:text-lg"
       >
         <li>
           My MacOS setup involves <a
@@ -142,6 +143,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
           > split ergonomic keyboard
         </li>
       </ul>
+      </div>
     </section>
     <section aria-label="Latest Blog Posts" class="mx-8">
       <h2
