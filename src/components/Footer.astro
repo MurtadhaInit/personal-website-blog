@@ -4,9 +4,9 @@ import { navData } from "@data/navData";
 ---
 
 <footer
-  class="mx-auto mb-8 flex max-w-5xl items-center justify-between text-theme-light-text dark:text-theme-dark-text"
+  class="mx-auto mb-8 flex max-w-5xl flex-col items-center justify-between text-theme-light-text dark:text-theme-dark-text sm:flex-row"
 >
-  <nav class="ml-8 flex items-center justify-between gap-8">
+  <nav class="flex items-center justify-between gap-4 sm:ml-8 md:gap-8">
     {
       navData
         .filter((item) => item.footerNav)
@@ -29,7 +29,7 @@ import { navData } from "@data/navData";
     </a>
   </nav>
 
-  <div class="mr-8">
+  <div class="sm:mr-8">
     <small class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
       Copyright &copy; <span id="copyright"></span> | All rights reserved
     </small>
