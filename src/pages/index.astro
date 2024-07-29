@@ -107,47 +107,47 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         Looking for something?
       </h2>
       <div class="flex justify-center px-8">
-      <ul
+        <ul
           class="flex list-disc flex-col items-start justify-between gap-2 text-theme-light-text dark:text-theme-dark-text md:text-lg"
-      >
-        <li>
-          My MacOS setup involves <a
-            href="https://github.com/MurtadhaInit/macos-ansible-setup"
-            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
-            target="_blank">Ansible</a
-          > and GNU Stow to manage my <a
-            href="https://github.com/MurtadhaInit/dotfiles"
-            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
-            target="_blank">Dotfiles</a
-          >
-        </li>
-        <li>
-          I occasionally take <a
-            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
-            href="/gallery">photos</a
-          > and try to improve my photography skills
-        </li>
-        <li>
-          My complete <a
-            href="/setup"
-            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
-            >setup</a
-          > for programming and general productivity
-        </li>
-        <li>
-          Read about my experience using the <a
-            href=""
-            target="_blank"
-            class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
-            >ZSA Voyager</a
-          > split ergonomic keyboard
-        </li>
-      </ul>
+        >
+          <li>
+            My MacOS setup involves <a
+              href="https://github.com/MurtadhaInit/macos-ansible-setup"
+              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              target="_blank">Ansible</a
+            > and GNU Stow to manage my <a
+              href="https://github.com/MurtadhaInit/dotfiles"
+              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              target="_blank">Dotfiles</a
+            >
+          </li>
+          <li>
+            I occasionally take <a
+              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              href="/gallery">photos</a
+            > and try to improve my photography skills
+          </li>
+          <li>
+            My complete <a
+              href="/setup"
+              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              >setup</a
+            > for programming and general productivity
+          </li>
+          <li>
+            Read about my experience using the <a
+              href=""
+              target="_blank"
+              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              >ZSA Voyager</a
+            > split ergonomic keyboard
+          </li>
+        </ul>
       </div>
     </section>
     <section aria-label="Latest Blog Posts" class="mx-8">
       <h2
-        class="mb-8 text-center text-4xl text-theme-light-text dark:text-theme-dark-text"
+        class="mb-8 text-center text-3xl text-theme-light-text dark:text-theme-dark-text md:text-4xl"
       >
         Latest Articles
       </h2>
@@ -155,7 +155,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         {
           postsToDisplay.map((post) => (
             <li>
-              <PostCard post={post} maxTags={3} type={"narrow"} />
+              <PostCard post={post} maxTags={3} />
             </li>
           ))
         }
