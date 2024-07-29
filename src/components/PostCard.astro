@@ -7,34 +7,39 @@ import { slugify } from "@utils/utils.js";
 interface Props {
   post: CollectionEntry<"blog">;
   maxTags: number;
-  type: "narrow" | "wide";
 }
 
-const { post, maxTags, type } = Astro.props as Props;
+const { post, maxTags } = Astro.props as Props;
 const { title, date, image, description, tags } = post.data;
 // TODO: incorporate description if appropriate in the wide variant
 // TODO: incorporate type into the style to make a wide variant
 ---
 
 <article
-  class="flex items-start justify-start gap-12 rounded-md bg-theme-light-fill-muted p-4 dark:bg-theme-dark-fill-muted"
+  class="flex flex-col items-center justify-start gap-4 rounded-md bg-theme-light-fill-muted p-4 dark:bg-theme-dark-fill-muted md:flex-row md:items-start md:gap-12"
 >
   <a href={`/blog/${post.slug}`} aria-hidden="true" tabindex="-1">
-    <Image class="rounded-md" src={image.src} alt={image.alt} width={250} />
+    <Image class="w-full rounded-md md:w-64" src={image.src} alt={image.alt} />
   </a>
-  <div class="flex flex-1 flex-col items-start justify-between self-stretch">
+  <div
+    class="flex flex-1 flex-col items-start justify-between gap-4 self-stretch"
+  >
     <div>
-      <h3
-        class="mb-2 text-xl font-medium text-theme-light-text dark:text-theme-dark-text"
-      >
-        {title}
-      </h3>
+      <a href={`/blog/${post.slug}`}>
+        <h3
+          class="mb-2 text-xl font-medium text-theme-light-text dark:text-theme-dark-text"
+        >
+          {title}
+        </h3>
+      </a>
       <p class="text-sm text-theme-light-text dark:text-theme-dark-text">
         {description}
       </p>
     </div>
     <div class="flex items-center justify-between self-stretch">
-      <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+      <p
+        class="text-xs text-theme-light-text-muted dark:text-theme-dark-text-muted sm:text-sm"
+      >
         {date.toLocaleDateString()}
       </p>
       <div class="flex items-center justify-between gap-4">
@@ -45,7 +50,7 @@ const { title, date, image, description, tags } = post.data;
             .map((tag) => (
               <a
                 href={`/blog/tags/${slugify(tag)}`}
-                class="text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+                class="text-xs font-light text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent sm:text-sm"
               >
                 {tag}
               </a>
