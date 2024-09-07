@@ -17,7 +17,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 mb-12 grid grid-cols-1 grid-rows-3 gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-2"
+      class="mx-8 mb-12 grid grid-cols-1 grid-rows-[auto_auto_auto] gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-[auto_auto]"
       aria-label="About Me"
     >
       <Image
@@ -57,7 +57,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
       </div>
 
       <ul
-        class="flex flex-col items-start justify-start gap-4 md:order-2 md:col-span-6 lg:order-3 lg:col-start-8"
+        class="flex flex-col items-start justify-start gap-4 md:order-2 md:col-span-6 md:justify-center lg:order-3 lg:col-start-8"
         aria-label="Social media accounts and email"
       >
         {

@@ -7,6 +7,6 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
-# Production stage
+# Production image
 FROM nginx:alpine
 COPY --from=node-builder /app/dist /usr/share/nginx/html
