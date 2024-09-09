@@ -20,6 +20,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.12.2(@types/node@20.14.11)(typescript@5.5.3))(tailwindcss@3.4.6)
+      '@iconify-json/devicon-plain':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@iconify-json/line-md':
         specifier: ^1.1.38
         version: 1.1.38
@@ -422,6 +425,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@iconify-json/devicon-plain@1.2.0':
+    resolution: {integrity: sha512-iN+zO3RveQwnEl7ED/csAqgfMIexdZGOlrP9pIIU7ZbhG2l/jbPeWly+VixUTOgnGKY5ExbDVP6bv2kSWD3b3Q==}
 
   '@iconify-json/line-md@1.1.38':
     resolution: {integrity: sha512-W+y4G/7QqO1sTGUypwsm0UUwjbGt/BjRg4kZylek7BwH5EG8f1uUJgcZwRASjsH4xGL+LVQbw6FAGbQ1UHNCow==}
@@ -2891,6 +2897,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@iconify-json/devicon-plain@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/line-md@1.1.38':
     dependencies:

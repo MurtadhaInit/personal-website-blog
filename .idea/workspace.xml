@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr">
+      <change beforePath="$PROJECT_DIR$/.idea/personal-website-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/personal-website-blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RelatedPosts.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RelatedPosts.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TagsCloud.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TagsCloud.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/[...page].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[...page].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/[post].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[post].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/categories/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/categories/[category].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/tags/[tag].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/tags/[tag].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Astro Component" />
+        <option value="Dockerfile" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -44,6 +42,10 @@
     <bower-package value="" />
     <bower.json value="" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -70,11 +72,13 @@
     "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "gitbutler/integration",
+    "git-widget-placeholder": "dev",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
+    "javascript.nodejs.core.library.configured.version": "18.18.2",
+    "javascript.nodejs.core.library.typings.version": "18.18.14",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/murtadha/.local/state/fnm_multishells/96613_1715901646215/bin/node",
+    "last_opened_file_path": "/Users/murtadha/.local/state/fnm_multishells/12722_1725579264357/bin/node",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -82,14 +86,46 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/murtadha/.local/state/fnm_multishells/96613_1715901646215/bin/node",
-    "nodejs_package_manager_path": "npm",
+    "nodejs_interpreter_path": "/Users/murtadha/.local/state/fnm_multishells/12722_1725579264357/bin/node",
+    "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/Users/murtadha/Projects/personal-website-blog/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/murtadha/Projects/personal-website-blog/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" show_stripe_button="false" side_tool="true" />
+      <window_info id="Merge Requests" show_stripe_button="false" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="npm" show_stripe_button="false" side_tool="true" />
+      <window_info id="Pull Requests" show_stripe_button="false" />
+      <window_info id="Learn" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3302515" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Profiler" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.33036774" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="right" id="String Manipulation" show_stripe_button="false" />
+      <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
+      <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Notifications" order="0" weight="0.3302515" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Key Promoter X" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+    </layout>
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/ui" />
@@ -99,8 +135,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -193,6 +229,12 @@
       <workItem from="1716764163161" duration="1759000" />
       <workItem from="1716856672380" duration="4045000" />
       <workItem from="1717624919116" duration="2638000" />
+      <workItem from="1724085586260" duration="27000" />
+      <workItem from="1724085618654" duration="1428000" />
+      <workItem from="1725120357909" duration="725000" />
+      <workItem from="1725446269093" duration="46000" />
+      <workItem from="1725446322111" duration="10310000" />
+      <workItem from="1725701310856" duration="905000" />
     </task>
     <task id="LOCAL-00001" summary="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions.">
       <option name="closed" value="true" />
@@ -226,18 +268,47 @@
       <option name="project" value="LOCAL" />
       <updated>1716515619561</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added a Dockerfile to build a deployable Nginx production container&#10;- Upgraded to Node 20&#10;- Installed sharp explicitly for Astro Image to work even though it's an Astro dependency because strict package managers like pnpm requires that">
+      <option name="closed" value="true" />
+      <created>1725699194753</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725699194753</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr">
+      <option name="closed" value="true" />
+      <created>1725709695464</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725709695464</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions." />
     <MESSAGE value="Major refactoring and removal of a few unnecessary components." />
     <MESSAGE value="Finished refactoring, simplifying and removing cruft from the app." />
     <MESSAGE value="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body" />
+    <MESSAGE value="Added a Dockerfile to build a deployable Nginx production container&#10;- Upgraded to Node 20&#10;- Installed sharp explicitly for Astro Image to work even though it's an Astro dependency because strict package managers like pnpm requires that" />
+    <MESSAGE value="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr" />
+    <option name="LAST_COMMIT_MESSAGE" value="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
