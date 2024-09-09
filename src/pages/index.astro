@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 
 import { filterPosts } from "@utils/utils";
 import { contactLinks, contactEmail } from "@data/contactLinks";
+import { technologies } from "@data/technologies";
 
 import Layout from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
@@ -17,17 +18,16 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 mb-12 grid grid-cols-1 grid-rows-[auto_auto_auto] gap-x-16 gap-y-12 md:grid-cols-12 md:grid-rows-[auto_auto]"
+      class="mx-8 mb-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-5 md:grid-rows-[auto_auto_auto] lg:grid-rows-[auto_auto]"
       aria-label="About Me"
     >
       <Image
         src={headshot}
         alt="My personal photo"
-        width={480}
-        class="rotate-3 rounded-xl md:order-1 md:col-span-6 lg:order-2"
+        class="rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4"
       />
 
-      <div class="md:order-3 md:col-span-full lg:order-1 lg:col-span-7">
+      <div class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1">
         <h1
           class="mb-4 text-4xl font-bold text-theme-light-text dark:text-theme-dark-text"
         >
@@ -56,8 +56,29 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         </p>
       </div>
 
+      <div class="row-start-3 md:col-span-full lg:col-span-3 lg:row-start-2">
+        <h2
+          class="mb-4 text-2xl text-theme-light-text dark:text-theme-dark-text"
+        >
+          Technologies and tools I've worked with
+        </h2>
+        <ul class="flex flex-wrap items-center justify-start gap-4">
+          {
+            technologies.map((technology) => (
+              <li>
+                <Icon
+                  class="transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent"
+                  name={technology.icon}
+                  size={64}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
       <ul
-        class="flex flex-col items-start justify-start gap-4 md:order-2 md:col-span-6 md:justify-center lg:order-3 lg:col-start-8"
+        class="row-start-4 flex flex-col items-start justify-start gap-4 md:col-span-2 md:row-start-1 md:justify-center lg:row-start-2"
         aria-label="Social media accounts and email"
       >
         {
