@@ -37,9 +37,12 @@ import { navData } from "@data/navData";
           navData.map((item) => (
             <a
               aria-current={item.path === Astro.url.pathname ? "page" : null}
-              class={`${
-                item.path === Astro.url.pathname ? "nav-active" : "nav-inactive"
-              } p-4 transition`}
+              class:list={[
+                item.path === Astro.url.pathname
+                  ? "nav-active"
+                  : "nav-inactive",
+                "p-4 transition",
+              ]}
               href={item.path}
             >
               {item.label}
@@ -75,9 +78,10 @@ import { navData } from "@data/navData";
       navData.map((item) => (
         <a
           aria-current={item.path === Astro.url.pathname ? "page" : null}
-          class={`${
-            item.path === Astro.url.pathname ? "nav-active" : "nav-inactive"
-          } relative p-4 transition`}
+          class:list={[
+            item.path === Astro.url.pathname ? "nav-active" : "nav-inactive",
+            "relative p-4 transition",
+          ]}
           href={item.path}
         >
           {item.label}
@@ -143,7 +147,7 @@ import { navData } from "@data/navData";
     menuIconOpen?.classList.toggle("hide");
     menuBtn.setAttribute(
       "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu"
+      menuExpanded ? "Open Menu" : "Close Menu",
     );
     menuItems?.classList.toggle("hide");
     menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");

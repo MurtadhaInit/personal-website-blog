@@ -11,7 +11,7 @@ export const contactLinks = [
   },
   {
     label: "LinkedIn",
-    path: "",
+    path: "https://www.linkedin.com/in/murtadhama/",
     icon: "mdi:linkedin",
   },
 ];
