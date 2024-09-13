@@ -11,11 +11,10 @@ interface Props {
   postTags?: CollectionEntry<"blog">["data"]["tags"];
 }
 
-// tagsToShow defaults to showing all
 const {
   showCount = true,
-  tagsToShow = 0,
-  postTags = null
+  tagsToShow, // default to showing all
+  postTags,
 } = Astro.props as Props;
 
 const allPosts = await getCollection("blog");
@@ -31,11 +30,14 @@ if (postTags) {
 const tagsToPosts = tagsToNumberOfPosts(allTags, filteredPosts, tagsToShow);
 ---
 
-<ul>
+<ul class="flex flex-wrap items-center justify-start gap-x-8 gap-y-2">
   {
     tagsToPosts.map((tagToPosts) => (
       <li>
-        <a href={`/blog/tags/${slugify(tagToPosts.tag)}`}>
+        <a
+          href={`/blog/tags/${slugify(tagToPosts.tag)}`}
+          class="text-theme-light-text-muted transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent md:text-lg"
+        >
           {tagToPosts.tag} {showCount && `(${tagToPosts.posts})`}
         </a>
       </li>
