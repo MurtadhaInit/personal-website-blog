@@ -17,25 +17,21 @@ const { text, href, style, icon, classes = [] } = Astro.props as Props;
 
 <a
   {href}
-  class:list={[
-    style === "primary"
-      ? ["bg-blue-300", "text-black-300"]
-      : ["bg-black-300", "text-blue-300"],
-    // { "primary-btn": style === "primary", "secondary-btn": style === "secondary" },
-    ...classes,
-  ]}
+  class={`${style === "primary" ? "primary" : "secondary"} py-2 px-4 rounded-lg flex justify-between gap-2 w-fit`}
 >
-  {
-    icon && icon.side === "left" && (
-      <Icon name={icon.name} height={24} width={24} />
-    )
-  }
+  {icon && icon.side === "left" && <Icon name={icon.name} size={24} />}
 
-  <span>{text}</span>
+  <span class="text-lg">{text}</span>
 
-  {
-    icon && icon.side === "right" && (
-      <Icon name={icon.name} height={24} width={24} />
-    )
-  }
+  {icon && icon.side === "right" && <Icon name={icon.name} size={24} />}
 </a>
+
+<style>
+  .primary {
+    @apply bg-theme-light-fill text-theme-light-text transition hover:text-theme-light-accent dark:bg-theme-dark-fill dark:text-theme-dark-text dark:hover:text-theme-dark-accent;
+  }
+
+  .secondary {
+    @apply bg-theme-light-fill-muted text-theme-light-text transition hover:text-theme-light-accent dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:hover:text-theme-dark-accent;
+  }
+</style>
