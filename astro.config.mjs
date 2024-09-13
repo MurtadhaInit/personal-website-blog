@@ -19,6 +19,7 @@ export default defineConfig({
           "close-to-menu-alt-transition",
           "menu-to-close-alt-transition",
           "home",
+          "rss",
         ],
         mdi: ["twitter", "github", "linkedin", "email", "tailwind"],
         "devicon-plain": [

@@ -29,9 +29,6 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.67
         version: 1.1.67
-      '@iconify-json/tabler':
-        specifier: ^1.1.118
-        version: 1.1.118
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -434,9 +431,6 @@ packages:
 
   '@iconify-json/mdi@1.1.67':
     resolution: {integrity: sha512-00nllHES8hyACwIfgySlQgAE6MKgpr2wsKfpifMiZWZ9aXC5l4Jb0lR3lJSWwXgOW6kzAOdzC3T+2VOfBBZ13A==}
-
-  '@iconify-json/tabler@1.1.118':
-    resolution: {integrity: sha512-nDOjYG75BlagOe4e+V3K4qVFujdPOeYzi6ZB3sYz0xbdIkpSF/4YvKGdLDr4tmkwGUTV8fhlHVfMpRoDoBnnnA==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -2907,10 +2901,6 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/mdi@1.1.67':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/tabler@1.1.118':
     dependencies:
       '@iconify/types': 2.0.0
 
