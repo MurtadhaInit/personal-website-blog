@@ -4,11 +4,24 @@ import Link from "@components/Link.astro";
 ---
 
 <Layout title="Page Not Found" description="Missing page or broken URL">
-  <div>
-    <div>
-      <h1>Well, this is awkward.</h1>
-      <p>We seem to have misplaced something...</p>
+  <main class="mx-auto my-16 max-w-5xl">
+    <div
+      class="mx-8 rounded-3xl bg-theme-light-fill-muted p-8 dark:bg-theme-dark-fill-muted"
+    >
+      <h1 class="mb-4 text-3xl text-theme-light-text dark:text-theme-dark-text">
+        Well, this is awkward 😬
+      </h1>
+      <p
+        class="mb-16 text-xl text-theme-light-text-muted dark:text-theme-dark-text-muted"
+      >
+        We seem to have misplaced something...
+      </p>
+      <Link
+        text="Home"
+        href="/"
+        style={"primary"}
+        icon={{ name: "line-md:home", side: "left" }}
+      />
     </div>
-    <Link text="Go Home" href="/" style="primary" />
-  </div>
+  </main>
 </Layout>
