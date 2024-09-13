@@ -18,6 +18,7 @@ export default defineConfig({
           "moon-filled-to-sunny-filled-loop-transition",
           "close-to-menu-alt-transition",
           "menu-to-close-alt-transition",
+          "home",
         ],
         mdi: ["twitter", "github", "linkedin", "email", "tailwind"],
         "devicon-plain": [
