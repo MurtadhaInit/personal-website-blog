@@ -2,24 +2,25 @@
 import Link from "@components/Link.astro";
 
 interface Props {
-  prevURL: string | undefined;
-  nextURL: string | undefined;
+  prevURL?: string;
+  nextURL?: string;
 }
 
 const { prevURL, nextURL } = Astro.props as Props;
 ---
 
-<nav>
+<nav class="flex items-center justify-between">
   {
     prevURL && (
       <Link
         text="Previous"
         href={prevURL}
-        style={"primary"}
+        style={"secondary"}
         icon={{
-          name: "tabler:arrow-big-left-line",
+          name: "line-md:chevron-small-double-left",
           side: "left",
         }}
+        classes={["mr-auto"]}
       />
     )
   }
@@ -28,11 +29,12 @@ const { prevURL, nextURL } = Astro.props as Props;
       <Link
         text="Next"
         href={nextURL}
-        style={"primary"}
+        style={"secondary"}
         icon={{
-          name: "tabler:arrow-big-right-line",
+          name: "line-md:chevron-small-double-right",
           side: "right",
         }}
+        classes={["ml-auto"]}
       />
     )
   }

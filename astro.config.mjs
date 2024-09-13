@@ -12,13 +12,14 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        tabler: ["rss", "arrow-big-left-line", "arrow-big-right-line"],
         "line-md": [
           "sunny-outline-to-moon-loop-transition",
           "moon-filled-to-sunny-filled-loop-transition",
           "close-to-menu-alt-transition",
           "menu-to-close-alt-transition",
           "home",
+          "chevron-small-double-right",
+          "chevron-small-double-left",
           "rss",
         ],
         mdi: ["twitter", "github", "linkedin", "email", "tailwind"],
