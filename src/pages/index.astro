@@ -24,35 +24,37 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
       <Image
         src={headshot}
         alt="My personal photo"
-        class="rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4"
+        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 md:max-w-96 lg:col-span-2 lg:col-start-4 lg:max-w-80"
       />
 
       <div class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1">
         <h1
           class="mb-4 text-4xl font-bold text-theme-light-text dark:text-theme-dark-text"
         >
-          Hey, I'm <span>Murtadha</span>
+          Hey, I'm Murtadha
         </h1>
         <p
           class="mb-4 text-theme-light-text-muted dark:text-theme-dark-text-muted"
         >
-          I'm a software engineer working mostly with Web technologies. I have a
-          passion for building stuff and a curiosity that keeps me motivated to
-          learn new stacks and explore novel and exciting technologies.
+          I'm a software engineer currently based in Jordan 🇯🇴 working mostly
+          with web technologies. I have a passion for building stuff (like this
+          website!) and a curiosity that always pushes me to learn new things
+          and explore novel and exciting technologies.
         </p>
         <p
           class="mb-4 text-theme-light-text-muted dark:text-theme-dark-text-muted"
         >
-          I have graduated with a BSc in Computing and IT from the UK, where I
-          have lived for over 7 years. I'm currently pursuing a Masters degree
-          in Machine Learning and AI in Europe.
+          I'm in my final year pursuing a BSc in Computing and IT from the UK,
+          where I have previously lived for over 7 years. After I graduate I
+          plan to further explore the field of Machine Learning and AI with an
+          appropriate Masters degree.
         </p>
         <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
-          In my free time I like to find the next best anime to watch, follow a
-          new TV show, or occasionally read. I like sci-fi, but I'm generally
-          interested in everything that expands my horizon. My areas of interest
-          include learning, knowledge management, and developer/productivity
-          tools.
+          In my free time I like to find the next best anime to watch, follow
+          the plot of a new TV show, or occasionally read an informative or an
+          entertaining book. I'm generally enthusiastic about anything that can
+          expand my worldview. My general areas of interest include learning,
+          knowledge management, and developer/productivity tools.
         </p>
       </div>
 
@@ -149,13 +151,14 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             > and try to improve my photography skills
           </li>
           <li>
-            My complete <a
+            Check out my complete <a
               href="/setup"
               class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
               >setup</a
             > for programming and general productivity
           </li>
           <li>
+            <!--TODO: link to the appropriate slug for this future article-->
             Read about my experience using the <a
               href=""
               target="_blank"
