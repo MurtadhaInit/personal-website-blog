@@ -19,7 +19,7 @@ export const getAllTags = (posts: CollectionEntry<"blog">[]) => {
 export const tagsToNumberOfPosts = (
   tags: CollectionEntry<"blog">["data"]["tags"],
   posts: CollectionEntry<"blog">[],
-  limit: number,
+  limit?: number,
 ) => {
   return tags
     .map((tag) => {
@@ -31,5 +31,5 @@ export const tagsToNumberOfPosts = (
       };
     })
     .sort(() => Math.random() - 0.5)
-    .slice(limit);
+    .slice(0, limit);
 };

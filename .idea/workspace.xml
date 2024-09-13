@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Fixed and refactored the grid in the 1st section in the index page and added a technologies subsection&#10;- Installed devicon-plain icons set for the new subsection&#10;- Technologies I'm familiar with is now put in a file in @data&#10;- Removed the width from the image subsection">
+    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/headshot.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/image-default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Link.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Link.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/404.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pagination.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TagsCloud.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TagsCloud.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/contactLinks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/contactLinks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/[...page].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[...page].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/TagsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TagsUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +97,7 @@
     "nodejs_interpreter_path": "/Users/murtadha/.local/state/fnm_multishells/12722_1725579264357/bin/node",
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/Users/murtadha/Projects/personal-website-blog/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/murtadha/Projects/personal-website-blog/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -297,7 +305,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725924265934</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Completely reworked and fixed the 404 page">
+      <option name="closed" value="true" />
+      <created>1726233760787</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726233760787</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Completely reworked and fixed the Link component and added a Home page icon">
+      <option name="closed" value="true" />
+      <created>1726233882550</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726233882550</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging">
+      <option name="closed" value="true" />
+      <created>1726234187146</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726234187146</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +354,10 @@
     <MESSAGE value="Added a Dockerfile to build a deployable Nginx production container&#10;- Upgraded to Node 20&#10;- Installed sharp explicitly for Astro Image to work even though it's an Astro dependency because strict package managers like pnpm requires that" />
     <MESSAGE value="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr" />
     <MESSAGE value="Fixed and refactored the grid in the 1st section in the index page and added a technologies subsection&#10;- Installed devicon-plain icons set for the new subsection&#10;- Technologies I'm familiar with is now put in a file in @data&#10;- Removed the width from the image subsection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed and refactored the grid in the 1st section in the index page and added a technologies subsection&#10;- Installed devicon-plain icons set for the new subsection&#10;- Technologies I'm familiar with is now put in a file in @data&#10;- Removed the width from the image subsection" />
+    <MESSAGE value="Completely reworked and fixed the 404 page" />
+    <MESSAGE value="Completely reworked and fixed the Link component and added a Home page icon" />
+    <MESSAGE value="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
