@@ -15,11 +15,11 @@ export const getStaticPaths = async () => {
   // a unique set of all categories extracted from posts
   const allCategories = getAllCategories(filteredPosts);
 
-  // generate a path for each category, the props is all posts in that category
+  // generate a path for each category
   return allCategories.map((category) => {
-    // all posts in this category
+    // all posts in a category
     const categoryPosts = filteredPosts.filter(
-      (post) => post.data.category === category
+      (post) => post.data.category === category,
     );
 
     return {
@@ -41,10 +41,20 @@ const { category, posts } = Astro.props as Props;
 ---
 
 <Layout title={category}>
-  <section aria-label=`Posts about ${category}`>
-    <h1>Posts about <span>{category}</span></h1>
-    <div>
-      {posts.map((post) => <PostCard post={post} maxTags={5} style={"wide"} />)}
-    </div>
-  </section>
+  <main class="mx-auto my-16 max-w-5xl">
+    <section class="mx-8" aria-label=`Posts about ${category}`>
+      <h1 class="mb-8 text-4xl text-theme-light-text dark:text-theme-dark-text">
+        Posts about {category}
+      </h1>
+      <ul class="space-y-8">
+        {
+          posts.map((post) => (
+            <li>
+              <PostCard post={post} maxTags={5} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
 </Layout>

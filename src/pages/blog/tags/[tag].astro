@@ -16,11 +16,11 @@ export const getStaticPaths = async () => {
   // a unique set of all tags extracted from posts
   const allTags = getAllTags(filteredPosts);
 
-  // generate a path for each tag, the props is all posts including that tag
+  // generate a path for each tag
   return allTags.map((tag) => {
     // all posts associated with this tag
     const tagPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag)
+      post.data.tags.includes(tag),
     );
 
     return {
@@ -42,10 +42,20 @@ const { tag, posts } = Astro.props as Props;
 ---
 
 <Layout title={tag}>
-  <section aria-label=`Posts about ${tag}`>
-    <h1>Posts about <span>{tag}</span></h1>
-    <div>
-      {posts.map((post) => <PostCard post={post} maxTags={5} style={"wide"} />)}
-    </div>
-  </section>
+  <main class="mx-auto my-16 max-w-5xl">
+    <section class="mx-8" aria-label=`Posts about ${tag}`>
+      <h1 class="mb-8 text-4xl text-theme-light-text dark:text-theme-dark-text">
+        Posts about {tag}
+      </h1>
+      <ul class="space-y-8">
+        {
+          posts.map((post) => (
+            <li>
+              <PostCard post={post} maxTags={5} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
 </Layout>
