@@ -30,13 +30,13 @@ if (postTags) {
 const tagsToPosts = tagsToNumberOfPosts(allTags, filteredPosts, tagsToShow);
 ---
 
-<ul class="flex flex-wrap items-center justify-start gap-x-8 gap-y-2">
+<ul class="flex flex-wrap items-start justify-start gap-x-8 gap-y-2">
   {
     tagsToPosts.map((tagToPosts) => (
       <li>
         <a
           href={`/blog/tags/${slugify(tagToPosts.tag)}`}
-          class="text-theme-light-text-muted transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent md:text-lg"
+          class="whitespace-nowrap text-sm text-theme-light-text-muted transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent md:text-base lg:text-lg"
         >
           {tagToPosts.tag} {showCount && `(${tagToPosts.posts})`}
         </a>
