@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: "class",
@@ -15,7 +15,7 @@ export default {
           },
           light: {
             fill: "#FFFFFF",
-            "fill-muted": "#FFFDFE",
+            "fill-muted": "#E2E2E2",
             text: "#27262A",
             "text-muted": "#55545A",
             accent: "#5BB7A8",
