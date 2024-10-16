@@ -18,36 +18,57 @@ const { title, description, date, category, author, image, tags } = post.data;
 ---
 
 <Layout {title} {description}>
-  <header>
-    <div>
-      <small>
-        <a href={`/blog/categories/${slugify(category)}`}>{category}</a>
-      </small>
-      <h1>{title}</h1>
-      <p>
-        by {author} • {date.toLocaleDateString()}
-      </p>
-    </div>
-    <Image
-      src={image.src}
-      alt={image.alt}
-      width={1200}
-      height={600}
-      format="avif"
-    />
-  </header>
+  <main class="mx-auto my-16 max-w-5xl">
+    <section class="mx-8 mb-12">
+      <div class="mb-8">
+        <p
+          class="mb-4 text-2xl text-theme-light-text-muted dark:text-theme-dark-text-muted"
+        >
+          <a
+            class="transition hover:text-theme-light-accent dark:hover:text-theme-dark-accent"
+            href={`/blog/categories/${slugify(category)}`}>{category}</a
+          >
+        </p>
+        <h1
+          class="mb-2 text-4xl text-theme-light-text dark:text-theme-dark-text"
+        >
+          {title}
+        </h1>
+        <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+          By {author} • {date.toLocaleDateString()}
+        </p>
+      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={1200}
+        height={600}
+        class="rounded-xl"
+      />
+    </section>
 
-  <div>
-    <slot>This post seems to be missing...</slot>
-  </div>
-  <div>
-    <aside>
-      <h2>Tags</h2>
-      <TagsCloud postTags={tags} />
-    </aside>
-    <aside>
-      <h2>Related Posts</h2>
-      <RelatedPosts originalPost={post} postsToDisplay={3} />
-    </aside>
-  </div>
+    <section class="mx-8 mb-12 text-theme-light-text dark:text-theme-dark-text">
+      <slot>This post seems to be missing...</slot>
+    </section>
+
+    <div class="mx-8 flex items-start justify-start gap-12">
+      <aside class="basis-3/5">
+        <h2
+          class="mb-8 text-2xl text-theme-light-text dark:text-theme-dark-text"
+        >
+          Related Posts
+        </h2>
+        <RelatedPosts originalPost={post} postsToDisplay={4} />
+      </aside>
+
+      <aside class="max-w-max basis-2/5">
+        <h2
+          class="mb-8 text-2xl text-theme-light-text dark:text-theme-dark-text"
+        >
+          Tags
+        </h2>
+        <TagsCloud postTags={tags} />
+      </aside>
+    </div>
+  </main>
 </Layout>
