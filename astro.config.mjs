@@ -48,4 +48,7 @@ export default defineConfig({
     }),
     react(),
   ],
+  experimental: {
+    contentLayer: true,
+  },
 });

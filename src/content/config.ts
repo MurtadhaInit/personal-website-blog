@@ -1,16 +1,14 @@
 // library imports
 import { defineCollection, z } from "astro:content";
-
-// data imports
-import tags from "@data/blogTags";
+import { glob } from "astro/loaders";
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./content/blog" }),
   schema: ({ image }) =>
     z.object({
       title: z.string().max(60),
       date: z.date(),
-      author: z.enum(["Murtadha Abdulhussein"]),
+      author: z.enum(["Murtadha A."]),
       image: z.object({
         src: image(),
         alt: z.string().default("Blog Post Image"),
@@ -23,10 +21,10 @@ const blog = defineCollection({
         ),
       draft: z.boolean(),
       category: z.string(),
-      tags: z.array(z.enum(tags)),
+      tags: z.array(z.string()),
     }),
 });
 
 export const collections = {
-  blog: blog,
+  blog,
 };
