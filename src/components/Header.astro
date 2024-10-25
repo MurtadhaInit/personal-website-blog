@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import { navData } from "@data/navData";
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "")
 ---
 
 <header
@@ -36,9 +38,9 @@ import { navData } from "@data/navData";
         {
           navData.map((item) => (
             <a
-              aria-current={item.path === Astro.url.pathname ? "page" : null}
+              aria-current={item.path === currentPath ? "page" : null}
               class:list={[
-                item.path === Astro.url.pathname
+                item.path === currentPath
                   ? "nav-active"
                   : "nav-inactive",
                 "p-4 transition",
@@ -77,15 +79,15 @@ import { navData } from "@data/navData";
     {
       navData.map((item) => (
         <a
-          aria-current={item.path === Astro.url.pathname ? "page" : null}
+          aria-current={item.path === currentPath ? "page" : null}
           class:list={[
-            item.path === Astro.url.pathname ? "nav-active" : "nav-inactive",
+            item.path === currentPath ? "nav-active" : "nav-inactive",
             "relative p-4 transition",
           ]}
           href={item.path}
         >
           {item.label}
-          {item.path === Astro.url.pathname ? (
+          {item.path === currentPath ? (
             <span class="nav-active-underline" />
           ) : null}
         </a>
