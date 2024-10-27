@@ -16,6 +16,12 @@ const { title = "Murtadha", description = "My personal website and blog" } =
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Murtadha's Blog"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

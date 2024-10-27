@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging">
+    <list default="true" id="2989655f-91f7-4bed-9076-ec0ff72b91d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Link.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Link.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Pagination.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TagsCloud.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TagsCloud.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/contactLinks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/contactLinks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Base.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Base.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/blog/[...page].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/[...page].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/TagsUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/TagsUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,306 +23,72 @@
       <option value="directory" />
     </option>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Astro Component" />
-        <option value="Dockerfile" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
-  <component name="GOROOT" url="file://$USER_HOME$/.local/share/gobrew/.gobrew/versions/1.20.1/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsBowerSettings">
-    <bower-package value="" />
-    <bower.json value="" />
-  </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="OptimizeOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2VicJHldOtAxCU6FV0PdM9PLdfe" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2o2DDEjyc9oEV7MsyIRAbo5gxCg" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "javascript.nodejs.core.library.configured.version": "18.18.2",
-    "javascript.nodejs.core.library.typings.version": "18.18.14",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/murtadha/Projects/personal-website-blog/src/assets/images",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/murtadha/.local/state/fnm_multishells/12722_1725579264357/bin/node",
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/Users/murtadha/Projects/personal-website-blog/node_modules/prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/murtadha/Projects/personal-website-blog/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
-    <layout>
-      <window_info id="Bookmarks" show_stripe_button="false" side_tool="true" />
-      <window_info id="Merge Requests" show_stripe_button="false" />
-      <window_info id="Commit_Guest" show_stripe_button="false" />
-      <window_info id="npm" show_stripe_button="false" side_tool="true" />
-      <window_info id="Pull Requests" show_stripe_button="false" />
-      <window_info id="Learn" show_stripe_button="false" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3302515" />
-      <window_info id="Commit" order="1" weight="0.25" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Profiler" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.33036774" />
-      <window_info anchor="bottom" id="Services" order="4" />
-      <window_info anchor="right" id="String Manipulation" show_stripe_button="false" />
-      <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
-      <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
-      <window_info anchor="right" id="Notifications" order="0" weight="0.3302515" />
-      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
-      <window_info anchor="right" id="Database" order="2" weight="0.25" />
-      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
-      <window_info anchor="right" id="Key Promoter X" order="4" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
-    </layout>
-  </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets/images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets/images" />
-      <recent name="$PROJECT_DIR$/src/components/ui" />
-      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/rss" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="53be4a3e-6c6c-45c9-93bc-0f2926dfe8ec" name="Changes" comment="" />
-      <created>1695322268646</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1695322268646</updated>
-      <workItem from="1695322271393" duration="78000" />
-      <workItem from="1695322481703" duration="730000" />
-      <workItem from="1695651160120" duration="79000" />
-      <workItem from="1695651247033" duration="2145000" />
-      <workItem from="1695763898492" duration="598000" />
-      <workItem from="1695766790584" duration="9979000" />
-      <workItem from="1697583115993" duration="1225000" />
-      <workItem from="1697903184939" duration="616000" />
-      <workItem from="1698493121688" duration="2135000" />
-      <workItem from="1700159945200" duration="1814000" />
-      <workItem from="1700436370951" duration="42000" />
-      <workItem from="1700436419302" duration="28000" />
-      <workItem from="1700436457956" duration="844000" />
-      <workItem from="1701047885648" duration="611000" />
-      <workItem from="1701104356587" duration="597000" />
-      <workItem from="1701115574222" duration="378000" />
-      <workItem from="1701115961424" duration="37000" />
-      <workItem from="1701116004955" duration="148000" />
-      <workItem from="1701519689925" duration="598000" />
-      <workItem from="1701531380799" duration="4035000" />
-      <workItem from="1701603795764" duration="169000" />
-      <workItem from="1701603971431" duration="77000" />
-      <workItem from="1701604054011" duration="1135000" />
-      <workItem from="1701605198491" duration="74000" />
-      <workItem from="1701605278925" duration="407000" />
-      <workItem from="1701605693503" duration="82000" />
-      <workItem from="1701605781804" duration="1500000" />
-      <workItem from="1701608415737" duration="945000" />
-      <workItem from="1701609404874" duration="649000" />
-      <workItem from="1701619988983" duration="12973000" />
-      <workItem from="1701811063572" duration="21219000" />
-      <workItem from="1701890371631" duration="5840000" />
-      <workItem from="1701897252497" duration="2897000" />
-      <workItem from="1701908585891" duration="8083000" />
-      <workItem from="1701998992265" duration="2909000" />
-      <workItem from="1702685730722" duration="1614000" />
-      <workItem from="1702689548781" duration="6782000" />
-      <workItem from="1702947061189" duration="11567000" />
-      <workItem from="1702993582694" duration="1773000" />
-      <workItem from="1703032297331" duration="255000" />
-      <workItem from="1703032601216" duration="803000" />
-      <workItem from="1703033411334" duration="318000" />
-      <workItem from="1703033736879" duration="1452000" />
-      <workItem from="1703077745125" duration="33000" />
-      <workItem from="1703077783611" duration="61000" />
-      <workItem from="1703807906118" duration="217000" />
-      <workItem from="1707131909914" duration="20000" />
-      <workItem from="1707131935275" duration="137000" />
-      <workItem from="1707132110947" duration="31000" />
-      <workItem from="1707132156885" duration="122000" />
-      <workItem from="1707132284610" duration="1047000" />
-      <workItem from="1707133345376" duration="26000" />
-      <workItem from="1707133377179" duration="183000" />
-      <workItem from="1707614666692" duration="19000" />
-      <workItem from="1707614692694" duration="643000" />
-      <workItem from="1707616097549" duration="37000" />
-      <workItem from="1709414566185" duration="17000" />
-      <workItem from="1709414589543" duration="210000" />
-      <workItem from="1714346907163" duration="39000" />
-      <workItem from="1714346949784" duration="3813000" />
-      <workItem from="1715248369446" duration="794000" />
-      <workItem from="1715548529424" duration="183000" />
-      <workItem from="1715548722366" duration="242000" />
-      <workItem from="1715548972040" duration="627000" />
-      <workItem from="1715700647632" duration="742000" />
-      <workItem from="1715706276220" duration="2510000" />
-      <workItem from="1715898372551" duration="1332000" />
-      <workItem from="1715899714724" duration="1536000" />
-      <workItem from="1715901288897" duration="328000" />
-      <workItem from="1715901622707" duration="282000" />
-      <workItem from="1715901911371" duration="6362000" />
-      <workItem from="1716041281433" duration="31000" />
-      <workItem from="1716041321807" duration="59000" />
-      <workItem from="1716041386816" duration="79000" />
-      <workItem from="1716041473613" duration="2250000" />
-      <workItem from="1716212747533" duration="2025000" />
-      <workItem from="1716496958997" duration="3392000" />
-      <workItem from="1716761948185" duration="587000" />
-      <workItem from="1716764163161" duration="1759000" />
-      <workItem from="1716856672380" duration="4045000" />
-      <workItem from="1717624919116" duration="2638000" />
-      <workItem from="1724085586260" duration="27000" />
-      <workItem from="1724085618654" duration="1428000" />
-      <workItem from="1725120357909" duration="725000" />
-      <workItem from="1725446269093" duration="46000" />
-      <workItem from="1725446322111" duration="10310000" />
-      <workItem from="1725701310856" duration="905000" />
-    </task>
-    <task id="LOCAL-00001" summary="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions.">
+    <task id="LOCAL-00001" summary="Implemented a fix for Astro.url.pathname not picking up the correct current path due to a trailing slash in production&#10;- This caused the styling for the button indicating the current page in navbars (footer and header) to not be displayed&#10;- Also refactored this to use a single constant defined in the YAML part and referenced in multiple places in the markup part">
       <option name="closed" value="true" />
-      <created>1695859118812</created>
+      <created>1729872024651</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1695859118812</updated>
+      <updated>1729872024651</updated>
     </task>
-    <task id="LOCAL-00002" summary="Major refactoring and removal of a few unnecessary components.">
+    <task id="LOCAL-00002" summary="Updated the Obsidian plugin QuickAdd and the theme Catppuccin">
       <option name="closed" value="true" />
-      <created>1702001143873</created>
+      <created>1729872885852</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1702001143873</updated>
+      <updated>1729872885852</updated>
     </task>
-    <task id="LOCAL-00003" summary="Finished refactoring, simplifying and removing cruft from the app.">
-      <option name="closed" value="true" />
-      <created>1702998818091</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702998818091</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2989655f-91f7-4bed-9076-ec0ff72b91d8" name="Changes" comment="" />
+      <created>1730058656201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730058656201</updated>
+      <workItem from="1730058658656" duration="5008000" />
     </task>
-    <task id="LOCAL-00004" summary="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body">
-      <option name="closed" value="true" />
-      <created>1716515619561</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1716515619561</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added a Dockerfile to build a deployable Nginx production container&#10;- Upgraded to Node 20&#10;- Installed sharp explicitly for Astro Image to work even though it's an Astro dependency because strict package managers like pnpm requires that">
-      <option name="closed" value="true" />
-      <created>1725699194753</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1725699194753</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr">
-      <option name="closed" value="true" />
-      <created>1725709695464</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1725709695464</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fixed and refactored the grid in the 1st section in the index page and added a technologies subsection&#10;- Installed devicon-plain icons set for the new subsection&#10;- Technologies I'm familiar with is now put in a file in @data&#10;- Removed the width from the image subsection">
-      <option name="closed" value="true" />
-      <created>1725924265933</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1725924265934</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Completely reworked and fixed the 404 page">
-      <option name="closed" value="true" />
-      <created>1726233760787</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1726233760787</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Completely reworked and fixed the Link component and added a Home page icon">
-      <option name="closed" value="true" />
-      <created>1726233882550</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1726233882550</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging">
-      <option name="closed" value="true" />
-      <created>1726234187146</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1726234187146</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,23 +106,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added prettier and two related prettier plugins for Astro and Tailwind.&#10;- Also added a prettier config file with Astro's suggestions." />
-    <MESSAGE value="Major refactoring and removal of a few unnecessary components." />
-    <MESSAGE value="Finished refactoring, simplifying and removing cruft from the app." />
-    <MESSAGE value="Changed the `limit` option in filterPosts() to be null by default and simplified the type check in function body" />
-    <MESSAGE value="Added a Dockerfile to build a deployable Nginx production container&#10;- Upgraded to Node 20&#10;- Installed sharp explicitly for Astro Image to work even though it's an Astro dependency because strict package managers like pnpm requires that" />
-    <MESSAGE value="Few cleanups and fixing the height of rows for 1st section components in the index page.&#10;- Grid template rows for that section is now defined with auto instead of 1fr" />
-    <MESSAGE value="Fixed and refactored the grid in the 1st section in the index page and added a technologies subsection&#10;- Installed devicon-plain icons set for the new subsection&#10;- Technologies I'm familiar with is now put in a file in @data&#10;- Removed the width from the image subsection" />
-    <MESSAGE value="Completely reworked and fixed the 404 page" />
-    <MESSAGE value="Completely reworked and fixed the Link component and added a Home page icon" />
     <MESSAGE value="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added my own image to be displayed in the home page and reworked the styles&#10;- Removed placeholder image(s)&#10;- Also changed the about section messaging" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="Implemented a fix for Astro.url.pathname not picking up the correct current path due to a trailing slash in production&#10;- This caused the styling for the button indicating the current page in navbars (footer and header) to not be displayed&#10;- Also refactored this to use a single constant defined in the YAML part and referenced in multiple places in the markup part" />
+    <MESSAGE value="Updated the Obsidian plugin QuickAdd and the theme Catppuccin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the Obsidian plugin QuickAdd and the theme Catppuccin" />
   </component>
 </project>
