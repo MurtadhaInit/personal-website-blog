@@ -17,7 +17,12 @@ const { title, date, image, description, tags } = post.data;
   class="flex flex-col items-center justify-start gap-4 rounded-lg bg-theme-light-fill-muted p-4 dark:bg-theme-dark-fill-muted md:flex-row md:items-start md:gap-12"
 >
   <a href={`/blog/${post.id}`} aria-hidden="true" tabindex="-1">
-    <Image class="w-full rounded-md md:w-64" src={image.src} alt={image.alt} />
+    <Image
+      class="w-full rounded-md md:w-64"
+      src={image.src}
+      alt={image.alt}
+      transition:name={`image_${post.id}`}
+    />
   </a>
   <div
     class="flex flex-1 flex-col items-start justify-between gap-4 self-stretch"

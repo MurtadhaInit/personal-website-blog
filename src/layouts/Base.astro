@@ -2,6 +2,7 @@
 import "@styles/globals.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -28,7 +29,7 @@ const { title = "Murtadha", description = "My personal website and blog" } =
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <script is:inline src="/toggleTheme.js"></script>
+    <ViewTransitions />
   </head>
   <body class="bg-theme-light-fill dark:bg-theme-dark-fill">
     <Header />
@@ -38,3 +39,52 @@ const { title = "Murtadha", description = "My personal website and blog" } =
     <Footer />
   </body>
 </html>
+
+<script>
+  // -- theme settings --
+  document.addEventListener("astro:page-load", () => {
+    function getThemePref(): "dark" | "light" {
+      // return the current theme, if it's set in local storage
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme && (currentTheme === "dark" || currentTheme === "light"))
+        return currentTheme;
+
+      // or otherwise return the system theme preference
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+        return "dark";
+      return "light";
+    }
+
+    function reflectThemePref(theme: "dark" | "light"): void {
+      theme === "dark"
+        ? document.documentElement.classList.add("dark")
+        : document.documentElement.classList.remove("dark");
+
+      const toggleThemeButton = document.getElementById("theme-btn");
+      toggleThemeButton?.setAttribute(
+        "aria-label",
+        `Switch to ${theme === "dark" ? "light" : "dark"} theme`,
+      );
+    }
+
+    reflectThemePref(getThemePref());
+
+    // listen to theme toggle button for manual changes
+    document.getElementById("theme-btn")?.addEventListener("click", () => {
+      // flip the currently selected theme
+      const theme = getThemePref() === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", theme);
+      reflectThemePref(theme);
+    });
+
+    // sync with system preference changes
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", ({ matches: isDark }) => {
+        const systemTheme = isDark ? "dark" : "light";
+        const setTheme = localStorage.getItem("theme");
+        // if theme was not manually set, reflect change
+        if (!setTheme) reflectThemePref(systemTheme);
+      });
+  });
+</script>

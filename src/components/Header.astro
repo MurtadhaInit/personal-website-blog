@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { navData } from "@data/navData";
 
-const currentPath = Astro.url.pathname.replace(/\/+$/, "")
+const currentPath = Astro.url.pathname.replace(/\/+$/, "");
 ---
 
 <header
@@ -40,9 +40,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "")
             <a
               aria-current={item.path === currentPath ? "page" : null}
               class:list={[
-                item.path === currentPath
-                  ? "nav-active"
-                  : "nav-inactive",
+                item.path === currentPath ? "nav-active" : "nav-inactive",
                 "p-4 transition",
               ]}
               href={item.path}
@@ -136,22 +134,26 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "")
 </style>
 
 <script>
-  // toggle nav menu
-  const menuBtn = document.getElementById("hamburger-menu-btn");
-  const menuItems = document.getElementById("menu-items");
-  const menuIconOpen = document.getElementById("hamburger-menu-icon-open");
-  const menuIconClosed = document.getElementById("hamburger-menu-icon-closed");
-
-  menuBtn?.addEventListener("click", () => {
-    const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-
-    menuIconClosed?.classList.toggle("hide");
-    menuIconOpen?.classList.toggle("hide");
-    menuBtn.setAttribute(
-      "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu",
+  document.addEventListener("astro:page-load", () => {
+    // toggle nav menu
+    const menuBtn = document.getElementById("hamburger-menu-btn");
+    const menuItems = document.getElementById("menu-items");
+    const menuIconOpen = document.getElementById("hamburger-menu-icon-open");
+    const menuIconClosed = document.getElementById(
+      "hamburger-menu-icon-closed",
     );
-    menuItems?.classList.toggle("hide");
-    menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+
+    menuBtn?.addEventListener("click", () => {
+      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+
+      menuIconClosed?.classList.toggle("hide");
+      menuIconOpen?.classList.toggle("hide");
+      menuBtn.setAttribute(
+        "aria-label",
+        menuExpanded ? "Open Menu" : "Close Menu",
+      );
+      menuItems?.classList.toggle("hide");
+      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+    });
   });
 </script>
