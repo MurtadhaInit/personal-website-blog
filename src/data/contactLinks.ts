@@ -18,6 +18,6 @@ export const contactLinks = [
 
 export const contactEmail = {
   label: "Get in touch",
-  path: "murtadha@murtadha.com",
+  path: "business@murtadha.site",
   icon: "mdi:email",
 };
