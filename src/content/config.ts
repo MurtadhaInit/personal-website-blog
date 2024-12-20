@@ -12,11 +12,9 @@ const blog = defineCollection({
     z.object({
       title: z.string().max(60),
       date: z.date(),
-      author: z.enum(["Murtadha A."]),
-      image: z.object({
-        src: image(),
-        alt: z.string().default("Blog Post Image"),
-      }),
+      author: z.string().default("Murtadha A."),
+      cover: image(),
+      coverAlt: z.string().default("Blog post cover image"),
       description: z
         .string()
         .max(

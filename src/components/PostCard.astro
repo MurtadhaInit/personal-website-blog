@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { post, maxTags } = Astro.props as Props;
-const { title, date, image, description, tags } = post.data;
+const { title, date, cover, coverAlt, description, tags } = post.data;
 ---
 
 <article
@@ -19,8 +19,8 @@ const { title, date, image, description, tags } = post.data;
   <a href={`/blog/${post.id}`} aria-hidden="true" tabindex="-1">
     <Image
       class="w-full rounded-md md:w-64"
-      src={image.src}
-      alt={image.alt}
+      src={cover}
+      alt={coverAlt}
       transition:name={`image_${post.id}`}
     />
   </a>

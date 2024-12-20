@@ -14,7 +14,8 @@ interface Props {
 }
 
 const { post } = Astro.props as Props;
-const { title, description, date, category, author, image, tags } = post.data;
+const { title, description, date, category, author, cover, coverAlt, tags } =
+  post.data;
 ---
 
 <Layout {title} {description}>
@@ -39,8 +40,8 @@ const { title, description, date, category, author, image, tags } = post.data;
         </p>
       </div>
       <Image
-        src={image.src}
-        alt={image.alt}
+        src={cover}
+        alt={coverAlt}
         width={1200}
         height={600}
         class="rounded-xl"

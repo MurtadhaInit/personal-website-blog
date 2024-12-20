@@ -2,11 +2,8 @@
 title: Behold! an amazing blog post title
 date: 2022-12-09
 author: Murtadha A.
-image:
-  {
-    src: "@assets/images/blogPostImages/post-4.jpg",
-    alt: "A picture of a coder",
-  }
+cover: "@assets/images/blogPostImages/post-4.jpg"
+coverAlt: "A picture of a coder"
 description: Life is full of surprises.
 draft: false
 category: General

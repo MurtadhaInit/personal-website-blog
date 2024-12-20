@@ -2,11 +2,8 @@
 title: JavaScript SchmavaScript
 date: 2022-12-05
 author: Murtadha A.
-image:
-  {
-    src: "@assets/images/blogPostImages/post-5.jpg",
-    alt: "A picture of a coder",
-  }
+cover: "@assets/images/blogPostImages/post-5.jpg"
+coverAlt: "A picture of a coder"
 description: This is a blog post about the JavaScript programming language.
 draft: false
 category: Programming
