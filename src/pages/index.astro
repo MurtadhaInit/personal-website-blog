@@ -9,7 +9,7 @@ import { technologies } from "@data/technologies";
 
 import Layout from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
-import headshot from "@assets/images/headshot.jpg";
+import headshot from "@assets/images/headshot/headshot.jpg";
 
 const allPosts = await getCollection("blog");
 const postsToDisplay = filterPosts(allPosts, { limit: 3 });
