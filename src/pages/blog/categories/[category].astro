@@ -11,13 +11,12 @@ import { slugify, filterPosts, getAllCategories } from "@utils/utils";
 export const getStaticPaths = async () => {
   const allPosts = await getCollection("blog");
   const filteredPosts = filterPosts(allPosts);
-
   // a unique set of all categories extracted from posts
   const allCategories = getAllCategories(filteredPosts);
 
   // generate a path for each category
   return allCategories.map((category) => {
-    // all posts in a category
+    // get a list of all posts in a certain category
     const categoryPosts = filteredPosts.filter(
       (post) => post.data.category === category,
     );

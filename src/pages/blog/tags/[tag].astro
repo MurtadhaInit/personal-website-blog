@@ -12,7 +12,6 @@ import { getAllTags } from "@utils/TagsUtils";
 export const getStaticPaths = async () => {
   const allPosts = await getCollection("blog");
   const filteredPosts = filterPosts(allPosts);
-
   // a unique set of all tags extracted from posts
   const allTags = getAllTags(filteredPosts);
 

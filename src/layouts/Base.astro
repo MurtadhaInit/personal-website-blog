@@ -2,7 +2,7 @@
 import "@styles/globals.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -29,7 +29,7 @@ const { title = "Murtadha", description = "My personal website and blog" } =
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-theme-light-fill dark:bg-theme-dark-fill">
     <Header />
