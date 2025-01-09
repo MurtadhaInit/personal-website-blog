@@ -1,15 +1,18 @@
 export const technologies = [
   {
-    icon: "devicon-plain:python",
+    icon: "devicon-plain:linux",
   },
   {
-    icon: "devicon-plain:fastapi",
+    icon: "devicon-plain:ansible",
   },
   {
-    icon: "devicon-plain:jupyter-wordmark",
+    icon: "devicon-plain:terraform",
   },
   {
-    icon: "devicon-plain:javascript",
+    icon: "devicon-plain:docker",
+  },
+  {
+    icon: "simple-icons:nushell",
   },
   {
     icon: "devicon-plain:typescript",
@@ -21,24 +24,30 @@ export const technologies = [
     icon: "mdi:tailwind",
   },
   {
-    icon: "devicon-plain:ansible",
+    icon: "devicon-plain:python",
   },
   {
-    icon: "devicon-plain:docker",
+    icon: "devicon-plain:jupyter-wordmark",
   },
   {
-    icon: "devicon-plain:bash",
+    icon: "devicon-plain:fastapi",
   },
   {
     icon: "devicon-plain:figma",
   },
   {
+    icon: "devicon-plain:notion",
+  },
+  // {
+  //   icon: "devicon-plain:bash",
+  // },
+  {
     icon: "devicon-plain:githubactions",
   },
   {
-    icon: "devicon-plain:linux",
+    icon: "devicon-plain:java",
   },
   {
-    icon: "devicon-plain:java",
+    icon: "devicon-plain:go",
   },
 ];
