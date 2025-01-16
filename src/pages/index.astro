@@ -18,13 +18,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 mb-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-5 md:grid-rows-[auto_auto_auto] lg:grid-rows-[auto_auto]"
+      class="mx-8 mb-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-5 md:grid-rows-[auto_auto_auto] lg:grid-rows-[auto_auto] lg:gap-y-0"
       aria-label="About Me"
     >
       <Image
         src={headshot}
         alt="My personal photo"
-        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 md:max-w-96 lg:col-span-2 lg:col-start-4 lg:max-w-80"
+        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4 lg:max-w-72 lg:justify-self-start"
       />
 
       <div class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1">
@@ -36,25 +36,17 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         <p
           class="mb-4 text-theme-light-text-muted dark:text-theme-dark-text-muted"
         >
-          I'm a software engineer currently based in Jordan 🇯🇴 working mostly
-          with web technologies. I have a passion for building stuff (like this
-          website!) and a curiosity that always pushes me to learn new things
-          and explore novel and exciting technologies.
-        </p>
-        <p
-          class="mb-4 text-theme-light-text-muted dark:text-theme-dark-text-muted"
-        >
-          I'm in my final year pursuing a BSc in Computing and IT from the UK,
-          where I have previously lived for over 7 years. After I graduate I
-          plan to further explore the field of Machine Learning and AI with an
-          appropriate Masters degree.
+          I'm a software engineer currently based in Jordan 🇯🇴 I work with a
+          variety of web technologies across both ends, as well as a number of
+          automation and infrastructure tools. I have a passion for building
+          stuff and for learning new things. When I get free time, I like
+          reading and watching anime.
         </p>
         <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
-          In my free time I like to find the next best anime to watch, follow
-          the plot of a new TV show, or occasionally read an informative or an
-          entertaining book. I'm generally enthusiastic about anything that can
-          expand my worldview. My general areas of interest include learning,
-          knowledge management, and developer/productivity tools.
+          I'm now in my final year of university, pursuing a BSc in Computing
+          and IT from the UK, where I have previously lived for over 7 years. My
+          general areas of interest include (but no limited to) knowledge
+          management, automation, and developer/productivity tools.
         </p>
       </div>
 
@@ -96,7 +88,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
                   name={contactLink.icon}
                   size={24}
                 />
-                <p>Follow on {contactLink.label}</p>
+                <p>{contactLink.label}</p>
               </a>
             </li>
           ))

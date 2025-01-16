@@ -1,16 +1,16 @@
 export const contactLinks = [
   {
-    label: "X",
+    label: "Follow on X",
     path: "https://twitter.com/MurtadhMA",
     icon: "mdi:twitter",
   },
   {
-    label: "GitHub",
+    label: "Check out my GitHub",
     path: "https://github.com/MurtadhaInit",
     icon: "mdi:github",
   },
   {
-    label: "LinkedIn",
+    label: "Connect on LinkedIn",
     path: "https://www.linkedin.com/in/murtadhama/",
     icon: "mdi:linkedin",
   },
