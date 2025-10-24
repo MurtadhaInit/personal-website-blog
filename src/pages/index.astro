@@ -1,15 +1,15 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { filterPosts } from "@utils/utils";
-import { contactLinks, contactEmail } from "@data/contactLinks";
+import { contactEmail, contactLinks } from "@data/contactLinks";
 import { technologies } from "@data/technologies";
+import { filterPosts } from "@utils/utils";
 
-import Layout from "@layouts/Base.astro";
-import PostCard from "@components/PostCard.astro";
 import headshot from "@assets/images/headshot/headshot.jpg";
+import PostCard from "@components/PostCard.astro";
+import Layout from "@layouts/Base.astro";
 
 const allPosts = await getCollection("blog");
 const postsToDisplay = filterPosts(allPosts, { limit: 3 });
@@ -29,28 +29,31 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 
       <div class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1">
         <h1
-          class="mb-4 text-4xl font-bold text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-4 text-4xl font-bold"
         >
           Hey, I'm Murtadha
         </h1>
         <p
-          class="mb-4 text-theme-light-text-muted dark:text-theme-dark-text-muted"
+          class="text-theme-light-text-muted dark:text-theme-dark-text-muted mb-4"
         >
-          I'm a software engineer currently based in Jordan 🇯🇴 I work with a variety of
-          web technologies as well as automation and IaC tools. I'm passionate about building
-          beautiful and functional applications and about self-hosting. I like reading
-          in my freetime and always learning new things.
+          I'm a software engineer currently based in Jordan 🇯🇴 I work with a
+          variety of web technologies as well as automation and IaC tools. I'm
+          passionate about building beautiful and functional applications and
+          about self-hosting. I like reading in my freetime and always learning
+          new things.
         </p>
         <p class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
-          I have a BSc (first class) Honours degree in Computing and IT from the UK, where I have previously
-          lived for over 7 years. My general focus is backend development and DevOps / infrastructure.
-          Though I'm always open to exploring other subfields and learning new technologies, languages, and frameworks.
+          I have a BSc (first class) Honours degree in Computing and IT from the
+          UK, where I have previously lived for over 7 years. My general focus
+          is backend development and DevOps / infrastructure. Though I'm always
+          open to exploring other subfields and learning new technologies,
+          languages, and frameworks.
         </p>
       </div>
 
       <div class="row-start-3 md:col-span-full lg:col-span-3 lg:row-start-2">
         <h2
-          class="mb-4 text-2xl text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-4 text-2xl"
         >
           Technologies and tools I've worked with
         </h2>
@@ -59,7 +62,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             technologies.map((technology) => (
               <li>
                 <Icon
-                  class="transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent"
+                  class="hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent transition"
                   name={technology.icon}
                   size={64}
                 />
@@ -78,11 +81,11 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             <li>
               <a
                 target="_blank"
-                class="group flex items-center justify-start gap-4 text-sm font-medium text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+                class="group text-theme-light-text hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent flex items-center justify-start gap-4 text-sm font-medium transition"
                 href={contactLink.path}
               >
                 <Icon
-                  class="text-theme-light-text-muted transition group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent"
+                  class="text-theme-light-text-muted group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent transition"
                   name={contactLink.icon}
                   size={24}
                 />
@@ -93,13 +96,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         }
         {
           (
-            <li class="mt-4 self-stretch border-t border-theme-light-text-muted/50 pt-8 dark:border-theme-dark-text-muted/50">
+            <li class="border-theme-light-text-muted/50 dark:border-theme-dark-text-muted/50 mt-4 self-stretch border-t pt-8">
               <a
                 href={"mailto:" + contactEmail.path}
-                class="group flex items-center justify-start gap-4 text-sm font-medium text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent"
+                class="group text-theme-light-text hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent flex items-center justify-start gap-4 text-sm font-medium transition"
               >
                 <Icon
-                  class="text-theme-light-text-muted transition group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent"
+                  class="text-theme-light-text-muted group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent transition"
                   name={contactEmail.icon}
                   size={24}
                 />
@@ -110,40 +113,41 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         }
       </ul>
     </section>
+
     <section
       aria-label="Common Destinations"
-      class="mx-8 mb-12 rounded-3xl bg-theme-light-fill-muted p-8 dark:bg-theme-dark-fill-muted"
+      class="bg-theme-light-fill-muted dark:bg-theme-dark-fill-muted mx-8 mb-12 rounded-3xl p-8"
     >
       <h2
-        class="mb-8 text-center text-3xl text-theme-light-text dark:text-theme-dark-text md:text-4xl"
+        class="text-theme-light-text dark:text-theme-dark-text mb-8 text-center text-3xl md:text-4xl"
       >
         Looking for something in particular?
       </h2>
       <div class="flex justify-center px-8">
         <ul
-          class="flex list-disc flex-col items-start justify-between gap-2 text-theme-light-text dark:text-theme-dark-text md:text-lg"
+          class="text-theme-light-text dark:text-theme-dark-text flex list-disc flex-col items-start justify-between gap-2 md:text-lg"
         >
           <li>
             My MacOS setup involves <a
               href="https://github.com/MurtadhaInit/macos-ansible-setup"
-              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              class="text-theme-light-accent dark:text-theme-dark-accent hover:underline"
               target="_blank">Ansible</a
             > and GNU Stow to manage my <a
               href="https://github.com/MurtadhaInit/dotfiles"
-              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              class="text-theme-light-accent dark:text-theme-dark-accent hover:underline"
               target="_blank">Dotfiles</a
             >
           </li>
           <li>
             I occasionally take <a
-              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              class="text-theme-light-accent dark:text-theme-dark-accent hover:underline"
               href="/gallery">photos</a
             > and try to improve my photography skills
           </li>
           <li>
             Check out my complete <a
               href="/setup"
-              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              class="text-theme-light-accent dark:text-theme-dark-accent hover:underline"
               >setup</a
             > for programming and general productivity
           </li>
@@ -152,16 +156,17 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             Read about my experience using the <a
               href=""
               target="_blank"
-              class="text-theme-light-accent hover:underline dark:text-theme-dark-accent"
+              class="text-theme-light-accent dark:text-theme-dark-accent hover:underline"
               >ZSA Voyager</a
             > split ergonomic keyboard
           </li>
         </ul>
       </div>
     </section>
+
     <section aria-label="Latest Blog Posts" class="mx-8">
       <h2
-        class="mb-8 text-center text-3xl text-theme-light-text dark:text-theme-dark-text md:text-4xl"
+        class="text-theme-light-text dark:text-theme-dark-text mb-8 text-center text-3xl md:text-4xl"
       >
         Latest Articles
       </h2>

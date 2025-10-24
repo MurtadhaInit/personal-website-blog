@@ -31,11 +31,13 @@ const { text, href, style, icon, classes = [] } = Astro.props as Props;
 </a>
 
 <style>
+  @reference "@styles/global.css";
+
   .primary {
-    @apply bg-theme-light-fill text-theme-light-text transition hover:text-theme-light-accent dark:bg-theme-dark-fill dark:text-theme-dark-text dark:hover:text-theme-dark-accent;
+    @apply bg-theme-light-fill text-theme-light-text hover:text-theme-light-accent dark:bg-theme-dark-fill dark:text-theme-dark-text dark:hover:text-theme-dark-accent transition;
   }
 
   .secondary {
-    @apply bg-theme-light-fill-muted text-theme-light-text transition hover:text-theme-light-accent dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:hover:text-theme-dark-accent;
+    @apply bg-theme-light-fill-muted text-theme-light-text hover:text-theme-light-accent dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:hover:text-theme-dark-accent transition;
   }
 </style>

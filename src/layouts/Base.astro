@@ -1,5 +1,5 @@
 ---
-import "@styles/globals.css";
+import "@styles/global.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
@@ -63,7 +63,7 @@ const { title = "Murtadha", description = "My personal website and blog" } =
       const toggleThemeButton = document.getElementById("theme-btn");
       toggleThemeButton?.setAttribute(
         "aria-label",
-        `Switch to ${theme === "dark" ? "light" : "dark"} theme`,
+        `Switch to ${theme === "dark" ? "light" : "dark"} theme`
       );
     }
 

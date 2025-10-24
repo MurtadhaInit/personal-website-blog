@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Light theme */
+  --color-theme-light-fill: #ffffff;
+  --color-theme-light-fill-muted: #e2e2e2;
+  --color-theme-light-text: #27262a;
+  --color-theme-light-text-muted: #55545a;
+  --color-theme-light-accent: #5bb7a8;
+
+  /* Dark theme */
+  --color-theme-dark-fill: #18181b;
+  --color-theme-dark-fill-muted: #252529;
+  --color-theme-dark-text: #f4f4f5;
+  --color-theme-dark-text-muted: #838389;
+  --color-theme-dark-accent: #59aa9d;
+}

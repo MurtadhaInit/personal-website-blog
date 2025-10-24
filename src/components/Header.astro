@@ -16,6 +16,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
         aria-expanded="false"
         aria-controls="menu-items"
         id="hamburger-menu-btn"
+        class="cursor-pointer"
       >
         <Icon
           name="line-md:close-to-menu-alt-transition"
@@ -32,7 +33,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
       </button>
       <nav
         tabindex={0}
-        class="hide absolute top-12 z-50 flex flex-col items-center justify-between gap-2 rounded-lg bg-theme-light-fill-muted p-2 text-theme-light-text shadow-lg shadow-theme-light-text/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5"
+        class="hide bg-theme-light-fill-muted text-theme-light-text shadow-theme-light-text/15 dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 absolute top-12 z-50 flex flex-col items-center justify-between gap-2 rounded-lg p-2 shadow-lg backdrop-blur"
         id="menu-items"
       >
         {
@@ -53,7 +54,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     </div>
 
     <a
-      class="hidden rounded-3xl bg-theme-light-fill-muted px-3 py-1 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 lg:block"
+      class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 hidden rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:block"
       href="/"
       aria-label="Go home"
     >
@@ -63,7 +64,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   </div>
 
   <a
-    class="rounded-3xl bg-theme-light-fill-muted px-3 py-1 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 lg:hidden"
+    class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:hidden"
     href="/"
     aria-label="Go home"
   >
@@ -72,7 +73,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   </a>
 
   <nav
-    class="hidden items-center justify-between gap-2 rounded-full bg-theme-light-fill-muted px-3 text-theme-light-text shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 lg:flex"
+    class="bg-theme-light-fill-muted text-theme-light-text shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 hidden items-center justify-between gap-2 rounded-full px-3 shadow-lg ring-1 backdrop-blur lg:flex"
   >
     {
       navData.map((item) => (
@@ -97,11 +98,11 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     type="button"
     title="Toggle light or dark theme"
     id="theme-btn"
-    class="mr-8 rounded-3xl bg-theme-light-fill-muted p-4 shadow-lg shadow-theme-light-text/15 ring-1 ring-theme-light-text-muted/15 backdrop-blur dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35"
+    class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 mr-8 rounded-3xl p-4 shadow-lg ring-1 backdrop-blur cursor-pointer"
     aria-label="System theme"
   >
     <Icon
-      class="hidden text-theme-dark-text-muted dark:block"
+      class="text-theme-dark-text-muted hidden dark:block"
       name="line-md:sunny-outline-to-moon-loop-transition"
       size={25}
       aria-hidden="true"
@@ -116,6 +117,8 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
 </header>
 
 <style>
+  @reference "@styles/global.css";
+
   .nav-active {
     @apply text-theme-light-accent dark:text-theme-dark-accent;
   }
@@ -125,7 +128,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   }
 
   .nav-active-underline {
-    @apply absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0;
+    @apply from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r;
   }
 
   .hide {
@@ -140,7 +143,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     const menuItems = document.getElementById("menu-items");
     const menuIconOpen = document.getElementById("hamburger-menu-icon-open");
     const menuIconClosed = document.getElementById(
-      "hamburger-menu-icon-closed",
+      "hamburger-menu-icon-closed"
     );
 
     menuBtn?.addEventListener("click", () => {
@@ -150,7 +153,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
       menuIconOpen?.classList.toggle("hide");
       menuBtn.setAttribute(
         "aria-label",
-        menuExpanded ? "Open Menu" : "Close Menu",
+        menuExpanded ? "Open Menu" : "Close Menu"
       );
       menuItems?.classList.toggle("hide");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
