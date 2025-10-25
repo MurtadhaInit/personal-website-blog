@@ -9,7 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://murtadha.site",
+  site: "https://murtadha.dev",
 
   integrations: [
     icon({
