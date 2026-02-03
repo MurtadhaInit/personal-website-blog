@@ -17,6 +17,18 @@ const { title = "Murtadha", description = "My personal website and blog" } =
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      // Apply theme immediately to prevent flash of wrong theme
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (
+          theme === "dark" ||
+          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -24,7 +36,7 @@ const { title = "Murtadha", description = "My personal website and blog" } =
       href={new URL("rss.xml", Astro.site)}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -63,7 +75,7 @@ const { title = "Murtadha", description = "My personal website and blog" } =
       const toggleThemeButton = document.getElementById("theme-btn");
       toggleThemeButton?.setAttribute(
         "aria-label",
-        `Switch to ${theme === "dark" ? "light" : "dark"} theme`
+        `Switch to ${theme === "dark" ? "light" : "dark"} theme`,
       );
     }
 
