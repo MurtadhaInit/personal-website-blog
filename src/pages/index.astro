@@ -24,10 +24,12 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
       <Image
         src={headshot}
         alt="My personal photo"
-        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4 lg:max-w-72 lg:justify-self-start"
+        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4 lg:max-w-64 lg:justify-self-start"
       />
 
-      <div class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1">
+      <div
+        class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1 lg:mb-8"
+      >
         <h1
           class="text-theme-light-text dark:text-theme-dark-text mb-4 text-4xl font-bold"
         >
@@ -73,7 +75,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
       </div>
 
       <ul
-        class="row-start-4 flex flex-col items-start justify-start gap-4 md:col-span-2 md:row-start-1 md:justify-center lg:row-start-2"
+        class="row-start-4 flex flex-col items-start justify-start gap-4 md:col-span-2 md:row-start-1 md:justify-center lg:row-start-2 lg:justify-end"
         aria-label="Social media accounts and email"
       >
         {
@@ -84,11 +86,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
                 class="group text-theme-light-text hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent flex items-center justify-start gap-4 text-sm font-medium transition"
                 href={contactLink.path}
               >
-                <Icon
-                  class="text-theme-light-text-muted group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent transition"
-                  name={contactLink.icon}
-                  size={24}
-                />
+                <span class="flex w-6 items-center justify-center">
+                  <Icon
+                    class="text-theme-light-text-muted group-hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:group-hover:text-theme-dark-accent transition"
+                    name={contactLink.icon}
+                    size={contactLink.size ?? 24}
+                  />
+                </span>
                 <p>{contactLink.label}</p>
               </a>
             </li>
@@ -96,7 +100,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         }
         {
           (
-            <li class="border-theme-light-text-muted/50 dark:border-theme-dark-text-muted/50 mt-4 self-stretch border-t pt-8">
+            <li class="border-theme-light-text-muted/50 dark:border-theme-dark-text-muted/50 mt-2 self-stretch border-t pt-6">
               <a
                 href={"mailto:" + contactEmail.path}
                 class="group text-theme-light-text hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent flex items-center justify-start gap-4 text-sm font-medium transition"

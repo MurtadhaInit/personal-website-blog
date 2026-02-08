@@ -24,7 +24,7 @@ export default defineConfig({
           "chevron-small-double-left",
           "rss",
         ],
-        mdi: ["twitter", "github", "linkedin", "email", "tailwind"],
+        mdi: ["github", "linkedin", "email", "tailwind"],
         "devicon-plain": [
           "javascript",
           "typescript",
@@ -45,7 +45,7 @@ export default defineConfig({
           "azuresqldatabase",
           "svelte",
         ],
-        "simple-icons": ["nushell"],
+        "simple-icons": ["nushell", "bluesky", "x"],
       },
     }),
     sitemap(),
