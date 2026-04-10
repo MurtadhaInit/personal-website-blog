@@ -12,7 +12,6 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,astro}\""
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.0",
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/ts-plugin": "^1.10.5",
@@ -21,12 +20,8 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.55",
     "@tailwindcss/vite": "^4.1.16",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
     "astro": "^5.15.1",
     "astro-icon": "^1.1.5",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
     "sharp": "^0.34.4",
     "tailwindcss": "^4.1.16"
   },

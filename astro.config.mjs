@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 
 // integrations
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
@@ -58,7 +57,6 @@ export default defineConfig({
       },
     }),
     sitemap(),
-    react(),
   ],
 
   vite: { plugins: [tailwindcss()] },
