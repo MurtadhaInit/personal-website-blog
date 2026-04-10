@@ -1,8 +1,8 @@
 ---
-import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 
-import Layout from "@layouts/BlogPost.astro";
+import BlogPost from "@layouts/BlogPost.astro";
 
 import { filterPosts } from "@utils/utils";
 
@@ -24,6 +24,6 @@ const { post } = Astro.props as Props;
 const { Content } = await render(post);
 ---
 
-<Layout {post}>
+<BlogPost {post}>
   <Content />
-</Layout>
+</BlogPost>

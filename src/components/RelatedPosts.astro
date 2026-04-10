@@ -15,7 +15,7 @@ const allPosts = await getCollection("blog");
 const filteredPosts = filterPosts(allPosts);
 // generate related posts and sort the results descendingly by their score
 let relatedPosts = getRelatedPosts(originalPost, filteredPosts).sort(
-  (a, b) => b.score - a.score,
+  (a, b) => b.score - a.score
 );
 // display the top specified number of related posts
 if (postsToDisplay) {
@@ -29,10 +29,10 @@ if (postsToDisplay) {
       relatedPosts.map((mapping) => (
         <li>
           <a
-            href={`/blog/${mapping.post.id}`}
-            class="group block rounded-lg bg-theme-light-fill-muted p-4 text-theme-light-text-muted dark:bg-theme-dark-fill-muted dark:text-theme-dark-text-muted"
+            href={`/blog/posts/${mapping.post.id}`}
+            class="group bg-theme-light-fill-muted text-theme-light-text-muted dark:bg-theme-dark-fill-muted dark:text-theme-dark-text-muted block rounded-lg p-4"
           >
-            <h3 class="transition group-hover:text-theme-light-accent group-hover:dark:text-theme-dark-accent md:text-lg">
+            <h3 class="group-hover:text-theme-light-accent group-hover:dark:text-theme-dark-accent transition md:text-lg">
               {mapping.post.data.title}
             </h3>
             <small>{mapping.post.data.date.toLocaleDateString()}</small>

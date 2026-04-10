@@ -14,9 +14,9 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
 ---
 
 <article
-  class="flex flex-col items-center justify-start gap-4 rounded-lg bg-theme-light-fill-muted p-4 dark:bg-theme-dark-fill-muted md:flex-row md:items-start md:gap-12"
+  class="bg-theme-light-fill-muted dark:bg-theme-dark-fill-muted flex flex-col items-center justify-start gap-4 rounded-lg p-4 md:flex-row md:items-start md:gap-12"
 >
-  <a href={`/blog/${post.id}`} aria-hidden="true" tabindex="-1">
+  <a href={`/blog/posts/${post.id}`} aria-hidden="true" tabindex="-1">
     <Image
       class="w-full rounded-md md:w-64"
       src={cover}
@@ -28,20 +28,20 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
     class="flex flex-1 flex-col items-start justify-between gap-4 self-stretch"
   >
     <div>
-      <a href={`/blog/${post.id}`}>
+      <a href={`/blog/posts/${post.id}`}>
         <h3
-          class="mb-2 text-xl font-medium text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-2 text-xl font-medium"
         >
           {title}
         </h3>
       </a>
-      <p class="text-sm text-theme-light-text dark:text-theme-dark-text">
+      <p class="text-theme-light-text dark:text-theme-dark-text text-sm">
         {description}
       </p>
     </div>
     <div class="flex items-center justify-between self-stretch">
       <p
-        class="text-xs text-theme-light-text-muted dark:text-theme-dark-text-muted sm:text-sm"
+        class="text-theme-light-text-muted dark:text-theme-dark-text-muted text-xs sm:text-sm"
       >
         {date.toLocaleDateString()}
       </p>
@@ -53,7 +53,7 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
             .map((tag) => (
               <a
                 href={`/blog/tags/${slugify(tag)}`}
-                class="text-xs font-light text-theme-light-text transition hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent sm:text-sm"
+                class="text-theme-light-text hover:text-theme-light-accent dark:text-theme-dark-text dark:hover:text-theme-dark-accent text-xs font-light transition sm:text-sm"
               >
                 {tag}
               </a>
