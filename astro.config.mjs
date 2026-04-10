@@ -53,6 +53,7 @@ export default defineConfig({
           "mysql",
           "proxmox",
           "linux",
+          "cilium",
         ],
       },
     }),

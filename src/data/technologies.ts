@@ -22,4 +22,5 @@ export const technologies = [
   { icon: "simple-icons:caddy" },
   { icon: "simple-icons:prometheus" },
   { icon: "devicon-plain:grafana" },
+  { icon: "simple-icons:cilium" },
 ];
