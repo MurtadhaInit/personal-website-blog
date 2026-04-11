@@ -1,14 +1,14 @@
 ---
-import { getCollection } from "astro:content";
-import type { Page, GetStaticPaths } from "astro";
+import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import { filterPosts } from "@utils/utils";
 
-import Layout from "@layouts/Base.astro";
 import Pagination from "@components/Pagination.astro";
-import TagsCloud from "@components/TagsCloud.astro";
 import PostCard from "@components/PostCard.astro";
+import TagsCloud from "@components/TagsCloud.astro";
+import Layout from "@layouts/Base.astro";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getCollection("blog");
@@ -29,7 +29,7 @@ const { page } = Astro.props as Props;
 <Layout title="Blog Posts" description="My personal blog">
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8 mb-12">
-      <h1 class="mb-8 text-4xl text-theme-light-text dark:text-theme-dark-text">
+      <h1 class="text-theme-light-text dark:text-theme-dark-text mb-8 text-4xl">
         Latest Blog Posts
       </h1>
       <ul class="mb-8 space-y-8">
@@ -44,9 +44,9 @@ const { page } = Astro.props as Props;
       <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
     </section>
     <aside
-      class="mx-8 rounded-3xl bg-theme-light-fill-muted p-8 dark:bg-theme-dark-fill-muted"
+      class="bg-theme-light-fill-muted dark:bg-theme-dark-fill-muted mx-8 rounded-3xl p-8"
     >
-      <h2 class="mb-8 text-3xl text-theme-light-text dark:text-theme-dark-text">
+      <h2 class="text-theme-light-text dark:text-theme-dark-text mb-8 text-3xl">
         Tags
       </h2>
       <TagsCloud showCount={true} tagsToShow={10} />

@@ -1,11 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
-import TagsCloud from "@components/TagsCloud.astro";
 import RelatedPosts from "@components/RelatedPosts.astro";
+import TagsCloud from "@components/TagsCloud.astro";
 
 import { slugify } from "@utils/utils";
 
@@ -20,18 +20,18 @@ const { title, description, date, category, author, cover, coverAlt, tags } =
 
 <Layout {title} {description}>
   <main class="mx-auto my-16 max-w-5xl">
-    <section class="mx-8 mb-12">
+    <section class="mx-8 mb-8">
       <div class="mb-8">
         <p
-          class="mb-4 text-2xl text-theme-light-text-muted dark:text-theme-dark-text-muted"
+          class="text-theme-light-text-muted dark:text-theme-dark-text-muted mb-4 text-2xl"
         >
           <a
-            class="transition hover:text-theme-light-accent dark:hover:text-theme-dark-accent"
+            class="hover:text-theme-light-accent dark:hover:text-theme-dark-accent transition"
             href={`/blog/categories/${slugify(category)}`}>{category}</a
           >
         </p>
         <h1
-          class="mb-2 text-4xl text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-2 text-4xl"
         >
           {title}
         </h1>
@@ -49,14 +49,14 @@ const { title, description, date, category, author, cover, coverAlt, tags } =
       />
     </section>
 
-    <section class="mx-8 mb-12 text-theme-light-text dark:text-theme-dark-text">
+    <section class="text-theme-light-text dark:text-theme-dark-text mx-8 mb-12">
       <slot>This post seems to be missing...</slot>
     </section>
 
     <div class="mx-8 flex items-start justify-start gap-12">
       <aside class="basis-3/5">
         <h2
-          class="mb-8 text-2xl text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-8 text-2xl"
         >
           Related Posts
         </h2>
@@ -65,7 +65,7 @@ const { title, description, date, category, author, cover, coverAlt, tags } =
 
       <aside class="max-w-max basis-2/5">
         <h2
-          class="mb-8 text-2xl text-theme-light-text dark:text-theme-dark-text"
+          class="text-theme-light-text dark:text-theme-dark-text mb-8 text-2xl"
         >
           Tags
         </h2>

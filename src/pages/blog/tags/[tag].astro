@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
-import Layout from "@layouts/Base.astro";
 import PostCard from "@components/PostCard.astro";
+import Layout from "@layouts/Base.astro";
 
-import { slugify, filterPosts } from "@utils/utils";
 import { getAllTags } from "@utils/TagsUtils";
+import { filterPosts, slugify } from "@utils/utils";
 
 // generate a static path for each tag
 export const getStaticPaths = async () => {
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
   return allTags.map((tag) => {
     // all posts associated with this tag
     const tagPosts = filteredPosts.filter((post) =>
-      post.data.tags.includes(tag),
+      post.data.tags.includes(tag)
     );
 
     return {
@@ -43,7 +43,7 @@ const { tag, posts } = Astro.props as Props;
 <Layout title={tag}>
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8" aria-label=`Posts about ${tag}`>
-      <h1 class="mb-8 text-4xl text-theme-light-text dark:text-theme-dark-text">
+      <h1 class="text-theme-light-text dark:text-theme-dark-text mb-8 text-4xl">
         Posts about {tag}
       </h1>
       <ul class="space-y-8">
