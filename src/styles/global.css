@@ -23,3 +23,23 @@
   --font-sans: var(--font-atkinson);
   --font-mono: var(--font-atkinson-mono);
 }
+
+/* Shiki code blocks — shared styling (theme-independent). */
+.astro-code {
+  @apply rounded-xl p-4;
+}
+
+/* Shiki dual-theme syntax highlighting — switch to dark variables when
+   the manual `.dark` class is present on <html>. The light theme is the
+   default (no class needed).
+   https://docs.astro.build/en/guides/syntax-highlighting/#setting-light-and-dark-mode-themes
+*/
+html.dark .astro-code,
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+  /* font-style: var(--shiki-dark-font-style) !important; */
+}

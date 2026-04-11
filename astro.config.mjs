@@ -10,6 +10,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://murtadha.dev",
 
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "catppuccin-latte",
+        dark: "catppuccin-mocha",
+      },
+    },
+  },
+
   fonts: [
     // TODO: consider changing to fontProviders.fontsource() - community-maintained mirror of Google Fonts
     {
