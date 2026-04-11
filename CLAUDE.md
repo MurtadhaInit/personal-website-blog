@@ -137,7 +137,7 @@ The site uses a manual dark/light theme toggle:
 - **Global styles**: `src/styles/global.css` (singular — imports Tailwind, declares `@theme` tokens, `@custom-variant dark`, and registers fonts via `@font-face`)
 - **Scoped styles**: Use `<style>` blocks in Astro components when needed
 - **Responsive design**: Mobile-first with breakpoints (`md:`, `lg:`, etc.)
-- **Custom fonts**: Atkinson Hyperlegible Next (`.woff2` files in `public/fonts/`) is registered via `@font-face` in `global.css` and set as the default sans font via `--font-sans`. Additional variants (`AtkinsonNextRegular`, `AtkinsonNextBold`) are also registered but may only be referenced contextually
+- **Custom fonts**: Atkinson Hyperlegible Next (sans) and Atkinson Hyperlegible Mono are registered via **Astro's Fonts API** in `astro.config.mjs` using `fontProviders.google()`. Astro downloads and self-hosts them at build time (no runtime request to Google), generates `@font-face` rules, and preloads the sans variant. They're exposed as CSS variables (`--font-atkinson`, `--font-atkinson-mono`) which are wired into Tailwind's `--font-sans` / `--font-mono` tokens in `global.css`. The `<Font />` component from `astro:assets` is rendered in `Base.astro`'s `<head>`. Body text defaults to `font-weight: 500` (Medium) via a base rule in `global.css`; blog post paragraphs use `font-normal` (400) via `src/components/posts/P.astro`
 
 ### Static Site Generation
 

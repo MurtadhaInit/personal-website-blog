@@ -1,5 +1,6 @@
 ---
 import "@styles/global.css";
+import { Font } from "astro:assets";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
@@ -17,6 +18,8 @@ const { title = "Murtadha", description = "My personal website and blog" } =
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <Font cssVariable="--font-atkinson" preload />
+    <Font cssVariable="--font-atkinson-mono" />
     <script is:inline>
       // Apply theme immediately to prevent flash of wrong theme
       (function () {

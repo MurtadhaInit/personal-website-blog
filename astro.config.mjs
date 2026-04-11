@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 // integrations
 import sitemap from "@astrojs/sitemap";
@@ -9,6 +9,25 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://murtadha.dev",
+
+  fonts: [
+    // TODO: consider changing to fontProviders.fontsource() - community-maintained mirror of Google Fonts
+    {
+      provider: fontProviders.google(),
+      name: "Atkinson Hyperlegible Next",
+      cssVariable: "--font-atkinson",
+      fallbacks: ["sans-serif"],
+      weights: ["200 800"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Atkinson Hyperlegible Mono",
+      cssVariable: "--font-atkinson-mono",
+      fallbacks: ["ui-monospace", "monospace"],
+      weights: ["200 800"], // TODO: consider selecting a single weight - reduce size
+      styles: ["normal"], // we don't need italic for code sections
+    },
+  ],
 
   integrations: [
     icon({
