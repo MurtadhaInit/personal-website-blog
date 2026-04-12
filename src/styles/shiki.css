@@ -1,0 +1,80 @@
+/* Shiki code blocks — shared styling (theme-independent). */
+.astro-code {
+  @apply rounded-xl p-4;
+}
+
+/* Shiki dual-theme syntax highlighting — switch to dark variables when
+   the manual `.dark` class is present on <html>. The light theme is the
+   default (no class needed).
+   https://docs.astro.build/en/guides/syntax-highlighting/#setting-light-and-dark-mode-themes
+*/
+html.dark .astro-code {
+  background-color: var(--shiki-dark-bg) !important;
+}
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  /* Optional, if you also want font styles */
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+  /* font-style: var(--shiki-dark-font-style) !important; */
+}
+
+/* Shiki transformer styles — colors from catppuccin-latte / catppuccin-mocha
+   to match the syntax highlighting themes in astro.config.mjs.
+   Comment syntax reference: https://shiki.style/packages/transformers */
+
+/* ensure the background color spans the full width of the code block
+   rather than just the text. */
+.astro-code .line.highlighted,
+.astro-code .line.diff {
+  @apply inline-block w-full;
+}
+
+/* [!code highlight] or multiple lines below with [!code highlight:3] */
+.astro-code .line.highlighted {
+  background-color: #df8e1d20; /* latte yellow */
+}
+html.dark .astro-code .line.highlighted {
+  background-color: #f9e2af25; /* mocha yellow */
+}
+
+/* [!code ++] */
+.astro-code .line.diff.add {
+  background-color: #40a02b20; /* latte green */
+}
+html.dark .astro-code .line.diff.add {
+  background-color: #a6e3a130; /* mocha green */
+}
+
+/* [!code --] */
+.astro-code .line.diff.remove {
+  background-color: #d20f3920; /* latte red */
+}
+html.dark .astro-code .line.diff.remove {
+  background-color: #f38ba830; /* mocha red */
+}
+
+/* [!code error] */
+.astro-code .line.highlighted.error {
+  background-color: #d20f3920; /* latte red */
+}
+html.dark .astro-code .line.highlighted.error {
+  background-color: #f38ba830; /* mocha red */
+}
+
+/* [!code warning] */
+.astro-code .line.highlighted.warning {
+  background-color: #df8e1d20; /* latte yellow */
+}
+html.dark .astro-code .line.highlighted.warning {
+  background-color: #f9e2af25; /* mocha yellow */
+}
+
+/* [!code focus] or multiple lines below with [!code focus:3]
+   dim unfocused lines, reveal on hover */
+pre.has-focused .line:not(.focused) {
+  @apply opacity-50 transition-opacity duration-300;
+}
+pre.has-focused:hover .line:not(.focused) {
+  @apply opacity-100;
+}

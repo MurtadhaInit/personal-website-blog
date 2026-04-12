@@ -1,10 +1,19 @@
 import { defineConfig, fontProviders } from "astro/config";
 
-// integrations
+// Astro integrations
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
+// Vite plugins
 import tailwindcss from "@tailwindcss/vite";
+
+// Shiki syntax highlighting transformers
+import {
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+} from "@shikijs/transformers";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +25,13 @@ export default defineConfig({
         light: "catppuccin-latte",
         dark: "catppuccin-mocha",
       },
+      transformers: [
+        // https://shiki.style/packages/transformers
+        transformerNotationDiff({ matchAlgorithm: "v3" }),
+        transformerNotationErrorLevel({ matchAlgorithm: "v3" }),
+        transformerNotationFocus({ matchAlgorithm: "v3" }),
+        transformerNotationHighlight({ matchAlgorithm: "v3" }),
+      ],
     },
   },
 
