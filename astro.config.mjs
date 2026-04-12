@@ -1,6 +1,7 @@
 import { defineConfig, fontProviders } from "astro/config";
 
 // Astro integrations
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
@@ -100,6 +101,7 @@ export default defineConfig({
         ],
       },
     }),
+    mdx(),
     sitemap(),
   ],
 

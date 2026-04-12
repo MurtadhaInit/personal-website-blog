@@ -9,9 +9,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,astro}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,astro}\" \"content/**/*.mdx\""
   },
   "dependencies": {
+    "@astrojs/mdx": "5.0.3",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
     "@astrojs/ts-plugin": "1.10.7",

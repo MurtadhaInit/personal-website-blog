@@ -4,6 +4,9 @@ import { getCollection, render } from "astro:content";
 
 import BlogPost from "@layouts/BlogPost.astro";
 
+import H2 from "@components/posts/H2.astro";
+import H3 from "@components/posts/H3.astro";
+import P from "@components/posts/P.astro";
 import { filterPosts } from "@utils/utils";
 
 // generate a static path for each blog post
@@ -25,5 +28,5 @@ const { Content } = await render(post);
 ---
 
 <BlogPost {post}>
-  <Content />
+  <Content components={{ h2: H2, h3: H3, p: P }} />
 </BlogPost>
