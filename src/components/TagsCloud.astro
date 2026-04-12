@@ -36,7 +36,7 @@ const tagsToPosts = tagsToNumberOfPosts(allTags, filteredPosts, tagsToShow);
       <li>
         <a
           href={`/blog/tags/${slugify(tagToPosts.tag)}`}
-          class="whitespace-nowrap text-sm text-theme-light-text-muted transition hover:text-theme-light-accent dark:text-theme-dark-text-muted dark:hover:text-theme-dark-accent md:text-base lg:text-lg"
+          class="whitespace-nowrap text-sm text-fg-muted transition hover:text-accent md:text-base lg:text-lg"
         >
           {tagToPosts.tag} {showCount && `(${tagToPosts.posts})`}
         </a>

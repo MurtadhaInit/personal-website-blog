@@ -22,18 +22,17 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
           name="line-md:close-to-menu-alt-transition"
           size={35}
           id="hamburger-menu-icon-closed"
-          class="text-theme-light-text dark:text-theme-dark-text"
         />
         <Icon
           name="line-md:menu-to-close-alt-transition"
           size={35}
           id="hamburger-menu-icon-open"
-          class="hide text-theme-light-text dark:text-theme-dark-text"
+          class="hide"
         />
       </button>
       <nav
         tabindex={0}
-        class="hide bg-theme-light-fill-muted text-theme-light-text shadow-theme-light-text/15 dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 absolute top-12 z-50 flex flex-col items-center justify-between gap-2 rounded-lg p-2 shadow-lg backdrop-blur"
+        class="hide bg-fill-muted shadow-fg/15 dark:shadow-fg/5 absolute top-12 z-50 flex flex-col items-center justify-between gap-2 rounded-lg p-2 shadow-lg backdrop-blur"
         id="menu-items"
       >
         {
@@ -54,7 +53,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     </div>
 
     <a
-      class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 hidden rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:block"
+      class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 dark:hover:shadow-fg/15 dark:hover:ring-fg-muted/35 hidden rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:block"
       href="/"
       aria-label="Go home"
     >
@@ -64,7 +63,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   </div>
 
   <a
-    class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:hidden"
+    class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 dark:hover:shadow-fg/15 dark:hover:ring-fg-muted/35 rounded-3xl px-3 py-1 shadow-lg ring-1 backdrop-blur lg:hidden"
     href="/"
     aria-label="Go home"
   >
@@ -73,7 +72,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   </a>
 
   <nav
-    class="bg-theme-light-fill-muted text-theme-light-text shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:text-theme-dark-text dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 hidden items-center justify-between gap-2 rounded-full px-3 shadow-lg ring-1 backdrop-blur lg:flex"
+    class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 hidden items-center justify-between gap-2 rounded-full px-3 shadow-lg ring-1 backdrop-blur lg:flex"
   >
     {
       navData.map((item) => (
@@ -98,17 +97,17 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     type="button"
     title="Toggle light or dark theme"
     id="theme-btn"
-    class="bg-theme-light-fill-muted shadow-theme-light-text/15 ring-theme-light-text-muted/15 dark:bg-theme-dark-fill-muted dark:shadow-theme-dark-text/5 dark:ring-theme-dark-text-muted/20 dark:hover:shadow-theme-dark-text/15 dark:hover:ring-theme-dark-text-muted/35 mr-8 rounded-3xl p-4 shadow-lg ring-1 backdrop-blur cursor-pointer"
+    class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 dark:hover:shadow-fg/15 dark:hover:ring-fg-muted/35 mr-8 rounded-3xl p-4 shadow-lg ring-1 backdrop-blur cursor-pointer"
     aria-label="System theme"
   >
     <Icon
-      class="text-theme-dark-text-muted hidden dark:block"
+      class="text-fg-muted hidden dark:block"
       name="line-md:sunny-outline-to-moon-loop-transition"
       size={25}
       aria-hidden="true"
     />
     <Icon
-      class="text-theme-light-text-muted dark:hidden"
+      class="text-fg-muted dark:hidden"
       name="line-md:moon-filled-to-sunny-filled-loop-transition"
       size={25}
       aria-hidden="true"
@@ -120,15 +119,15 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   @reference "@styles/global.css";
 
   .nav-active {
-    @apply text-theme-light-accent dark:text-theme-dark-accent;
+    @apply text-accent;
   }
 
   .nav-inactive {
-    @apply hover:text-theme-light-accent dark:hover:text-theme-dark-accent;
+    @apply hover:text-accent;
   }
 
   .nav-active-underline {
-    @apply from-theme-light-accent/0 via-theme-light-accent/40 to-theme-light-accent/0 dark:from-theme-dark-accent/0 dark:via-theme-dark-accent/40 dark:to-theme-dark-accent/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r;
+    @apply from-accent/0 via-accent/40 to-accent/0 absolute inset-x-1 -bottom-px h-px bg-linear-to-r;
   }
 
   .hide {

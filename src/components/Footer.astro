@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
 ---
 
 <footer
-  class="text-theme-light-text dark:text-theme-dark-text mx-auto mb-8 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
+  class="mx-auto mb-8 flex max-w-5xl flex-col items-center justify-between sm:flex-row"
 >
   <nav class="flex items-center justify-between gap-4 sm:ml-8 md:gap-8">
     {
@@ -16,7 +16,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
           <a
             href={item.path}
             aria-current={item.path === currentPath ? "page" : null}
-            class="hover:text-theme-light-accent dark:hover:text-theme-dark-accent text-sm font-medium transition"
+            class="hover:text-accent text-sm font-medium transition"
           >
             {item.label}
           </a>
@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     }
     <a
       href="/rss.xml"
-      class="hover:text-theme-light-accent dark:hover:text-theme-dark-accent flex items-center justify-between gap-1 text-sm font-medium transition"
+      class="hover:text-accent flex items-center justify-between gap-1 text-sm font-medium transition"
     >
       <div>RSS</div>
       <Icon name="line-md:rss" width={20} />
@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
   </nav>
 
   <div class="sm:mr-8">
-    <small class="text-theme-light-text-muted dark:text-theme-dark-text-muted">
+    <small class="text-fg-muted">
       Copyright &copy; <span id="copyright"></span> | All rights reserved
     </small>
   </div>
