@@ -18,7 +18,7 @@ const { title, description, date, category, author, cover, coverAlt, tags } =
   post.data;
 ---
 
-<Layout {title} {description}>
+<Layout {title} {description} image={`/open-graph/${post.id}.png`} type="article">
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8 mb-8">
       <div class="mb-8">

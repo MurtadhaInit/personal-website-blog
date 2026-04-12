@@ -23,6 +23,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "6.1.5",
     "astro-icon": "^1.1.5",
+    "astro-og-canvas": "^0.11.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   },
