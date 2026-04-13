@@ -27,7 +27,7 @@ html.dark .astro-code span {
    rather than just the text. */
 .astro-code .line.highlighted,
 .astro-code .line.diff {
-  @apply inline-block w-full;
+  @apply inline-block min-w-full;
 }
 
 /* [!code highlight] or multiple lines below with [!code highlight:3] */
