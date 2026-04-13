@@ -57,8 +57,8 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
       href="/"
       aria-label="Go home"
     >
-      <Icon class="dark:hidden" name="logo-light" width={85} height={50} />
-      <Icon class="hidden dark:block" name="logo-dark" width={85} height={50} />
+      <Icon class="dark:hidden" name="logo-light" size={48} />
+      <Icon class="hidden dark:block" name="logo-dark" size={48} />
     </a>
   </div>
 
@@ -67,8 +67,8 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     href="/"
     aria-label="Go home"
   >
-    <Icon class="dark:hidden" name="logo-light" width={85} height={50} />
-    <Icon class="hidden dark:block" name="logo-dark" width={85} height={50} />
+    <Icon class="dark:hidden" name="logo-light" size={48} />
+    <Icon class="hidden dark:block" name="logo-dark" size={48} />
   </a>
 
   <nav
@@ -97,7 +97,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     type="button"
     title="Toggle light or dark theme"
     id="theme-btn"
-    class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 dark:hover:shadow-fg/15 dark:hover:ring-fg-muted/35 mr-8 rounded-3xl p-4 shadow-lg ring-1 backdrop-blur cursor-pointer"
+    class="bg-fill-muted shadow-fg/15 ring-fg-muted/15 dark:shadow-fg/5 dark:ring-fg-muted/20 dark:hover:shadow-fg/15 dark:hover:ring-fg-muted/35 mr-8 cursor-pointer rounded-3xl p-4 shadow-lg ring-1 backdrop-blur"
     aria-label="System theme"
   >
     <Icon
@@ -142,7 +142,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
     const menuItems = document.getElementById("menu-items");
     const menuIconOpen = document.getElementById("hamburger-menu-icon-open");
     const menuIconClosed = document.getElementById(
-      "hamburger-menu-icon-closed"
+      "hamburger-menu-icon-closed",
     );
 
     menuBtn?.addEventListener("click", () => {
@@ -152,7 +152,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "");
       menuIconOpen?.classList.toggle("hide");
       menuBtn.setAttribute(
         "aria-label",
-        menuExpanded ? "Open Menu" : "Close Menu"
+        menuExpanded ? "Open Menu" : "Close Menu",
       );
       menuItems?.classList.toggle("hide");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
