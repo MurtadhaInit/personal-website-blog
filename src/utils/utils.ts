@@ -26,7 +26,7 @@ export const slugify = (text: string): string => {
 export const filterPosts = (
   posts: CollectionEntry<"blog">[],
   {
-    noDrafts = true,
+    noDrafts = !import.meta.env.DEV,
     noFuturePosts = true,
     sortByDate = true,
     limit = null,
