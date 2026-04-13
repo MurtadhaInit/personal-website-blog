@@ -1,7 +1,7 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import rss from "@astrojs/rss";
 import { filterPosts } from "@utils/utils.ts";
-import type { APIContext } from 'astro';
+import type { APIContext } from "astro";
+import { getCollection } from "astro:content";
 
 export async function GET(context: APIContext) {
   const allPosts = await getCollection("blog");
@@ -16,11 +16,11 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description,
-      link: `/blog/${post.id}`,
+      link: `/blog/posts/${post.id}`,
       categories: post.data.tags,
-      // author: post.data.author
+      author: post.data.author,
     })),
     customData: `<language>en-us</language>`,
-    stylesheet: "/rss/pretty-feed-v3.xsl"
+    stylesheet: "/rss/pretty-feed-v3.xsl",
   });
 }
