@@ -7,6 +7,7 @@ import { contactEmail, contactLinks } from "@data/contactLinks";
 import { technologies } from "@data/technologies";
 import { filterPosts } from "@utils/utils";
 
+import cka from "@assets/images/badges/cka-certified-kubernetes-administrator.png";
 import headshot from "@assets/images/headshot/headshot.jpg";
 import PostCard from "@components/PostCard.astro";
 import Layout from "@layouts/Base.astro";
@@ -18,103 +19,108 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 mb-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-5 md:grid-rows-[auto_auto_auto] lg:grid-rows-[auto_auto] lg:gap-y-0"
+      class="mx-8 mb-12 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_15rem] lg:gap-x-16"
       aria-label="About Me"
     >
-      <Image
-        src={headshot}
-        alt="My personal photo"
-        class="max-w-80 rotate-3 justify-self-center rounded-xl md:col-span-3 md:row-start-1 lg:col-span-2 lg:col-start-4 lg:max-w-56 lg:justify-self-start"
-      />
-
+      <!-- display: contents on mobile makes the wrapper invisible so its children
+       (image + socials) participate individually in the grid with order-last pushing
+       socials to the bottom. At md+, display: flex kicks in and groups them together. -->
       <div
-        class="row-start-2 md:col-span-full lg:col-span-3 lg:row-start-1 lg:mb-8"
+        class="contents md:flex md:flex-row md:items-center md:gap-16 lg:order-last lg:flex-col lg:items-start lg:gap-8"
       >
-        <h1
-          class="mb-4 text-4xl font-bold"
+        <Image
+          src={headshot}
+          alt="My personal photo"
+          class="max-w-64 shrink-0 rotate-3 justify-self-center rounded-xl lg:w-full lg:max-w-none"
+        />
+
+        <ul
+          class="order-last flex flex-col items-start gap-4 md:order-0"
+          aria-label="Social media accounts and email"
         >
-          Hey, I'm Murtadha
-        </h1>
-        <p
-          class="text-fg-muted mb-4"
-        >
+          {
+            contactLinks.map((contactLink) => (
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group hover:text-accent flex items-center gap-4 text-sm font-medium transition"
+                  href={contactLink.path}
+                >
+                  <span class="flex w-6 items-center justify-center">
+                    <Icon
+                      class="text-fg-muted group-hover:text-accent transition"
+                      name={contactLink.icon}
+                      size={contactLink.size ?? 24}
+                    />
+                  </span>
+                  <span>{contactLink.label}</span>
+                </a>
+              </li>
+            ))
+          }
+          <li class="border-fg-muted/50 mt-2 self-stretch border-t pt-6">
+            <a
+              href={"mailto:" + contactEmail.path}
+              class="group hover:text-accent flex items-center gap-4 text-sm font-medium transition"
+            >
+              <span class="flex w-6 items-center justify-center">
+                <Icon
+                  class="text-fg-muted group-hover:text-accent transition"
+                  name={contactEmail.icon}
+                  size={24}
+                />
+              </span>
+              <span>{contactEmail.label}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="min-w-0">
+        <h1 class="mb-4 text-4xl font-bold">Hey, I'm Murtadha</h1>
+        <p class="text-fg-muted mb-4">
           I'm a software / infrastructure engineer currently based in Jordan 🇯🇴
           I'm familiar with a variety of web technologies and DevOps techniques.
           I'm passionate about self-hosting, IaC tooling, GitOps, and
           automation.
         </p>
-        <p class="text-fg-muted">
+        <p class="text-fg-muted mb-4">
           I have a first-class BSc (Hons) degree in Computing and IT from the
           UK, where I have previously lived for over 7 years. My general area of
           focus is backend web development and infrastructure. I have recently
           passed the Certified Kubernetes Administrator (CKA) exam and have been
           exploring the cloud native ecosystem.
         </p>
-      </div>
 
-      <div class="row-start-3 md:col-span-full lg:col-span-3 lg:row-start-2">
-        <h2
-          class="mb-4 text-2xl"
-        >
-          Technologies and tools
-        </h2>
-        <ul class="flex flex-wrap items-center justify-start gap-4">
+        <h2 class="mb-1 text-2xl">Certifications</h2>
+        <ul class="mb-4 flex flex-wrap items-center gap-4">
+          <li>
+            <a
+              href="https://www.credly.com/badges/cb9770f2-39b2-4bdc-bc38-3815c34724cb/public_url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src={cka} alt="CKA badge" class="w-24" />
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="mb-4 text-2xl">Technologies and tools</h2>
+        <ul class="flex flex-wrap items-center gap-4">
           {
             technologies.map((technology) => (
               <li>
                 <Icon
                   class="hover:text-accent dark:text-fg-muted transition"
                   name={technology.icon}
-                  size={48}
+                  size={40}
                 />
               </li>
             ))
           }
         </ul>
       </div>
-
-      <ul
-        class="row-start-4 flex flex-col items-start justify-start gap-4 md:col-span-2 md:row-start-1 md:justify-center lg:row-start-2 lg:justify-end"
-        aria-label="Social media accounts and email"
-      >
-        {
-          contactLinks.map((contactLink) => (
-            <li>
-              <a
-                target="_blank"
-                class="group hover:text-accent flex items-center justify-start gap-4 text-sm font-medium transition"
-                href={contactLink.path}
-              >
-                <span class="flex w-6 items-center justify-center">
-                  <Icon
-                    class="text-fg-muted group-hover:text-accent transition"
-                    name={contactLink.icon}
-                    size={contactLink.size ?? 24}
-                  />
-                </span>
-                <p>{contactLink.label}</p>
-              </a>
-            </li>
-          ))
-        }
-        {
-          (
-            <li class="border-fg-muted/50 mt-2 self-stretch border-t pt-6">
-              <a
-                href={"mailto:" + contactEmail.path}
-                class="group hover:text-accent flex items-center justify-start gap-4 text-sm font-medium transition"
-              >
-                <Icon
-                  class="text-fg-muted group-hover:text-accent transition"
-                  name={contactEmail.icon}
-                  size={24}
-                />
-                <p>{contactEmail.label}</p>
-              </a>
-            </li>
-          )
-        }
-      </ul>
     </section>
 
     <section
@@ -130,11 +136,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             My MacOS setup involves <a
               href="https://github.com/MurtadhaInit/macos-ansible-setup"
               class="text-accent hover:underline"
-              target="_blank">Ansible</a
+              target="_blank"
+              rel="noopener noreferrer">Ansible</a
             > and GNU Stow to manage my <a
               href="https://github.com/MurtadhaInit/dotfiles"
               class="text-accent hover:underline"
-              target="_blank">Dotfiles</a
+              target="_blank"
+              rel="noopener noreferrer">Dotfiles</a
             >
           </li>
           <li>
@@ -154,6 +162,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
             Read about my experience using the <a
               href=""
               target="_blank"
+              rel="noopener noreferrer"
               class="text-accent hover:underline">ZSA Voyager</a
             > split ergonomic keyboard
           </li>
