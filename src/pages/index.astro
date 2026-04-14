@@ -93,33 +93,39 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
           exploring the cloud native ecosystem.
         </p>
 
-        <h2 class="mb-1 text-2xl">Certifications</h2>
-        <ul class="mb-4 flex flex-wrap items-center gap-4">
-          <li>
-            <a
-              href="https://www.credly.com/badges/cb9770f2-39b2-4bdc-bc38-3815c34724cb/public_url"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image src={cka} alt="CKA badge" class="w-24" />
-            </a>
-          </li>
-        </ul>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-[3fr_2fr] md:gap-x-6">
+          <div>
+            <h2 class="mb-4 text-2xl">Technologies and tools</h2>
+            <ul class="flex flex-wrap items-center gap-4">
+              {
+                technologies.map((technology) => (
+                  <li>
+                    <Icon
+                      class="hover:text-accent dark:text-fg-muted transition"
+                      name={technology.icon}
+                      size={40}
+                    />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
 
-        <h2 class="mb-4 text-2xl">Technologies and tools</h2>
-        <ul class="flex flex-wrap items-center gap-4">
-          {
-            technologies.map((technology) => (
+          <div>
+            <h2 class="mb-2 text-2xl">Certifications</h2>
+            <ul class="flex flex-wrap items-center gap-4">
               <li>
-                <Icon
-                  class="hover:text-accent dark:text-fg-muted transition"
-                  name={technology.icon}
-                  size={40}
-                />
+                <a
+                  href="https://www.credly.com/badges/cb9770f2-39b2-4bdc-bc38-3815c34724cb/public_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={cka} alt="CKA badge" class="w-24" />
+                </a>
               </li>
-            ))
-          }
-        </ul>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
