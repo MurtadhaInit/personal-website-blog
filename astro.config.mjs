@@ -92,7 +92,7 @@ export default defineConfig({
           "x",
           "helm",
           "flux",
-          "caddy",
+          "longhorn",
           "prometheus",
           "mysql",
           "proxmox",

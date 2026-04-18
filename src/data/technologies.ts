@@ -19,7 +19,7 @@ export const technologies = [
   { icon: "simple-icons:linux" },
   { icon: "simple-icons:mysql" },
   { icon: "simple-icons:proxmox" },
-  { icon: "simple-icons:caddy" },
+  { icon: "simple-icons:longhorn" },
   { icon: "simple-icons:prometheus" },
   { icon: "devicon-plain:grafana" },
   { icon: "simple-icons:cilium" },
