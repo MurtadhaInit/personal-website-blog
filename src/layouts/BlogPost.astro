@@ -16,27 +16,37 @@ interface Props {
 const { post } = Astro.props as Props;
 const { title, description, date, category, author, cover, coverAlt, tags } =
   post.data;
+
+const dateIso = date.toISOString();
+const formattedDate = date.toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
-<Layout {title} {description} image={`/open-graph/${post.id}.png`} type="article">
+<Layout
+  {title}
+  {description}
+  image={`/open-graph/${post.id}.png`}
+  type="article"
+>
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8 mb-8">
       <div class="mb-8">
-        <p
-          class="text-fg-muted mb-4 text-2xl"
-        >
+        <p class="text-fg-muted mb-4 text-2xl">
           <a
             class="hover:text-accent transition"
             href={`/blog/categories/${slugify(category)}`}>{category}</a
           >
         </p>
-        <h1
-          class="mb-2 text-4xl"
-        >
+        <h1 class="mb-2 text-4xl">
           {title}
         </h1>
         <p class="text-fg-muted">
-          By {author} • {date.toLocaleDateString()}
+          By {author}<span class="mx-2">•</span><time datetime={dateIso}
+            >{formattedDate}</time
+          >
         </p>
       </div>
       <Image
@@ -50,25 +60,19 @@ const { title, description, date, category, author, cover, coverAlt, tags } =
     </section>
 
     <section class="mx-8 mb-12">
-      <slot>This post seems to be missing...</slot>
+      <div class="space-y-4">
+        <slot>This post seems to be missing...</slot>
+      </div>
     </section>
 
     <div class="mx-8 flex items-start justify-start gap-12">
       <aside class="basis-3/5">
-        <h2
-          class="mb-8 text-2xl"
-        >
-          Related Posts
-        </h2>
+        <h2 class="mb-8 text-2xl">Related Posts</h2>
         <RelatedPosts originalPost={post} postsToDisplay={4} />
       </aside>
 
       <aside class="max-w-max basis-2/5">
-        <h2
-          class="mb-8 text-2xl"
-        >
-          Tags
-        </h2>
+        <h2 class="mb-8 text-2xl">Tags</h2>
         <TagsCloud postTags={tags} />
       </aside>
     </div>
