@@ -24,9 +24,9 @@ interface Props {
 }
 
 const { post } = Astro.props as Props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
-<BlogPost {post}>
+<BlogPost {post} {headings}>
   <Content components={{ h2: H2, h3: H3, p: P }} />
 </BlogPost>

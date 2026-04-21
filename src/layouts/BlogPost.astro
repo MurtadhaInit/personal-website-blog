@@ -1,4 +1,5 @@
 ---
+import type { MarkdownHeading } from "astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -11,9 +12,11 @@ import { slugify } from "@utils/utils";
 
 interface Props {
   post: CollectionEntry<"blog">;
+  headings: MarkdownHeading[];
 }
 
-const { post } = Astro.props as Props;
+const { post, headings } = Astro.props as Props;
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const { title, description, date, category, author, cover, coverAlt, tags } =
   post.data;
 
@@ -60,6 +63,27 @@ const formattedDate = date.toLocaleDateString("en-GB", {
     </section>
 
     <section class="mx-8 mb-12">
+      {
+        tocHeadings.length > 0 && (
+          <nav class="mb-8" aria-label="Table of contents">
+            <p class="text-fg-muted mb-2 text-sm font-medium tracking-wider uppercase">
+              On this page
+            </p>
+            <ol class="border-fg-muted/30 space-y-1 border-l pl-4">
+              {tocHeadings.map((h) => (
+                <li class={h.depth === 3 ? "ml-4" : ""}>
+                  <a
+                    href={`#${h.slug}`}
+                    class="hover:text-accent font-mono text-sm transition"
+                  >
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )
+      }
       <div class="space-y-4">
         <slot>This post seems to be missing...</slot>
       </div>
