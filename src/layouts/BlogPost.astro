@@ -55,9 +55,10 @@ const formattedDate = date.toLocaleDateString("en-GB", {
       <Image
         src={cover}
         alt={coverAlt}
+        layout="constrained"
         width={1200}
-        height={600}
-        class="rounded-xl"
+        priority
+        class="w-full rounded-xl"
         transition:name={`image_${post.id}`}
       />
     </section>

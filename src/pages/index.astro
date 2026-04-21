@@ -31,6 +31,9 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
         <Image
           src={headshot}
           alt="My personal photo"
+          layout="constrained"
+          width={256}
+          priority
           class="max-w-64 shrink-0 rotate-3 justify-self-center rounded-xl lg:w-full lg:max-w-none"
         />
 
@@ -120,7 +123,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src={cka} alt="CKA badge" class="w-24" />
+                  <Image
+                    src={cka}
+                    alt="CKA badge"
+                    width={96}
+                    densities={[1, 2]}
+                    class="w-24"
+                  />
                 </a>
               </li>
             </ul>

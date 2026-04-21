@@ -21,6 +21,9 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
       class="w-full rounded-sm md:w-64"
       src={cover}
       alt={coverAlt}
+      layout="constrained"
+      width={600}
+      sizes="(min-width: 768px) 256px, 100vw"
       transition:name={`image_${post.id}`}
     />
   </a>
