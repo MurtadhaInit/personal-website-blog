@@ -10,22 +10,28 @@ import { defineCollection } from "astro:content";
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./content/blog" }),
   schema: ({ image }) =>
-    z.object({
-      title: z.string().max(60),
-      date: z.date(),
-      author: z.string().default("Murtadha A."),
-      cover: image(),
-      coverAlt: z.string().default("Blog post cover image"),
-      description: z
-        .string()
-        .max(
-          160,
-          "For best SEO results, keep description under 160 characters.",
-        ),
-      draft: z.boolean(),
-      category: z.string(),
-      tags: z.array(z.string()),
-    }),
+    z
+      .object({
+        title: z.string().max(60),
+        date: z.date(),
+        updatedDate: z.date().optional(),
+        author: z.string().default("Murtadha A."),
+        cover: image(),
+        coverAlt: z.string(),
+        description: z
+          .string()
+          .max(
+            160,
+            "for best SEO results, keep description under 160 characters",
+          ),
+        draft: z.boolean().default(false),
+        category: z.string(),
+        tags: z.array(z.string()),
+      })
+      .refine((data) => !data.updatedDate || data.updatedDate >= data.date, {
+        message: "updatedDate must be on or after date",
+        path: ["updatedDate"],
+      }),
 });
 
 export const collections = {

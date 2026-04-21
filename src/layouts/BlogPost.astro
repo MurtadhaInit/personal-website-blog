@@ -17,15 +17,32 @@ interface Props {
 
 const { post, headings } = Astro.props as Props;
 const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
-const { title, description, date, category, author, cover, coverAlt, tags } =
-  post.data;
+const {
+  title,
+  description,
+  date,
+  updatedDate,
+  category,
+  author,
+  cover,
+  coverAlt,
+  tags,
+} = post.data;
 
-const dateIso = date.toISOString();
-const formattedDate = date.toLocaleDateString("en-GB", {
+const dateFormatOptions: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "long",
   day: "numeric",
-});
+  timeZone: "UTC",
+};
+
+const dateIso = date.toISOString();
+const formattedDate = date.toLocaleDateString("en-GB", dateFormatOptions);
+const updatedDateIso = updatedDate?.toISOString();
+const formattedUpdatedDate = updatedDate?.toLocaleDateString(
+  "en-GB",
+  dateFormatOptions,
+);
 ---
 
 <Layout
@@ -46,10 +63,14 @@ const formattedDate = date.toLocaleDateString("en-GB", {
         <h1 class="mb-2 text-4xl">
           {title}
         </h1>
-        <p class="text-fg-muted">
-          By {author}<span class="mx-2">•</span><time datetime={dateIso}
-            >{formattedDate}</time
-          >
+        <p class="text-fg-muted flex flex-col items-start sm:flex-row sm:items-center gap-x-2 flex-wrap">
+          <span><span class="mr-2">By {author}</span><span aria-hidden="true" class="mr-2">•</span><time datetime={dateIso}>{formattedDate}</time></span>
+          {
+            updatedDate && (
+              <span aria-hidden="true" class="hidden sm:inline">•</span>
+              <span class="italic">Last updated: <time class="italic" datetime={updatedDateIso}>{formattedUpdatedDate}</time></span>
+            )
+          }
         </p>
       </div>
       <Image
