@@ -74,7 +74,16 @@ export default defineConfig({
           "chevron-small-double-left",
           "rss",
         ],
-        mdi: ["github", "linkedin", "email", "tailwind", "link-variant"],
+        mdi: [
+          "github",
+          "linkedin",
+          "email",
+          "tailwind",
+          "link-variant",
+          "calendar-check-outline",
+          "calendar-refresh-outline",
+          "person",
+        ],
         "devicon-plain": [
           "javascript",
           "typescript",

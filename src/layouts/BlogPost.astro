@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from "astro";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -63,12 +64,24 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(
         <h1 class="mb-2 text-4xl">
           {title}
         </h1>
-        <p class="text-fg-muted flex flex-col items-start sm:flex-row sm:items-center gap-x-2 flex-wrap">
-          <span><span class="mr-2">By {author}</span><span aria-hidden="true" class="mr-2">•</span><time datetime={dateIso}>{formattedDate}</time></span>
+        <p class="text-fg-muted flex flex-wrap items-center gap-x-4">
+          <span class="inline-flex items-center gap-1">
+            <Icon name="mdi:person" aria-hidden="true" />
+            By {author}
+          </span>
+          <span class="inline-flex items-center gap-1">
+            <Icon name="mdi:calendar-check-outline" aria-hidden="true" />
+            <time datetime={dateIso}>{formattedDate}</time>
+          </span>
           {
             updatedDate && (
-              <span aria-hidden="true" class="hidden sm:inline">•</span>
-              <span class="italic">Last updated: <time class="italic" datetime={updatedDateIso}>{formattedUpdatedDate}</time></span>
+              <span class="inline-flex items-center gap-1">
+                <Icon name="mdi:calendar-refresh-outline" aria-hidden="true" />
+                <span class="italic">
+                  Last updated:
+                  <time datetime={updatedDateIso}>{formattedUpdatedDate}</time>
+                </span>
+              </span>
             )
           }
         </p>
