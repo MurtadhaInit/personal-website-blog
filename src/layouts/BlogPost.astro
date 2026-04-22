@@ -34,6 +34,8 @@ const dateFormatOptions: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "long",
   day: "numeric",
+  // YAML parses bare dates as midnight UTC; pin formatting to UTC so the rendered day matches the frontmatter
+  // Otherwise, toLocaleDateString uses the build machine's timezone and can shift the rendered day by one
   timeZone: "UTC",
 };
 
