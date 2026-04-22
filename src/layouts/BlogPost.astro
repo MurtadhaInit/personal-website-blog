@@ -56,38 +56,39 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(
 >
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8 mb-8">
-      <div class="mb-8">
-        <p class="text-fg-muted mb-4 text-2xl">
-          <a
-            class="hover:text-accent transition"
-            href={`/blog/categories/${slugify(category)}`}>{category}</a
-          >
-        </p>
-        <h1 class="mb-2 text-4xl">
-          {title}
-        </h1>
-        <p class="text-fg-muted flex flex-wrap items-center gap-x-4">
-          <span class="inline-flex items-center gap-1">
-            <Icon name="mdi:person" aria-hidden="true" />
-            By {author}
-          </span>
-          <span class="inline-flex items-center gap-1">
-            <Icon name="mdi:calendar-check-outline" aria-hidden="true" />
-            <time datetime={dateIso}>{formattedDate}</time>
-          </span>
-          {
-            updatedDate && (
-              <span class="inline-flex items-center gap-1">
-                <Icon name="mdi:calendar-refresh-outline" aria-hidden="true" />
-                <span class="italic">
-                  Last updated:
-                  <time datetime={updatedDateIso}>{formattedUpdatedDate}</time>
-                </span>
+      <p class="text-fg-muted mb-4 text-2xl">
+        <a
+          class="hover:text-accent transition"
+          href={`/blog/categories/${slugify(category)}`}>{category}</a
+        >
+      </p>
+
+      <h1 class="mb-2 text-4xl">
+        {title}
+      </h1>
+
+      <p class="text-fg-muted mb-4 flex flex-wrap items-center gap-x-4">
+        <span class="inline-flex items-center gap-1">
+          <Icon name="mdi:person" aria-hidden="true" />
+          By {author}
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <Icon name="mdi:calendar-check-outline" aria-hidden="true" />
+          <time datetime={dateIso}>{formattedDate}</time>
+        </span>
+        {
+          updatedDate && (
+            <span class="inline-flex items-center gap-1">
+              <Icon name="mdi:calendar-refresh-outline" aria-hidden="true" />
+              <span class="italic">
+                Last updated:
+                <time datetime={updatedDateIso}>{formattedUpdatedDate}</time>
               </span>
-            )
-          }
-        </p>
-      </div>
+            </span>
+          )
+        }
+      </p>
+
       <Image
         src={cover}
         alt={coverAlt}
