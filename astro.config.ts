@@ -82,6 +82,7 @@ export default defineConfig({
           "link-variant",
           "calendar-check-outline",
           "calendar-refresh-outline",
+          "clock-outline",
           "person",
         ],
         "devicon-plain": [

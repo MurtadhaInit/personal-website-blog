@@ -124,3 +124,29 @@ export const getAllCategories = (
 ): string[] => {
   return [...new Set(posts.map((post) => post.data.category))];
 };
+
+/**
+ * Estimate reading time in minutes from a post's raw body. Strips MDX
+ * artifacts (import/export lines, JSX tags, HTML comments) and markdown
+ * syntax that shouldn't count as prose (code blocks, link URLs, image
+ * syntax, emphasis markers) before counting words.
+ *
+ * @param body Raw markdown/MDX body (frontmatter already stripped by Astro)
+ * @returns Estimated reading time in minutes (minimum 1)
+ */
+export const getReadingTime = (body: string): number => {
+  const WORDS_PER_MINUTE = 225;
+
+  const cleaned = body
+    .replace(/^(import|export)\s[\s\S]*?(?:\n\s*\n|$)/gm, "")
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/`[^`]*`/g, "")
+    .replace(/<\/?[A-Za-z][^>]*?>/g, "")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/[*_~]+/g, "");
+
+  const words = cleaned.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
+};

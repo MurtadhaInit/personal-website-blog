@@ -4,12 +4,11 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
-import Layout from "@layouts/Base.astro";
-
 import RelatedPosts from "@components/RelatedPosts.astro";
 import TagsCloud from "@components/TagsCloud.astro";
+import Layout from "@layouts/Base.astro";
 
-import { slugify } from "@utils/utils";
+import { getReadingTime, slugify } from "@utils/utils";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -46,6 +45,8 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(
   "en-GB",
   dateFormatOptions,
 );
+
+const readingTime = getReadingTime(post.body ?? "");
 ---
 
 <Layout
@@ -75,6 +76,10 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(
         <span class="inline-flex items-center gap-1">
           <Icon name="mdi:calendar-check-outline" aria-hidden="true" />
           <time datetime={dateIso}>{formattedDate}</time>
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <Icon name="mdi:clock-outline" aria-hidden="true" />
+          {readingTime} min read
         </span>
         {
           updatedDate && (
