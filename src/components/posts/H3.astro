@@ -1,10 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
 
-const { id, ...rest } = Astro.props;
+type Props = HTMLAttributes<"h3">;
+
+const { id, class: className, ...attrs } = Astro.props;
 ---
 
-<h3 {...rest} {id} class="group text-2xl">
+<h3 {...attrs} {id} class:list={["group text-2xl", className]}>
   <slot />{
     id && (
       <a
@@ -12,7 +15,7 @@ const { id, ...rest } = Astro.props;
         aria-label="Link to this section"
         class="hover:text-accent inline-flex items-center pl-2 align-middle no-underline opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100"
       >
-        <Icon name="mdi:link-variant" class="text-[0.85em]"} />
+        <Icon name="mdi:link-variant" class="text-[0.85em]" />
       </a>
     )
   }

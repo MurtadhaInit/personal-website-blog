@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  text: string;
+  href: string;
+  style: "primary" | "secondary";
+  icon?: {
+    name: string;
+    side: "left" | "right";
+  };
+  classes?: string[];
+}
+
+const { text, href, style, icon, classes = [] } = Astro.props as Props;
+---
+
+<a
+  {href}
+  class:list={[
+    style === "primary" ? "primary" : "secondary",
+    "flex w-fit items-center justify-between gap-2 rounded-lg px-4 py-2",
+    ...classes,
+  ]}
+>
+  {icon && icon.side === "left" && <Icon name={icon.name} size={24} />}
+
+  <span class="text-lg">{text}</span>
+
+  {icon && icon.side === "right" && <Icon name={icon.name} size={24} />}
+</a>
+
+<style>
+  @reference "@styles/global.css";
+
+  .primary {
+    @apply bg-fill text-fg hover:text-accent transition;
+  }
+
+  .secondary {
+    @apply bg-fill-muted text-fg hover:text-accent transition;
+  }
+</style>

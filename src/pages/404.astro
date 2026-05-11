@@ -1,22 +1,16 @@
 ---
+import Button from "@components/Button.astro";
 import Layout from "@layouts/Base.astro";
-import Link from "@components/Link.astro";
 ---
 
 <Layout title="Page Not Found" description="Missing page or broken URL">
   <main class="mx-auto my-16 max-w-5xl">
-    <div
-      class="mx-8 rounded-3xl bg-fill-muted p-8"
-    >
-      <h1 class="mb-4 text-3xl">
-        Well, this is awkward 😬
-      </h1>
-      <p
-        class="mb-16 text-xl text-fg-muted"
-      >
+    <div class="bg-fill-muted mx-8 rounded-3xl p-8">
+      <h1 class="mb-4 text-3xl">Well, this is awkward 😬</h1>
+      <p class="text-fg-muted mb-16 text-xl">
         We seem to have misplaced something...
       </p>
-      <Link
+      <Button
         text="Home"
         href="/"
         style={"primary"}

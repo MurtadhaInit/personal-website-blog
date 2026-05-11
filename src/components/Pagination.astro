@@ -1,5 +1,5 @@
 ---
-import Link from "@components/Link.astro";
+import Button from "@components/Button.astro";
 
 interface Props {
   prevURL?: string;
@@ -12,7 +12,7 @@ const { prevURL, nextURL } = Astro.props as Props;
 <nav class="flex items-center justify-between">
   {
     prevURL && (
-      <Link
+      <Button
         text="Previous"
         href={prevURL}
         style={"secondary"}
@@ -26,7 +26,7 @@ const { prevURL, nextURL } = Astro.props as Props;
   }
   {
     nextURL && (
-      <Link
+      <Button
         text="Next"
         href={nextURL}
         style={"secondary"}
