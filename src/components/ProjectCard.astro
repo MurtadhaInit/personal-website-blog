@@ -1,0 +1,57 @@
+---
+import type { Project } from "@data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props as Props;
+const { name, pitch, techChips, links, status } = project;
+---
+
+<article class="bg-fill-muted flex h-full flex-col gap-4 rounded-sm p-6">
+  <header class="flex items-start justify-between gap-3">
+    <h3 class="text-xl font-medium">{name}</h3>
+    {
+      status === "in-progress" && (
+        <span class="bg-accent/15 text-accent shrink-0 rounded-full px-2 py-0.5 text-xs font-medium">
+          In progress
+        </span>
+      )
+    }
+  </header>
+  <p class="text-sm">{pitch}</p>
+  <ul class="flex flex-wrap gap-2">
+    {
+      techChips.map((chip) => (
+        <li class="border-fg-muted/40 text-fg-muted rounded-full border px-2 py-0.5 text-xs">
+          {chip}
+        </li>
+      ))
+    }
+  </ul>
+  <div class="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+    {
+      links.map((link, i) => (
+        <>
+          {i > 0 && (
+            <span class="text-fg-muted" aria-hidden="true">
+              ·
+            </span>
+          )}
+          {link.href ? (
+            <a
+              href={link.href}
+              target={/^https?:\/\//i.test(link.href) ? "_blank" : undefined}
+              class="hover:text-accent font-medium transition"
+            >
+              {link.label} →
+            </a>
+          ) : (
+            <span class="text-fg-muted font-medium">{link.label}</span>
+          )}
+        </>
+      ))
+    }
+  </div>
+</article>

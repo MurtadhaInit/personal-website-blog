@@ -6,12 +6,12 @@ export const navData = [
   },
   {
     label: "Projects",
-    path: "/projects",
+    path: "/#projects",
     footerNav: true,
   },
   {
-    label: "Photography",
-    path: "/gallery",
+    label: "Homelab",
+    path: "/blog/posts/homelab",
     footerNav: false,
   },
   {
