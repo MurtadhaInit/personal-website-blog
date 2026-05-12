@@ -3,12 +3,12 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
+import { badges } from "@data/badges";
 import { contactEmail, contactLinks } from "@data/contactLinks";
 import { projects } from "@data/projects";
 import { technologies } from "@data/technologies";
 import { filterPosts } from "@utils/utils";
 
-import cka from "@assets/images/badges/cka-certified-kubernetes-administrator.png";
 import headshot from "@assets/images/headshot/headshot.jpg";
 import PostCard from "@components/PostCard.astro";
 import ProjectCard from "@components/ProjectCard.astro";
@@ -119,21 +119,21 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
           <div>
             <h2 class="mb-2 text-2xl">Certifications</h2>
             <ul class="flex flex-wrap items-center gap-4">
-              <li>
-                <a
-                  href="https://www.credly.com/badges/cb9770f2-39b2-4bdc-bc38-3815c34724cb/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src={cka}
-                    alt="CKA badge"
-                    width={96}
-                    densities={[1, 2]}
-                    class="w-24"
-                  />
-                </a>
-              </li>
+              {
+                badges.map((badge) => (
+                  <li>
+                    <a target="_blank" href={badge.link}>
+                      <Image
+                        src={badge.image}
+                        alt={badge.imageAlt}
+                        width={96}
+                        densities={[1, 2]}
+                        class="w-24"
+                      />
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
