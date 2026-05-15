@@ -41,7 +41,7 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
       </p>
     </div>
     <div class="flex items-center justify-between self-stretch">
-      <p class="text-fg-muted text-xs sm:text-sm">
+      <p class="text-fg-muted text-sm">
         {date.toLocaleDateString()}
       </p>
       <div class="flex items-center justify-between gap-4">
@@ -52,7 +52,7 @@ const { title, date, cover, coverAlt, description, tags } = post.data;
             .map((tag) => (
               <a
                 href={`/blog/tags/${slugify(tag)}`}
-                class="hover:text-accent text-xs font-light transition sm:text-sm"
+                class="hover:text-accent text-sm font-light transition"
               >
                 {tag}
               </a>
