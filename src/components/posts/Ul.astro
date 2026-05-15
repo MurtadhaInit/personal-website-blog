@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"ul">;
+
+const { class: className, ...attrs } = Astro.props;
+---
+
+<ul
+  {...attrs}
+  class:list={["marker:text-fg-muted list-disc space-y-2 pl-6", className]}
+>
+  <slot />
+</ul>

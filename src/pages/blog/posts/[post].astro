@@ -5,9 +5,14 @@ import { getCollection, render } from "astro:content";
 import BlogPost from "@layouts/BlogPost.astro";
 
 import Link from "@components/Link.astro";
+import Blockquote from "@components/posts/Blockquote.astro";
 import H2 from "@components/posts/H2.astro";
 import H3 from "@components/posts/H3.astro";
+import Li from "@components/posts/Li.astro";
+import Ol from "@components/posts/Ol.astro";
 import P from "@components/posts/P.astro";
+import Strong from "@components/posts/Strong.astro";
+import Ul from "@components/posts/Ul.astro";
 import { filterPosts } from "@utils/utils";
 
 // generate a static path for each blog post
@@ -29,5 +34,17 @@ const { Content, headings } = await render(post);
 ---
 
 <BlogPost {post} {headings}>
-  <Content components={{ h2: H2, h3: H3, p: P, a: Link }} />
+  <Content
+    components={{
+      h2: H2,
+      h3: H3,
+      p: P,
+      a: Link,
+      ol: Ol,
+      ul: Ul,
+      li: Li,
+      blockquote: Blockquote,
+      strong: Strong,
+    }}
+  />
 </BlogPost>

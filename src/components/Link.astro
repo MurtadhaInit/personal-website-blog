@@ -13,5 +13,14 @@ const resolvedTarget = target ?? (isExternal ? "_blank" : undefined);
   {...attrs}
   {href}
   target={resolvedTarget}
-  class:list={["text-accent transition hover:underline", className]}><slot /></a
+  class:list={[
+    "text-accent box-decoration-clone",
+    "from-accent to-accent bg-linear-to-r bg-no-repeat",
+    "bg-size-[0%_1px] bg-position-[0_100%]",
+    "hover:bg-size-[100%_1px]",
+    "transition-[background-size] duration-300",
+    "has-[>code]:bg-none",
+    "focus-visible:outline-accent focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2",
+    className,
+  ]}><slot /></a
 >
