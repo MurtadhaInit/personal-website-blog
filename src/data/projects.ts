@@ -1,4 +1,4 @@
-export interface ProjectLink {
+interface ProjectLink {
   label: string;
   href?: string; // omit to render the label as plain text (e.g. "Repo coming soon")
 }
@@ -16,16 +16,23 @@ export const projects: Project[] = [
     name: "Homelab",
     pitch:
       "A declarative, GitOps-driven homelab on two platforms: NixOS and a 5-node HA Kubernetes cluster — Proxmox, Talos, Terraform, Helm, and Flux.",
-    techChips: ["Talos", "Flux Operator", "OpenTofu", "Helm", "SOPS"],
+    techChips: [
+      "Talos",
+      "Flux Operator",
+      "OpenTofu",
+      "Helm",
+      "SOPS",
+      "Ansible",
+    ],
     links: [
       { label: "GitHub", href: "https://github.com/MurtadhaInit/homelab" },
       { label: "Write-up", href: "/blog/posts/homelab" },
     ],
   },
   {
-    name: "E-commerce platform",
+    name: "E-commerce platform (CI/CD)",
     pitch:
-      "Go API for a full-stack e-commerce store; CI builds the container image and Flux automatically deploys it to my homelab cluster.",
+      "Go API & Svelte frontend for a full-stack e-commerce store; CI builds the container image and Flux automatically deploys it to my homelab cluster.",
     techChips: ["Go", "MySQL", "GitHub Actions", "Docker", "Flux"],
     links: [
       {

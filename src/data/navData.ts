@@ -16,7 +16,7 @@ export const navData = [
   },
   {
     label: "My Setup",
-    path: "/setup",
+    path: "/blog/posts/setup",
     footerNav: true,
   },
 ];
