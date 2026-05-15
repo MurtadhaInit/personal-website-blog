@@ -1,0 +1,105 @@
+---
+title: My home infrastructure setup
+date: 2026-04-30
+author: Murtadha A.
+cover: ./cover.jpg
+coverAlt: "Technologies used in my homelab"
+description: "A tour of my automated, declarative, and GitOps-driven homelab: Proxmox, Talos, Kubernetes, NixOS, and a one-command bootstrap to running services."
+draft: false
+category: Technology
+tags:
+  - Infrastructure
+  - Homelab
+  - Automation
+  - GitOps
+  - IaC
+  - Kubernetes
+  - Nix
+  - Talos
+  - Flux
+---
+
+## Intro
+
+I'm going to give a quick overview of my [homelab](https://github.com/MurtadhaInit/homelab), the hardware currently in use, and apps and services deployed on it, and most importantly the software infrastructure that hosts everything. I'm also going to explain the rationale behind some of these software choices and quickly go over how I generally manage that infrastructure and automate its setup from scratch by keeping it declarative and versioned through Git.
+
+The state of this evergreen project is constantly evolving, and there are many services I plan to deploy
+in the future or ones I just haven't written about yet. So this article merely represents a snapshot of the current state of my homelab and the tech choices made up to this point in time. Always refer to the [repository](https://github.com/MurtadhaInit/homelab) as it's the most up-to-date source of truth.
+
+## Overview and general goals
+
+The project is essentially a collection of scripts, definitions, and tools whose primary goal is declaratively defining all my home servers and services, as well as providing the ability to bootstrap everything from scratch in the least amount of time and with minimal manual setup. It also serves as documentation for the design choices made, the rationale behind them, and how to bootstrap everything from scratch. The introduction of the observability stack aims to keep this infrastructure and services hosted therein continuously reliable.
+
+I aim for this homelab to be a learning and experimentation playground, where I can try different tools (for evaluation) or services (to see if they add value to my life). I also gain the benefits of privacy, digital sovereignty, and data ownership.
+Plus homelabbing and self-hosting are just fun; they quickly turned into an addictive hobby on their own.
+
+The reason I'm using what some would consider "overkill" technologies and platforms (like Kubernetes) for a homelab setup is that I also want my own home infrastructure to be as closely aligned as possible to industry standards and to enterprise tooling and tech stacks. This not only benefits me career-wise, but it also helps me stay up-to-date with industry changes and current enterprise trends.
+
+Flexibility is another goal. For instance, one could ask, why not deploy k8s on bare metal and skip the Proxmox abstraction layer entirely (along with its maintenance overhead)? The simple answer is flexibility: what if I want to run other VMs? or what if I want to quickly deploy and experiment with some new technology? or to play with
+Docker/Podman? or even to use Windows Server for some task? (I have a VM definition
+ready).
+
+This flexible setup also allows me to make use of two different approaches for deploying and configuring applications, and without much hassle: declarative `systemd` services in the form of NixOS modules, and containerised applications running on a platform like Docker or k8s. This is arguably the best of both worlds: combining the enterprise scalability of a robust, widely-adopted platform like k8s and the relative "simplicity" or straightforwardness of declarative NixOS services.
+
+## The hardware
+
+At the time of writing, everything runs on a Beelink SER5 Pro mini-pc with 16GB of RAM, and 500GB of SSD storage. The CPU is a Ryzen 5 5600H with 6 cores and 12 threads, which is more than plenty for the workloads running here.
+
+RAM is the real limitation here given the overhead of running 5 Kubernetes nodes (along with distributed storage and observability) plus everything else being virtualised.
+
+Now obviously, running 5 k8s nodes on the same physical machine doesn't provide any real redundancy as there is still a single point of failure underneath, which defeats the whole purpose of a high availability setup. But for now, this is the best way to learn the Kubernetes platform given the hardware constraints; but the topology and pieces are already in place.
+
+This is also why I'm adding in the near future another computer, this time a ZimaBoard 2 SBC (the 16GB model) which should allow
+me to experiment with true HA setups by moving a few of my Kubernetes VMs onto it and to alleviate some of the resource bottlenecks (RAM and storage). A dedicated NAS device is also desperately needed, particularly for media storage purposes.
+
+## The infrastructure
+
+### The stack
+
+The hypervisor layer is **Proxmox** and it’s left intentionally minimal — no HA and no Ceph storage, just baseline hardening, SSH access, and a storage setup custom to my current hardware layout. I instead push HA further up the stack into Kubernetes or the services themselves. Proxmox gives me the flexibility to spin up arbitrary VMs and LXCs alongside the k8s cluster/NixOS container, which enables experimentation without messing with running services.
+
+On top of Proxmox I deploy and manage two parallel platforms: a **NixOS LXC container** running a set of `systemd` services as declarative Nix modules, and a **5-node Talos / Kubernetes cluster** (3 control-plane + 2 worker VMs) running containerised workloads.
+
+The provisioning and automation tools used to get that infrastructure up and running include **Ansible**, **OpenTofu**, and **Flux:** Ansible bootstraps the Proxmox hosts themselves and any new VMs with baseline configuration; OpenTofu provisions VMs/LXCs, generates the Talos cluster PKI, pushes machine configs to VMs, bootstraps `etcd` then Cilium (through the Helm provider), and installs Flux (through the Flux Operator) on the new cluster; Flux then automatically takes over and reconciles everything from the same Git repo going forward.
+
+### Two paths: NixOS and Kubernetes
+
+The reason for this split is that certain services I want to be "just working" (i.e., to set-it-and-forget-it), without the management overhead and general upkeep that comes with k8s. However, this also comes down to the availability of high quality NixOS modules (which I'm then wrapping with my own custom ones), the number of options they expose, and the reliability at which configurations are deterministically applied.
+
+For instance, with my local DNS solution (AdGuard Home), it's easier to define all the configurations, including DNS re-writes, filtering lists, and even login credentials (using `agenix`) in one hand-crafted NixOS module file that wraps the AdGuard service and which can be selectively toggled on or off for any machine. Additionally, the "off" here means the service is gone, binaries are unlinked, and even the firewall ports previously open are now closed.
+
+This idempotency can be contrasted with a tool like Ansible, which is not *truly* declarative *nor* idempotent out of the box: removing a task to install a service from a playbook and re-running that playbook against the same target machine doesn't actually remove that service. You have to manually SSH and uninstall it yourself.
+
+This NixOS setup is made easier because of `deploy-rs` and its many niceties, like reverting to the previous (working) revision right away if a deployment fails, preventing downtime and service disruption.
+
+For everything else, I prefer the GitOps approach to declaratively define and continuously deploy my k8s workloads using Flux with Helm releases and handwritten manifests.
+
+> _But why not Docker?_
+> The simple and honest answer: it's a bit too easy and less interesting (I already am familiar with Docker); plus there isn't as large of a learning opportunity compared to k8s. Though I do have a Docker deployment on the Ubuntu VM (installed and configured with Ansible) which I'm also exploring and playing with.
+
+### One command to a deployed and running GitOps cluster
+
+After installing Proxmox, the rest runs through a `justfile` with numbered recipes (e.g., running `just bootstrap` installs every CLI the workflow needs through `mise`). The end-to-end sequence looks like this:
+
+1. **SSH bootstrap**: generate a keypair on any workstation and use it to seed the Proxmox root user's `authorized_keys`. This is basically the only manual step.
+2. **Proxmox hardening & config (Ansible)**: playbooks disable SSH password auth, create a sudo user, configure host storage, and install Prometheus `node_exporter` so the hypervisor gets metric scraping along with the Kubernetes nodes.
+3. **VM/LXC and cluster provisioning (OpenTofu)**: the `bpg/proxmox` provider creates the VMs and LXCs (including k8s cluster nodes). The official `talos` provider then generates the cluster PKI, builds per-role machine configs, pushes them to the new VMs, bootstraps `etcd` once, and pulls back `talosconfig` and `kubeconfig` to write to disk. Cilium (as the cluster network solution) is then installed on the fresh cluster via the Helm provider as part of the same plan, so by the time `tofu apply` finishes the cluster should already have a working CNI.
+4. **Flux bootstrap (OpenTofu)**: the cluster then gets the [`flux-operator-bootstrap`](https://github.com/controlplaneio-fluxcd/terraform-kubernetes-flux-operator-bootstrap) module applied, which installs the Flux Operator chart, applies the `FluxInstance` manifest from the repo (which in turn installs Flux), and seeds the SOPS age key as a `Secret` in the `flux-system` namespace. From this point on, Flux will take care of reconciling the cluster with every k8s resource defined in that same repo.
+5. **Baseline VM/LXC configuration (Ansible)**: privileged NixOS LXCs need a couple of imperative tweaks the Terraform provider can't perform over the Proxmox API; so an Ansible playbook handles that. Similarly, a playbook will configure "vanilla" VMs (e.g., Ubuntu) with things like Docker.
+
+This also means that (assuming nothing goes wrong) we can get to a running Kubernetes cluster from scratch along with all its deployed applications with one `just deploy-apply` command. The only thing it expects is the SOPS age private key on disk at a known path.
+
+### Networking
+
+At the moment, I'm using two reverse proxies simultaneously: the first is **Caddy**, deployed on my NixOS LXC container and is proxying to my Nix services on the same container as well as to services on other VMs/LXCs and to the Proxmox Web UI (the Proxmox host IP + port). The second is **Cilium Envoy** through the Gateway API on my k8s cluster. The future plan is to consolidate onto one reverse proxy (Cilium), and to retire Caddy (disabling the Nix module) but keeping it as an emergency backup.
+
+My local DNS solution is currently **AdGuard Home**. In addition to block lists, I have two DNS rewrites configured:
+
+1. The first is a wildcard for all subdomains of `home.murtadha.dev`. It points at `10.20.30.50` (the LXC container's static IP) where my Caddy reverse proxy listens for web traffic (port `80`/`443`) and routes it based on the subdomain to the appropriate backend (likely a NixOS service on the same container —`localhost`).
+2. The second is a wildcard for subdomains of `k8s.murtadha.dev`, pointing at `10.20.30.80`. That IP isn't bound to any physical interface — instead, Cilium's LB IPAM allocates it (from a `CiliumLoadBalancerIPPool`) to the `LoadBalancer` Service backing the `homelab` Gateway, and the worker nodes make it reachable on the LAN by answering ARP requests for it (`CiliumL2AnnouncementPolicy`). Once a connection lands on a worker, Cilium's managed Envoy forwards the request to the right in-cluster Service based on the matching `HTTPRoute` (hostname/path).
+
+Obviously, the existence of two domain names is unnecessary, especially with one revealing underlying implementation details (`*.k8s`) for no reason. So in the future, only the first will be used, pointing at the k8s gateway. The gateway should also proxy to services outside the cluster, like those deployed on the NixOS container.
+
+**Cloudflare** is my external DNS solution. Both web servers are terminating client connections with TLS using DNS-01 type of challenge through Let's Encrypt. They both use the Cloudflare API to automatically create and tear down DNS records to satisfy the challenge when obtaining/renewing certificates.
+
+Nix makes it easy to bake a Caddy plugin into the compiled Caddy binary, avoiding one of the main downsides of Caddy. The token is injected into Caddy's environment and is stored encrypted in this repo using `agenix`. Similarly, a token is provided to `cert-manager` inside the k8s cluster in the form of a k8s `Secret` deployed with Flux (and it's also stored encrypted in this repo but this time using `SOPS`). `cert-manager` takes care of creating certificate signing requests and renewing certificates before expiration. Signed certificates are in turn used by the annotated `Gateway` resource for TLS encryption.
