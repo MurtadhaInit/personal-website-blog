@@ -7,7 +7,7 @@ type Props = HTMLAttributes<"h2">;
 const { id, class: className, ...attrs } = Astro.props;
 ---
 
-<h2 {...attrs} {id} class:list={["group text-3xl", className]}>
+<h2 {...attrs} {id} class:list={["group scroll-mt-4 text-3xl", className]}>
   <slot />{
     id && (
       <a
