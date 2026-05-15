@@ -55,9 +55,9 @@ const readingTime = getReadingTime(post.body ?? "");
   image={`/open-graph/${post.id}.png`}
   type="article"
 >
-  <main class="mx-auto my-16 max-w-5xl">
+  <main class="mx-auto my-8 max-w-5xl lg:my-12">
     <section class="mx-8 mb-8">
-      <p class="text-fg-muted mb-4 text-2xl">
+      <p class="text-fg-muted mb-2 text-2xl">
         <a
           class="hover:text-accent transition"
           href={`/blog/categories/${slugify(category)}`}>{category}</a
@@ -71,7 +71,7 @@ const readingTime = getReadingTime(post.body ?? "");
       <p class="text-fg-muted mb-4 flex flex-wrap items-center gap-x-4">
         <span class="inline-flex items-center gap-1">
           <Icon name="mdi:person" aria-hidden="true" />
-          By {author}
+          {author}
         </span>
         <span class="inline-flex items-center gap-1">
           <Icon name="mdi:calendar-check-outline" aria-hidden="true" />
@@ -134,12 +134,12 @@ const readingTime = getReadingTime(post.body ?? "");
 
     <div class="mx-8 flex items-start justify-start gap-12">
       <aside class="basis-3/5">
-        <h2 class="mb-8 text-2xl">Related Posts</h2>
+        <h2 class="mb-2 text-2xl">Related Posts</h2>
         <RelatedPosts originalPost={post} postsToDisplay={4} />
       </aside>
 
       <aside class="max-w-max basis-2/5">
-        <h2 class="mb-8 text-2xl">Tags</h2>
+        <h2 class="mb-2 text-2xl">Tags</h2>
         <TagsCloud postTags={tags} />
       </aside>
     </div>
