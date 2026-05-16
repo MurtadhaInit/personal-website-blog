@@ -29,9 +29,7 @@ const { page } = Astro.props as Props;
 <Layout title="Blog Posts" description="My personal blog">
   <main class="mx-auto my-16 max-w-5xl">
     <section class="mx-8 mb-12">
-      <h1 class="mb-8 text-4xl">
-        Latest Blog Posts
-      </h1>
+      <h1 class="mb-8 text-4xl">Latest Blog Posts</h1>
       <ul class="mb-8 space-y-8">
         {
           page.data.map((post) => (
@@ -43,12 +41,8 @@ const { page } = Astro.props as Props;
       </ul>
       <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
     </section>
-    <aside
-      class="bg-fill-muted mx-8 rounded-3xl p-8"
-    >
-      <h2 class="mb-8 text-3xl">
-        Tags
-      </h2>
+    <aside class="bg-fill-muted mx-8 rounded-sm p-8">
+      <h2 class="mb-8 text-3xl">Tags</h2>
       <TagsCloud showCount={true} tagsToShow={10} />
     </aside>
   </main>
