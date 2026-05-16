@@ -8,7 +8,10 @@ const { class: className, ...attrs } = Astro.props;
 
 <ol
   {...attrs}
-  class:list={["marker:text-fg-muted list-decimal space-y-2 pl-6", className]}
+  class:list={[
+    "marker:text-fg-muted mb-4 list-decimal space-y-2 pl-6",
+    className,
+  ]}
 >
   <slot />
 </ol>

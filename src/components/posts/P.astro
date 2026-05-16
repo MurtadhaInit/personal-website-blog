@@ -6,6 +6,6 @@ type Props = HTMLAttributes<"p">;
 const { class: className, ...attrs } = Astro.props;
 ---
 
-<p {...attrs} class:list={["text-lg font-light", className]}>
+<p {...attrs} class:list={["mb-4 text-lg font-light", className]}>
   <slot />
 </p>

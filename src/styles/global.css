@@ -42,3 +42,9 @@
 .post-body :not(pre) > code {
   @apply bg-fill-muted rounded px-1.5 py-0.5 font-mono text-[0.9em] font-normal;
 }
+
+/* Keep subsection headings visually attached when Markdown has no prose
+   between them, e.g. `## Section` followed immediately by `### Topic`. */
+.post-body h2 + h3 {
+  @apply mt-4;
+}
