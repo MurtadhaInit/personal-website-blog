@@ -21,7 +21,7 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
 <Layout title="Murtadha - Home">
   <main class="mx-auto my-16 max-w-5xl">
     <section
-      class="mx-8 mb-12 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_15rem] lg:gap-x-16"
+      class="mx-8 mb-8 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_15rem] lg:gap-x-16"
       aria-label="About Me"
     >
       <!-- display: contents on mobile makes the wrapper invisible so its children
@@ -91,11 +91,13 @@ const postsToDisplay = filterPosts(allPosts, { limit: 3 });
           automation.
         </p>
         <p class="text-fg-muted mb-4">
-          I have a first-class BSc (Hons) degree in Computing and IT from the
-          UK, where I have previously lived for over 7 years. My general area of
-          focus is web development and infrastructure. I have recently passed
-          the Certified Kubernetes Administrator (CKA) exam and have been
-          exploring the cloud native ecosystem.
+          I have a <span
+            class="decoration-fg-muted/60 underline decoration-1 underline-offset-4"
+            >first-class BSc (Hons) degree</span
+          > in Computing and IT from the UK, where I have previously lived for over
+          7 years. My general area of focus is web development and infrastructure.
+          I have recently passed the Certified Kubernetes Administrator (CKA) exam
+          and have been exploring the cloud native ecosystem.
         </p>
 
         <div class="grid grid-cols-1 gap-4 md:grid-cols-[3fr_2fr] md:gap-x-6">
