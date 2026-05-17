@@ -12,15 +12,18 @@ const { id, class: className, ...attrs } = Astro.props;
   {id}
   class:list={["group mt-10 mb-3 scroll-mt-4 text-3xl", className]}
 >
-  <slot />{
-    id && (
-      <a
-        href={`#${id}`}
-        aria-label="Link to this section"
-        class="hover:text-accent inline-flex items-center pl-2 align-middle no-underline opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100"
-      >
-        <Icon name="mdi:link-variant" class="text-[0.85em]" />
+  {
+    id ? (
+      <a href={`#${id}`} class="text-inherit no-underline">
+        <slot />
+        <Icon
+          name="mdi:link-variant"
+          aria-hidden="true"
+          class="hover:text-accent hidden align-middle text-[0.85em] opacity-0 transition group-hover:opacity-100 md:inline"
+        />
       </a>
+    ) : (
+      <slot />
     )
   }
 </h2>

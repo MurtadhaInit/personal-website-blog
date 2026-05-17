@@ -9,7 +9,7 @@ const { class: className, ...attrs } = Astro.props;
 <blockquote
   {...attrs}
   class:list={[
-    "border-accent/60 bg-fill-muted/60 mb-4 rounded-r-sm border-l-4 px-6 py-3",
+    "border-accent/60 bg-fill-muted/60 mb-4 rounded-r-sm border-l-4 px-6 py-3 [&>p:last-child]:mb-0",
     className,
   ]}
 >
