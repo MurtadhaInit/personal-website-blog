@@ -1,43 +1,27 @@
 ---
-import { filterPosts, getRelatedPosts } from "@utils/utils";
-
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 
 interface Props {
-  originalPost: CollectionEntry<"blog">;
-  postsToDisplay: number;
+  posts: { score: number; post: CollectionEntry<"blog"> }[];
 }
 
-const { originalPost, postsToDisplay } = Astro.props as Props;
-
-const allPosts = await getCollection("blog");
-const filteredPosts = filterPosts(allPosts);
-// generate related posts and sort the results descendingly by their score
-let relatedPosts = getRelatedPosts(originalPost, filteredPosts).sort(
-  (a, b) => b.score - a.score
-);
-// display the top specified number of related posts
-if (postsToDisplay) {
-  relatedPosts = relatedPosts.slice(0, postsToDisplay);
-}
+const { posts } = Astro.props as Props;
 ---
 
-<ul class="flex flex-wrap items-start justify-start gap-4">
+<ul class="flex flex-wrap gap-4">
   {
-    relatedPosts.length !== 0 &&
-      relatedPosts.map((mapping) => (
-        <li>
-          <a
-            href={`/blog/posts/${mapping.post.id}`}
-            class="group bg-fill-muted text-fg-muted block rounded-lg p-4"
-          >
-            <h3 class="group-hover:text-accent transition md:text-lg">
-              {mapping.post.data.title}
-            </h3>
-            <small>{mapping.post.data.date.toLocaleDateString()}</small>
-          </a>
-        </li>
-      ))
+    posts.map(({ post }) => (
+      <li>
+        <a
+          href={`/blog/posts/${post.id}`}
+          class="group bg-fill-muted text-fg-muted block rounded-lg p-4"
+        >
+          <h3 class="group-hover:text-accent transition md:text-lg">
+            {post.data.title}
+          </h3>
+          <small>{post.data.date.toLocaleDateString()}</small>
+        </a>
+      </li>
+    ))
   }
 </ul>

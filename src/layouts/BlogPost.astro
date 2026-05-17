@@ -2,13 +2,18 @@
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 import RelatedPosts from "@components/RelatedPosts.astro";
 import TagsCloud from "@components/TagsCloud.astro";
 import Layout from "@layouts/Base.astro";
 
-import { getReadingTime, slugify } from "@utils/utils";
+import {
+  filterPosts,
+  getReadingTime,
+  getRelatedPosts,
+  slugify,
+} from "@utils/utils";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -47,6 +52,14 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(
 );
 
 const readingTime = getReadingTime(post.body ?? "");
+
+const allPosts = await getCollection("blog");
+const filteredPosts = filterPosts(allPosts);
+const relatedPosts = getRelatedPosts(post, filteredPosts, 3);
+
+const hasRelatedPosts = relatedPosts.length > 0;
+const hasTags = tags.length > 0;
+const hasBothAsides = hasRelatedPosts && hasTags;
 ---
 
 <Layout
@@ -105,7 +118,7 @@ const readingTime = getReadingTime(post.body ?? "");
       />
     </section>
 
-    <section class="mx-8 mb-12">
+    <section class="mx-8 mb-8">
       {
         tocHeadings.length > 0 && (
           <nav class="mb-8" aria-label="Table of contents">
@@ -132,16 +145,28 @@ const readingTime = getReadingTime(post.body ?? "");
       </div>
     </section>
 
-    <div class="mx-8 flex items-start justify-start gap-12">
-      <aside class="basis-3/5">
-        <h2 class="mb-2 text-2xl">Related Posts</h2>
-        <RelatedPosts originalPost={post} postsToDisplay={4} />
-      </aside>
-
-      <aside class="max-w-max basis-2/5">
-        <h2 class="mb-2 text-2xl">Tags</h2>
-        <TagsCloud postTags={tags} />
-      </aside>
-    </div>
+    {
+      (hasRelatedPosts || hasTags) && (
+        <div
+          class:list={[
+            "mx-8 flex flex-col gap-8",
+            hasBothAsides && "md:flex-row md:gap-12",
+          ]}
+        >
+          {hasRelatedPosts && (
+            <aside class:list={[hasBothAsides && "md:basis-3/5"]}>
+              <h2 class="mb-2 text-2xl">Related Posts</h2>
+              <RelatedPosts posts={relatedPosts} />
+            </aside>
+          )}
+          {hasTags && (
+            <aside class:list={[hasBothAsides && "md:basis-2/5"]}>
+              <h2 class="mb-2 text-2xl">Tags</h2>
+              <TagsCloud postTags={tags} />
+            </aside>
+          )}
+        </div>
+      )
+    }
   </main>
 </Layout>

@@ -73,21 +73,23 @@ export const filterPosts = (
 };
 
 /**
- * Return a list of related posts according to their relevancy
+ * Return a list of related posts sorted (descending) by their relevancy
  * (i.e. number of common tags with the original post)
  *
  * @param originalPost The post to generate a related posts list for
  * @param allPosts The collection of all posts
+ * @param limit Optional maximum number of related posts to return
  * @returns A list of mappings representing each post and its associated relevancy
  */
 export const getRelatedPosts = (
   originalPost: CollectionEntry<"blog">,
   allPosts: CollectionEntry<"blog">[],
+  limit: number | null = null,
 ): {
   score: number;
   post: CollectionEntry<"blog">;
 }[] => {
-  return allPosts.reduce(
+  const relatedPosts = allPosts.reduce(
     (
       relatedPosts: { score: number; post: CollectionEntry<"blog"> }[],
       post,
@@ -113,6 +115,11 @@ export const getRelatedPosts = (
     },
     [],
   );
+
+  // sort the list by relevancy score
+  relatedPosts.sort((a, b) => b.score - a.score);
+
+  return limit !== null ? relatedPosts.slice(0, limit) : relatedPosts;
 };
 
 /**
