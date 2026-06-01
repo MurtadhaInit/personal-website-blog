@@ -44,7 +44,6 @@ export const projects: Project[] = [
         href: "https://github.com/MurtadhaInit/e-store-frontend",
       },
     ],
-    status: "in-progress",
   },
   {
     name: "Dotfiles",
@@ -54,6 +53,7 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/MurtadhaInit/dotfiles" },
     ],
+    status: "in-progress",
   },
   {
     name: "This Astro website/blog",
