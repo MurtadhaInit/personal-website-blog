@@ -19,14 +19,16 @@ import {
 // Astro's built-in plugin that adds `id` attributes to headings and populates
 // the `headings` array returned by `render()`. The visible anchor link is added
 // in the H2/H3 component overrides (src/components/posts/), not here.
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://murtadha.dev",
 
   markdown: {
-    rehypePlugins: [rehypeHeadingIds],
+    processor: unified({
+      rehypePlugins: [rehypeHeadingIds],
+    }),
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",
