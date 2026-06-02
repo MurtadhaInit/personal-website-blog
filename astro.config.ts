@@ -16,19 +16,15 @@ import {
   transformerNotationHighlight,
 } from "@shikijs/transformers";
 
-// Astro's built-in plugin that adds `id` attributes to headings and populates
-// the `headings` array returned by `render()`. The visible anchor link is added
-// in the H2/H3 component overrides (src/components/posts/), not here.
-import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
+// Astro's new MD processor (to become default in a future major rel)
+import { satteri } from "@astrojs/markdown-satteri";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://murtadha.dev",
 
   markdown: {
-    processor: unified({
-      rehypePlugins: [rehypeHeadingIds],
-    }),
+    processor: satteri({ features: { wikilinks: true } }),
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",
