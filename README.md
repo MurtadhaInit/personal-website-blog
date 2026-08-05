@@ -1,6 +1,6 @@
 # Personal Website and Blog
 
-> My personal website and blog — Astro 6, MDX, and Tailwind v4, deployed continuously to GitHub Pages. Live at [murtadha.dev](https://murtadha.dev).
+> My personal website and blog — Astro 7, MDX, and Tailwind v4, deployed continuously to GitHub Pages. Live at [murtadha.dev](https://murtadha.dev).
 
 [![Last commit](https://img.shields.io/github/last-commit/MurtadhaInit/personal-website-blog?style=flat-square&logo=git&logoColor=white)](https://github.com/MurtadhaInit/personal-website-blog/commits/main)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/MurtadhaInit/personal-website-blog/deploy.yml?style=flat-square&logo=githubactions&logoColor=white&label=deploy&branch=main)](https://github.com/MurtadhaInit/personal-website-blog/actions/workflows/deploy.yml)
@@ -12,11 +12,11 @@
 
 This is the source for my personal website and blog. It's a fully static site — every route is pre-rendered at build time, the output is plain HTML/CSS/JS with no runtime server, and the deploy pipeline is a `git push` to `main`. Blog content lives alongside the code as MDX with a zod-validated frontmatter schema, so adding a post is creating a directory and writing markdown.
 
-The stack is deliberately modern: Astro 6 for the SSG framework, Tailwind CSS v4 (no JavaScript config — all configuration lives in CSS), MDX with custom typography component overrides, Astro view transitions for SPA-like navigation, and self-hosted fonts via Astro's Fonts API.
+The stack is deliberately modern: Astro 7 for the SSG framework, Tailwind CSS v4 (no JavaScript config — all configuration lives in CSS), MDX with custom typography component overrides, Astro view transitions for SPA-like navigation, and self-hosted fonts via Astro's Fonts API.
 
 ## Highlights
 
-- **Static-site generation with Astro 6.** Every route is pre-rendered at build time. No runtime server; no client-side hydration except where explicitly opted in.
+- **Static-site generation with Astro 7.** Every route is pre-rendered at build time. No runtime server; no client-side hydration except where explicitly opted in.
 - **Tailwind CSS v4 with zero JavaScript config.** Theme tokens, the dark variant, and font registration all live in `src/styles/global.css` via `@theme` and `@custom-variant` blocks — no `tailwind.config.*` file.
 - **Dark / light theme based on device preference or by choice.** Toggle state is stored in `localStorage`. An inline script in the document head applies the stored (or system) theme before first paint, and rebinds on every Astro view transition.
 - **Content collections with schema validation.** Posts in `content/blog/` are loaded via a glob loader and validated against a zod schema (`src/content.config.ts`). Draft posts and future-dated posts are filtered out automatically.
