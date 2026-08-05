@@ -16,7 +16,8 @@ import {
   transformerNotationHighlight,
 } from "@shikijs/transformers";
 
-// Astro's new MD processor (to become default in a future major rel)
+// Astro's MD processor (default since Astro 7)
+// imported explicitly so we can turn on non-default features
 import { satteri } from "@astrojs/markdown-satteri";
 
 // https://astro.build/config
