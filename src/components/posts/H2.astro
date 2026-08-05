@@ -15,7 +15,7 @@ const { id, class: className, ...attrs } = Astro.props;
   {
     id ? (
       <a href={`#${id}`} class="text-inherit no-underline">
-        <slot />
+        <slot />{" "}
         <Icon
           name="mdi:link-variant"
           aria-hidden="true"
