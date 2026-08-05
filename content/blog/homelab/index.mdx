@@ -68,7 +68,7 @@ The reason for this split is that certain services I want to be "just working" (
 
 For instance, with my local DNS solution (AdGuard Home), it's easier to define all the configurations, including DNS re-writes, filtering lists, and even login credentials (using `agenix`) in one hand-crafted NixOS module file that wraps the AdGuard service and which can be selectively toggled on or off for any machine. Additionally, the "off" here means the service is gone, binaries are unlinked, and even the firewall ports previously open are now closed.
 
-This idempotency can be contrasted with a tool like Ansible, which is not *truly* declarative *nor* idempotent out of the box: removing a task to install a service from a playbook and re-running that playbook against the same target machine doesn't actually remove that service. You have to manually SSH and uninstall it yourself.
+This idempotency can be contrasted with a tool like Ansible, which is not _truly_ declarative _nor_ idempotent out of the box: removing a task to install a service from a playbook and re-running that playbook against the same target machine doesn't actually remove that service. You have to manually SSH and uninstall it yourself.
 
 This NixOS setup is made easier because of `deploy-rs` and its many niceties, like reverting to the previous (working) revision right away if a deployment fails, preventing downtime and service disruption.
 

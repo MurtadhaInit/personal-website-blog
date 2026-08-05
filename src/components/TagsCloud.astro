@@ -1,9 +1,9 @@
 ---
-import { filterPosts, slugify } from "@utils/utils";
 import { getAllTags, tagsToNumberOfPosts } from "@utils/TagsUtils";
+import { filterPosts, slugify } from "@utils/utils";
 
-import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 interface Props {
   showCount?: boolean;
@@ -36,7 +36,7 @@ const tagsToPosts = tagsToNumberOfPosts(allTags, filteredPosts, tagsToShow);
       <li>
         <a
           href={`/blog/tags/${slugify(tagToPosts.tag)}`}
-          class="whitespace-nowrap text-sm text-fg-muted transition hover:text-accent md:text-base lg:text-lg"
+          class="text-fg-muted hover:text-accent text-sm whitespace-nowrap transition md:text-base lg:text-lg"
         >
           {tagToPosts.tag} {showCount && `(${tagToPosts.posts})`}
         </a>
