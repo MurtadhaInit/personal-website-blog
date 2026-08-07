@@ -3,7 +3,7 @@
 > My personal website and blog — Astro 7, MDX, and Tailwind v4, deployed continuously to GitHub Pages. Live at [murtadha.dev](https://murtadha.dev).
 
 [![Last commit](https://img.shields.io/github/last-commit/MurtadhaInit/personal-website-blog?style=flat-square&logo=git&logoColor=white)](https://github.com/MurtadhaInit/personal-website-blog/commits/main)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/MurtadhaInit/personal-website-blog/deploy.yml?style=flat-square&logo=githubactions&logoColor=white&label=deploy&branch=main)](https://github.com/MurtadhaInit/personal-website-blog/actions/workflows/deploy.yml)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/MurtadhaInit/personal-website-blog/release-and-deploy.yml?style=flat-square&logo=githubactions&logoColor=white&label=deploy&branch=main)](https://github.com/MurtadhaInit/personal-website-blog/actions/workflows/release-and-deploy.yml)
 [![Site](https://img.shields.io/website?url=https%3A%2F%2Fmurtadha.dev&style=flat-square&label=site)](https://murtadha.dev)
 [![Repo size](https://img.shields.io/github/repo-size/MurtadhaInit/personal-website-blog?style=flat-square)](https://github.com/MurtadhaInit/personal-website-blog)
 [![License](https://img.shields.io/github/license/MurtadhaInit/personal-website-blog?style=flat-square)](LICENSE)
@@ -22,7 +22,7 @@ The stack is deliberately modern: Astro 7 for the SSG framework, Tailwind CSS v4
 - **Content collections with schema validation.** Posts in `content/blog/` are loaded via a glob loader and validated against a zod schema (`src/content.config.ts`). Draft posts and future-dated posts are filtered out automatically.
 - **MDX with custom typography overrides.** Components in `src/components/posts/` restyle markdown output (headings, paragraphs, lists, blockquotes, strong, …) to match the site's typography. Inline `<code>` is styled via a scoped CSS rule so Shiki's syntax highlighting for fenced code blocks stays untouched.
 - **Self-hosted fonts via Astro's Fonts API.** Atkinson Hyperlegible Next and Mono are downloaded and self-hosted at build time, with the sans variant preloaded. No runtime request to Google.
-- **Continuous deployment.** Every push to `main` triggers `.github/workflows/deploy.yml`, which builds via `withastro/action@v6` and publishes to GitHub Pages. The custom domain is pinned via `public/CNAME` and kept in sync with the `site` field in `astro.config.ts`.
+- **Versioned, tag-driven deployment.** [release-please](https://github.com/googleapis/release-please) reads Conventional Commits on `main` and maintains a standing release PR with the version bump and changelog. Merging it tags the release, and only then does the GitHub Actions workflow build and publish to GitHub Pages — what's live always corresponds to a tag you can roll back to. The custom domain is pinned via `public/CNAME` and kept in sync with the `site` field in `astro.config.ts`.
 
 ## Quick Start
 

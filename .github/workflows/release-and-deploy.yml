@@ -1,0 +1,56 @@
+name: Release and Deploy to GitHub Pages
+
+# Ordinary pushes to main only let release-please refresh its release PR.
+# Merging that PR tags the release, and only then do we build and deploy.
+# Release and deploy have to live in one workflow: tags created with the
+# built-in GITHUB_TOKEN do not trigger other workflows, so a separate
+# `on: push: tags` deploy would never fire.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # create tags and releases
+  pull-requests: write # open and update the release PR
+  pages: write
+  id-token: write
+
+# Prevent overlapping deployments; let in-progress runs finish
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.release-please.outputs.release_created }}
+      tag: ${{ steps.release-please.outputs.tag_name }}
+    steps:
+      - name: Maintain the release PR, and tag when it is merged
+        id: release-please
+        uses: googleapis/release-please-action@v5
+
+  build:
+    needs: release
+    if: needs.release.outputs.released == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the released tag
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.release.outputs.tag || github.ref }}
+      - name: Install, build, and upload the site
+        uses: withastro/action@v6
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
