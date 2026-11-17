@@ -1,5 +1,0 @@
-{
-  "enabledPlugins": {
-    "aws-core@claude-plugins-official": true
-  }
-}
